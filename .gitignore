@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# tauri
+/src-tauri/target/
+
+# capacitor (generated after cap add ios)
+/ios/App/Pods/

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Merge these keys into ios/App/App/Info.plist after `npm run app:ios:add`.
+  Capacitor may regenerate Info.plist — re-apply if needed.
+-->
+<plist version="1.0">
+<dict>
+  <key>NSMicrophoneUsageDescription</key>
+  <string>Chameleon Eye AI uses the microphone when you choose to speak to Chameleon.</string>
+  <key>NSSpeechRecognitionUsageDescription</key>
+  <string>Chameleon Eye AI uses speech recognition to turn your voice into text when you choose voice input.</string>
+</dict>
+</plist>

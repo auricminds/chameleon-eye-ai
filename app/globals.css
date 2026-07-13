@@ -1,26 +1,172 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #050807;
+  --foreground: #f4f1e8;
+  --panel: #0b1110;
+  --panel2: #111a17;
+  --gold: #d7b46a;
+  --emerald: #1fae82;
+  --muted: #a8b3ad;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-panel: var(--panel);
+  --color-panel2: var(--panel2);
+  --color-gold: var(--gold);
+  --color-emerald: var(--emerald);
+  --color-muted: var(--muted);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  overflow-x: hidden;
 }
+
+html[dir="rtl"] body {
+  font-family: var(--font-arabic), var(--font-cairo), "Tajawal", "Cairo",
+    "IBM Plex Sans Arabic", system-ui, sans-serif;
+  text-align: right;
+}
+
+html[dir="rtl"] header,
+html[dir="rtl"] footer {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .arabic-page,
+html[dir="rtl"] main {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .arabic-page h1,
+html[dir="rtl"] .arabic-page h2,
+html[dir="rtl"] .arabic-page h3,
+html[dir="rtl"] .arabic-page p,
+html[dir="rtl"] .arabic-page li,
+html[dir="rtl"] .arabic-page label,
+html[dir="rtl"] .arabic-page .rounded-2xl {
+  text-align: right;
+}
+
+html[dir="rtl"] .arabic-page ul.ar-list {
+  list-style-position: inside;
+  padding-inline-start: 0;
+  margin-inline-start: 0;
+}
+
+html[dir="rtl"] .arabic-page input,
+html[dir="rtl"] .arabic-page select,
+html[dir="rtl"] .arabic-page textarea {
+  text-align: right;
+  direction: rtl;
+}
+
+html[dir="rtl"] .arabic-page .flex-wrap {
+  justify-content: flex-start;
+}
+
+html[dir="rtl"] .text-center {
+  text-align: center;
+}
+
+html[dir="rtl"] .text-start {
+  text-align: right;
+}
+
+.ltr,
+[dir="rtl"] .ltr,
+[dir="rtl"] pre,
+[dir="rtl"] .font-mono {
+  direction: ltr;
+  text-align: left;
+  unicode-bidi: isolate;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--emerald) 35%, transparent);
+  color: var(--foreground);
+}
+
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--gold);
+}
+
+/* Chameleon Terminal — full-screen workspace */
+.terminal-app {
+  background: radial-gradient(ellipse at 50% 0%, rgba(31, 174, 130, 0.06) 0%, transparent 55%),
+    linear-gradient(180deg, #050807 0%, #0a100e 100%);
+}
+
+.terminal-scan {
+  animation: terminal-scan 1.4s ease-in-out infinite;
+}
+
+@keyframes terminal-scan {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scaleX(0.6);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* PWA / iOS safe areas */
+.terminal-app {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+@supports (padding: max(0px)) {
+  .terminal-composer-safe {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+}
+
+html[dir="rtl"] .terminal-app textarea {
+  text-align: right;
+  direction: rtl;
+}
+

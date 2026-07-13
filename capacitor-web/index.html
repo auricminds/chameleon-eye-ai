@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#06110D" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Chameleon Eye AI</title>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #020706;
+        color: #f4f1e8;
+        font-family: system-ui, sans-serif;
+        text-align: center;
+        padding: max(2rem, env(safe-area-inset-top)) max(2rem, env(safe-area-inset-right))
+          max(2rem, env(safe-area-inset-bottom)) max(2rem, env(safe-area-inset-left));
+      }
+      .card {
+        max-width: 420px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 1rem;
+        padding: 2rem;
+        background: #0b1110;
+      }
+      h1 { font-size: 1.25rem; color: #1fae82; margin: 0 0 0.75rem; }
+      p { font-size: 0.9rem; color: #a8b3ad; line-height: 1.6; margin: 0; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Chameleon Eye AI</h1>
+      <p id="msg">Loading Chameleon Terminal…</p>
+    </div>
+    <script>
+      var url = "https://chameleon-eye-ai-tau.vercel.app/terminal";
+      window.location.replace(url);
+      setTimeout(function () {
+        document.getElementById("msg").textContent =
+          "Unable to connect. Check your internet connection and reopen the app.";
+      }, 12000);
+    </script>
+  </body>
+</html>
