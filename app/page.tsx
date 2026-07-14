@@ -6,6 +6,7 @@ import { FeatureCard } from "@/components/FeatureCard";
 import { HeroWorkspacePreview } from "@/components/HeroWorkspacePreview";
 import { ReportTabs } from "@/components/ReportTabs";
 import { SectionTitle } from "@/components/SectionTitle";
+import { StatusChip } from "@/components/trust/StatusChip";
 import { PRIVACY_SENTENCE, SECURITY_SENTENCE } from "@/lib/constants";
 
 const analyzeCards = [
@@ -79,14 +80,56 @@ const desktopFeatures = [
 ];
 
 const verifiedTrustCards = [
-  "SOC 2 Type II completed",
-  "ISO/IEC 27001 certified",
-  "Penetration testing completed",
-  "DPA available",
-  "No customer-data training",
-  "Local-first private mode",
-  "Cloud approval controls",
-  "Published subprocessor list",
+  {
+    title: "SOC 2 Type II",
+    status: "completed" as const,
+    detail: "Report available under NDA to qualified customers.",
+  },
+  {
+    title: "ISO/IEC 27001",
+    status: "certified" as const,
+    detail: "Certified information security management system.",
+  },
+  {
+    title: "Penetration Testing",
+    status: "completed" as const,
+    detail: "Customer-safe summary available on request.",
+  },
+  {
+    title: "DPA",
+    status: "available" as const,
+    detail: "Data Processing Agreement available for business customers and partners.",
+  },
+  {
+    title: "No Customer Data Training",
+    status: "published" as const,
+    detail:
+      "Customer private files and business data are not used to train a public AI model.",
+  },
+  {
+    title: "Local-First / Hybrid",
+    status: "available" as const,
+    detail:
+      "Sensitive files can remain on-device; cloud analysis requires approval.",
+  },
+];
+
+const accessMethods = [
+  {
+    title: "Private AI Workspace",
+    detail:
+      "Use Chameleon Eye AI directly as a hosted private intelligence workspace.",
+  },
+  {
+    title: "API",
+    detail:
+      "Embed Chameleon Eye AI into approved business products and systems through authenticated API routes.",
+  },
+  {
+    title: "Desktop Connector",
+    detail:
+      "Use local-first or hybrid workflows where sensitive files can remain on the user's device.",
+  },
 ];
 
 export default function HomePage() {
@@ -124,30 +167,70 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Access Methods */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <SectionTitle
           title="Use Chameleon Eye AI your way."
           subtitle="Choose the path that fits your team, product, or security requirements."
         />
         <div className="mt-12 grid gap-6 md:grid-cols-3">
-          <FeatureCard
-            title="Private AI Workspace"
-            copy="Use Chameleon Eye AI directly to review approved business information and generate confidential intelligence reports."
-            bestFor="owners, managers, consultants, auditors, operations teams"
-            cta={{ label: "Explore Product", href: "/product" }}
+          {accessMethods.map((m) => (
+            <Card key={m.title} hover>
+              <h3 className="text-base font-semibold text-foreground">
+                {m.title}
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-muted">{m.detail}</p>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Verified Trust Section — near first fold */}
+      <section className="border-y border-white/8 bg-panel/40 py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionTitle
+            title="Verified Trust & Security"
+            subtitle="Chameleon Eye AI maintains verified security, privacy, and compliance documentation for businesses evaluating private AI intelligence."
           />
-          <FeatureCard
-            title="Chameleon Eye API"
-            copy="Embed business intelligence workflows inside your website, app, platform, marketplace, game, CRM, HR system, or private company tool."
-            bestFor="SaaS founders, platforms, digital products, enterprise systems"
-            cta={{ label: "Explore API", href: "/api" }}
-          />
-          <FeatureCard
-            title="Desktop Connector"
-            copy="Connect desktop applications safely using secure login, device activation, short-lived tokens, or customer backend integration."
-            bestFor="desktop apps, internal tools, local-first systems, sensitive files"
-            cta={{ label: "Explore Desktop", href: "/desktop" }}
-          />
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {verifiedTrustCards.map((item) => (
+              <Card key={item.title} hover>
+                <div className="flex items-start justify-between gap-3 mb-3">
+                  <h3 className="text-sm font-semibold text-foreground">
+                    {item.title}
+                  </h3>
+                  <StatusChip status={item.status} />
+                </div>
+                <p className="text-sm leading-7 text-muted">{item.detail}</p>
+              </Card>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Button href="/trust" variant="secondary">
+              View Trust Center
+            </Button>
+            <Button href="/security" variant="ghost">
+              View Security
+            </Button>
+            <Button href="/trust/trust-pack" variant="ghost">
+              Request Trust Pack
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Commercial Platform */}
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <SectionTitle
+          title="Commercial platform, not open source"
+          subtitle="Chameleon Eye AI is a proprietary commercial platform. It does not publish its application source code or model weights. Customers use the platform through the Private AI Workspace, API, or Desktop Connector."
+        />
+        <div className="mt-8 rounded-2xl border border-white/8 bg-panel p-6 max-w-3xl mx-auto">
+          <p className="text-sm leading-7 text-muted text-center">
+            Some AI processing may use approved cloud AI infrastructure, local
+            models, or future private/self-hosted routes depending on customer
+            configuration and privacy mode.
+          </p>
         </div>
       </section>
 
@@ -296,28 +379,6 @@ export default function HomePage() {
           <Button href="/reports" variant="secondary">
             View AI Reports
           </Button>
-        </div>
-      </section>
-
-      {/* Verified Trust Section */}
-      <section className="border-y border-white/8 bg-panel/40 py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionTitle
-            title="Verified Trust"
-            subtitle="Chairman AI by Chairmans Holding maintains verified security, privacy, and compliance documentation."
-          />
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {verifiedTrustCards.map((item) => (
-              <Card key={item} className="py-4 text-center text-sm text-foreground">
-                {item}
-              </Card>
-            ))}
-          </div>
-          <div className="mt-8 text-center">
-            <Button href="/trust" variant="secondary">
-              View Trust Center
-            </Button>
-          </div>
         </div>
       </section>
 

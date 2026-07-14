@@ -5,17 +5,17 @@ import { Button } from "@/components/Button";
 import { StatusChip } from "@/components/trust/StatusChip";
 
 export const metadata: Metadata = {
-  title: "SOC 2 Type II — Chairman AI",
+  title: "SOC 2 Type II — Chameleon Eye AI",
   description:
-    "Chairman AI SOC 2 Type II attestation details and report request process.",
+    "Chameleon Eye AI SOC 2 Type II attestation details and report request process.",
 };
 
 const reportDetails = [
   { label: "Report type", value: "SOC 2 Type II" },
-  { label: "Operating company", value: "Chairmans Holding" },
+  { label: "Operating company", value: "Chameleon Eye" },
   {
     label: "Product covered",
-    value: "Chairman AI / Chameleon Builder / Chairman API",
+    value: "Chameleon Eye AI / Chameleon Builder / Chameleon Eye API",
   },
   {
     label: "Auditor",
@@ -56,7 +56,7 @@ export default function Soc2Page() {
             <StatusChip status="completed" />
           </div>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            Chairman AI has completed SOC 2 Type II attestation work covering
+            Chameleon Eye AI has completed SOC 2 Type II attestation work covering
             controls relevant to the company&apos;s security and applicable
             trust service criteria.
           </p>
@@ -67,7 +67,7 @@ export default function Soc2Page() {
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <SectionTitle
           title="Report Details"
-          subtitle="SOC 2 Type II attestation information for Chairmans Holding."
+          subtitle="SOC 2 Type II attestation information for Chameleon Eye."
           align="left"
         />
         <div className="mt-10 overflow-x-auto rounded-2xl border border-white/8">

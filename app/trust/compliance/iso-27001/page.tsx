@@ -5,14 +5,14 @@ import { Button } from "@/components/Button";
 import { StatusChip } from "@/components/trust/StatusChip";
 
 export const metadata: Metadata = {
-  title: "ISO/IEC 27001 Certification — Chairman AI",
+  title: "ISO/IEC 27001 Certification — Chameleon Eye AI",
   description:
-    "Chairmans Holding ISO/IEC 27001 certified information security management system details and certificate request process.",
+    "Chameleon Eye ISO/IEC 27001 certified information security management system details and certificate request process.",
 };
 
 const certDetails = [
   { label: "Standard", value: "ISO/IEC 27001" },
-  { label: "Operating company", value: "Chairmans Holding" },
+  { label: "Operating company", value: "Chameleon Eye" },
   {
     label: "Certified service / scope",
     value: "TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR",
@@ -65,8 +65,8 @@ export default function Iso27001Page() {
             <StatusChip status="certified" />
           </div>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            Chairmans Holding maintains an ISO/IEC 27001 certified information
-            security management system for Chairman AI.
+            Chameleon Eye maintains an ISO/IEC 27001 certified information
+            security management system for Chameleon Eye AI.
           </p>
         </div>
       </section>
@@ -75,7 +75,7 @@ export default function Iso27001Page() {
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <SectionTitle
           title="Certificate Details"
-          subtitle="ISO/IEC 27001 certification information for Chairmans Holding."
+          subtitle="ISO/IEC 27001 certification information for Chameleon Eye."
           align="left"
         />
         <div className="mt-10 overflow-x-auto rounded-2xl border border-white/8">
@@ -129,7 +129,7 @@ export default function Iso27001Page() {
                 Security Architecture
               </h3>
               <p className="text-sm text-muted mb-4">
-                How Chairman AI protects your data through architecture.
+                How Chameleon Eye AI protects your data through architecture.
               </p>
               <Button href="/trust/security" variant="secondary">
                 View Security

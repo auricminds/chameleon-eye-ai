@@ -4,7 +4,7 @@ import { SectionTitle } from "@/components/SectionTitle";
 import { StatusChip } from "@/components/trust/StatusChip";
 
 export const metadata: Metadata = {
-  title: "سياسة الاحتفاظ بالبيانات — Chairman AI",
+  title: "سياسة الاحتفاظ بالبيانات — Chameleon Eye AI",
   description:
     "ما الذي يخزّنه Chairman، وأين، ولماذا، وإلى متى.",
 };

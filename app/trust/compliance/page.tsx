@@ -5,9 +5,9 @@ import { Button } from "@/components/Button";
 import { StatusChip } from "@/components/trust/StatusChip";
 
 export const metadata: Metadata = {
-  title: "Compliance & Assurance — Chairman AI",
+  title: "Compliance & Assurance — Chameleon Eye AI",
   description:
-    "Chairman AI compliance and assurance status. SOC 2 Type II, ISO/IEC 27001, penetration testing, DPA, and published policies.",
+    "Chameleon Eye AI compliance and assurance status. SOC 2 Type II, ISO/IEC 27001, penetration testing, DPA, and published policies.",
 };
 
 const complianceRows = [
@@ -76,7 +76,7 @@ export default function CompliancePage() {
             Compliance & Assurance
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            Chairman AI compliance status, evidence, and availability for
+            Chameleon Eye AI compliance status, evidence, and availability for
             qualified customers and partners.
           </p>
         </div>

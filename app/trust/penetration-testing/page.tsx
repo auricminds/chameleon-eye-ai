@@ -5,9 +5,9 @@ import { Button } from "@/components/Button";
 import { StatusChip } from "@/components/trust/StatusChip";
 
 export const metadata: Metadata = {
-  title: "Penetration Testing — Chairman AI",
+  title: "Penetration Testing — Chameleon Eye AI",
   description:
-    "Chairman AI penetration testing details. Customer-safe summary available through the Trust Pack request process.",
+    "Chameleon Eye AI penetration testing details. Customer-safe summary available through the Trust Pack request process.",
 };
 
 const testDetails = [
@@ -58,7 +58,7 @@ export default function PenetrationTestingPage() {
             <StatusChip status="completed" />
           </div>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            Chairman AI has completed penetration testing for the platform. A
+            Chameleon Eye AI has completed penetration testing for the platform. A
             customer-safe summary is available through the Trust Pack request
             process. Full technical details may require NDA.
           </p>
@@ -69,7 +69,7 @@ export default function PenetrationTestingPage() {
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <SectionTitle
           title="Testing Details"
-          subtitle="Penetration testing information for Chairman AI."
+          subtitle="Penetration testing information for Chameleon Eye AI."
           align="left"
         />
         <div className="mt-10 overflow-x-auto rounded-2xl border border-white/8">
@@ -135,7 +135,7 @@ export default function PenetrationTestingPage() {
                 Responsible Disclosure
               </h3>
               <p className="text-sm text-muted mb-4">
-                How to report a security vulnerability to Chairman AI.
+                How to report a security vulnerability to Chameleon Eye AI.
               </p>
               <Button
                 href="/trust/responsible-disclosure"

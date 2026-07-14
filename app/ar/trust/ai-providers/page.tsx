@@ -4,7 +4,7 @@ import { SectionTitle } from "@/components/SectionTitle";
 import { StatusChip } from "@/components/trust/StatusChip";
 
 export const metadata: Metadata = {
-  title: "مزودو الذكاء الاصطناعي — Chairman AI",
+  title: "مزودو الذكاء الاصطناعي — Chameleon Eye AI",
   description:
     "كيف يختار Chairman ويوجّه طلبات الذكاء. الموجّه المتحكَّم به وسياسات الخصوصية.",
 };
@@ -111,7 +111,7 @@ export default function ArAiProvidersPage() {
           />
           <Card className="mt-10">
             <p className="text-sm leading-7 text-muted">
-              لا يستخدم Chairman AI ملفات العملاء الخاصة أو نصوص الطلبات أو بيانات الأعمال
+              لا يستخدم Chameleon Eye AI ملفات العملاء الخاصة أو نصوص الطلبات أو بيانات الأعمال
               لتدريب نموذج عام. يُستخدم محتواك فقط لتوليد المخرجات التي طلبتها. ينطبق ذلك
               على جميع مسارات الذكاء في Chairman — سواء السحابية أو المحلية.
             </p>

@@ -5,58 +5,55 @@ import { Button } from "@/components/Button";
 import { StatusChip } from "@/components/trust/StatusChip";
 
 export const metadata: Metadata = {
-  title: "Chairman API Docs",
+  title: "Chameleon Eye API Docs",
   description:
-    "The Chairman AI business intelligence API — connect workflows, documents, reports, risk reviews, and industry systems.",
+    "The Chameleon Eye AI business intelligence API — connect workflows, documents, reports, risk reviews, and industry systems.",
 };
 
 const endpoints = [
   {
-    method: "POST",
-    path: "/api/v1/intelligence/analyze",
-    desc: "Submit a business intelligence analysis request.",
+    method: "GET",
+    path: "/health",
+    desc: "API health check.",
+  },
+  {
+    method: "GET",
+    path: "/v1/me/usage",
+    desc: "Usage and quota check.",
   },
   {
     method: "POST",
-    path: "/api/v1/documents/review",
-    desc: "Submit an approved document for structured review.",
+    path: "/v1/risk/check",
+    desc: "Business risk analysis.",
   },
   {
     method: "POST",
-    path: "/api/v1/risk-reviews/create",
-    desc: "Create a structured risk review for a business context.",
+    path: "/v1/decision/memo",
+    desc: "Decision memo generation.",
   },
   {
     method: "POST",
-    path: "/api/v1/reports/generate",
-    desc: "Generate a formatted business intelligence report.",
+    path: "/v1/report/structured",
+    desc: "Structured intelligence report.",
   },
   {
     method: "POST",
-    path: "/api/v1/webhooks/events",
-    desc: "Subscribe to platform event webhooks.",
+    path: "/v1/desktop/activate",
+    desc: "Desktop connector device activation.",
   },
   {
     method: "POST",
-    path: "/api/v1/hotel/rooms/update",
-    desc: "Update room status in the Hotel System.",
+    path: "/v1/desktop/refresh-token",
+    desc: "Token refresh.",
   },
   {
     method: "POST",
-    path: "/api/v1/hotel/guest-complaints/create",
-    desc: "Log a guest complaint in the Hotel System.",
+    path: "/v1/desktop/revoke-device",
+    desc: "Revoke device access.",
   },
 ];
 
 const webhookEvents = [
-  {
-    event: "hotel.room.status_changed",
-    desc: "Fired when a room status is updated.",
-  },
-  {
-    event: "hotel.guest.complaint_created",
-    desc: "Fired when a new guest complaint is logged.",
-  },
   {
     event: "report.generated",
     desc: "Fired when a report generation completes.",
@@ -64,6 +61,14 @@ const webhookEvents = [
   {
     event: "risk_review.created",
     desc: "Fired when a risk review is created.",
+  },
+  {
+    event: "device.activated",
+    desc: "Fired when a desktop device is activated.",
+  },
+  {
+    event: "device.revoked",
+    desc: "Fired when a desktop device is revoked.",
   },
 ];
 
@@ -77,9 +82,10 @@ const apiSafety = [
 ];
 
 const securityControls = [
-  "Chairman API is authenticated.",
-  "User requests are plan-limited.",
-  "Site connector requests are scoped.",
+  "Chameleon Eye API is authenticated.",
+  "Customer apps should call from server-side.",
+  "API keys must not be embedded in clients.",
+  "Short-lived tokens for approved desktop and mobile flows.",
   "Site connector keys are server-side only.",
   "Raw provider model IDs are not accepted from clients.",
   "Provider keys are never exposed to browser, desktop, or mobile clients.",
@@ -93,6 +99,17 @@ const dataHandling = [
   "Raw private content is not logged by default.",
 ];
 
+const errorCodes = [
+  { code: "401", meaning: "Unauthorized — missing or invalid key" },
+  { code: "403", meaning: "Forbidden — insufficient permissions" },
+  {
+    code: "409",
+    meaning: "consent_required — user approval needed before cloud processing",
+  },
+  { code: "429", meaning: "rate_limited — retry after specified seconds" },
+  { code: "500", meaning: "internal_error — contact support if persistent" },
+];
+
 export default function ApiDocsPage() {
   return (
     <>
@@ -104,12 +121,12 @@ export default function ApiDocsPage() {
             API
           </p>
           <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-            Chairman API
+            Chameleon Eye API
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
             A business intelligence API — not a raw model API. Connect your
             workflows, documents, reports, risk reviews, industry systems, and
-            private intelligence outputs to Chairman AI through structured,
+            private intelligence outputs to Chameleon Eye AI through structured,
             scoped endpoints.
           </p>
         </div>
@@ -119,7 +136,7 @@ export default function ApiDocsPage() {
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <SectionTitle
           title="API Overview"
-          subtitle="What the Chairman API is designed for."
+          subtitle="What the Chameleon Eye API is designed for."
           align="left"
         />
         <div className="mt-10 grid gap-5 sm:grid-cols-3">
@@ -138,10 +155,8 @@ export default function ApiDocsPage() {
               Industry System Integration
             </h3>
             <p className="mt-3 text-sm leading-7 text-muted">
-              Connect your hotel, hospital, real estate, or holding company
-              workflows to Chairman AI&apos;s industry-specific endpoints. Room
-              status, guest data, complaints, and operational events can be piped
-              in and out via API.
+              Connect your workflows to Chameleon Eye AI&apos;s industry-specific
+              endpoints. Operational events can be piped in and out via API.
             </p>
           </Card>
           <Card>
@@ -162,13 +177,13 @@ export default function ApiDocsPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
             title="Example Endpoints"
-            subtitle="Representative endpoints available in the Chairman API."
+            subtitle="Representative endpoints available in the Chameleon Eye API."
             align="left"
           />
           <div className="mt-10 overflow-hidden rounded-2xl border border-white/8 bg-background">
             <div className="border-b border-white/8 px-6 py-3">
               <span className="text-xs font-medium text-muted">
-                Chairman API v1
+                Chameleon Eye API v1
               </span>
             </div>
             <div className="divide-y divide-white/8">
@@ -193,62 +208,94 @@ export default function ApiDocsPage() {
         </div>
       </section>
 
-      {/* Authentication */}
+      {/* Example Request */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <SectionTitle
-          title="Authentication"
-          subtitle="API keys are scoped to specific permissions and follow a structured naming format."
+          title="Example Request"
+          subtitle="A sample POST /v1/risk/check request with approved business summary text."
           align="left"
         />
-        <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          <Card>
-            <h3 className="text-sm font-semibold text-foreground">
-              Key format
-            </h3>
-            <div className="mt-4 rounded-xl border border-white/8 bg-background px-4 py-3 font-mono text-sm text-muted">
-              che_live_<span className="text-emerald">************</span>
-            </div>
-            <p className="mt-4 text-xs leading-6 text-muted">
-              Chairman API keys follow this format. Test keys use{" "}
-              <code className="rounded bg-panel2 px-1">che_test_</code> prefix.
-              Keys are scoped to specific permissions and can be revoked at any
-              time. Real keys are never shown in documentation or exposed in
-              frontend code.
-            </p>
-          </Card>
-          <Card>
-            <h3 className="text-sm font-semibold text-foreground">
-              Key types
-            </h3>
-            <ul className="mt-4 space-y-2 text-sm text-muted">
-              <li className="flex gap-2">
-                <span className="text-emerald">·</span>
-                <span>
-                  <strong className="text-foreground">Live key</strong> — for
-                  production use, scoped to approved operations
-                </span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-emerald">·</span>
-                <span>
-                  <strong className="text-foreground">Test key</strong> — for
-                  development and integration testing
-                </span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-emerald">·</span>
-                <span>
-                  <strong className="text-foreground">Read-only key</strong> —
-                  for dashboards and monitoring integrations
-                </span>
-              </li>
-            </ul>
-          </Card>
+        <Card className="mt-10 border-emerald/20 bg-background/80 max-w-3xl p-0">
+          <pre className="overflow-x-auto p-6 font-mono text-sm leading-7 text-muted">
+{`POST /v1/risk/check
+Authorization: Bearer <your-api-key>
+Content-Type: application/json
+
+{
+  "workspace_id": "ws_example123",
+  "content_type": "business_summary",
+  "approved_text": "Q3 revenue declined 12% vs Q2. Team headcount reduced by 3. Two key enterprise contracts are pending renewal."
+}`}
+          </pre>
+        </Card>
+      </section>
+
+      {/* Authentication */}
+      <section className="border-y border-white/8 bg-panel/40 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionTitle
+            title="Authentication"
+            subtitle="API keys are scoped to specific permissions and follow a structured naming format."
+            align="left"
+          />
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
+            <Card>
+              <h3 className="text-sm font-semibold text-foreground">
+                Key format
+              </h3>
+              <div className="mt-4 rounded-xl border border-white/8 bg-background px-4 py-3 font-mono text-sm text-muted">
+                che_live_<span className="text-emerald">************</span>
+              </div>
+              <p className="mt-4 text-xs leading-6 text-muted">
+                Chameleon Eye API keys follow this format. Test keys use{" "}
+                <code className="rounded bg-panel2 px-1">che_test_</code> prefix.
+                Keys are scoped to specific permissions and can be revoked at any
+                time. Real keys are never shown in documentation or exposed in
+                frontend code.
+              </p>
+            </Card>
+            <Card>
+              <h3 className="text-sm font-semibold text-foreground">
+                Key types
+              </h3>
+              <ul className="mt-4 space-y-2 text-sm text-muted">
+                <li className="flex gap-2">
+                  <span className="text-emerald">·</span>
+                  <span>
+                    <strong className="text-foreground">Live key</strong> — for
+                    production use, scoped to approved operations
+                  </span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-emerald">·</span>
+                  <span>
+                    <strong className="text-foreground">Test key</strong> — for
+                    development and integration testing
+                  </span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-emerald">·</span>
+                  <span>
+                    <strong className="text-foreground">Read-only key</strong> —
+                    for dashboards and monitoring integrations
+                  </span>
+                </li>
+              </ul>
+            </Card>
+          </div>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button href="/api-docs/authentication" variant="secondary">
+              Authentication Details
+            </Button>
+            <Button href="/api-docs/rate-limits" variant="ghost">
+              Rate Limits
+            </Button>
+          </div>
         </div>
       </section>
 
       {/* Webhooks */}
-      <section className="border-y border-white/8 bg-panel/40 py-16">
+      <section className="border-b border-white/8 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
             title="Webhook Events"
@@ -267,31 +314,33 @@ export default function ApiDocsPage() {
       </section>
 
       {/* API Safety */}
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <SectionTitle
-          title="API Safety Controls"
-          subtitle="Key management and access control status."
-          align="left"
-        />
-        <div className="mt-10 grid gap-3 sm:grid-cols-2">
-          {apiSafety.map((item) => (
-            <Card
-              key={item.label}
-              className="flex items-center justify-between gap-4"
-            >
-              <span className="text-sm text-foreground">{item.label}</span>
-              <StatusChip status={item.status} />
-            </Card>
-          ))}
+      <section className="border-b border-white/8 bg-panel/40 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionTitle
+            title="API Safety Controls"
+            subtitle="Key management and access control status."
+            align="left"
+          />
+          <div className="mt-10 grid gap-3 sm:grid-cols-2">
+            {apiSafety.map((item) => (
+              <Card
+                key={item.label}
+                className="flex items-center justify-between gap-4"
+              >
+                <span className="text-sm text-foreground">{item.label}</span>
+                <StatusChip status={item.status} />
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Security and Access */}
-      <section className="border-y border-white/8 bg-panel/40 py-16">
+      <section className="border-b border-white/8 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
             title="Security and Access"
-            subtitle="How Chairman API protects requests and prevents unauthorised access."
+            subtitle="How Chameleon Eye API protects requests and prevents unauthorised access."
             align="left"
           />
           <div className="mt-10 grid gap-3 sm:grid-cols-2">
@@ -309,22 +358,62 @@ export default function ApiDocsPage() {
       </section>
 
       {/* Data Handling */}
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <SectionTitle
-          title="Data Handling"
-          subtitle="How Chairman API handles customer data during processing."
-          align="left"
-        />
-        <div className="mt-10 grid gap-3 sm:grid-cols-2">
-          {dataHandling.map((item) => (
-            <div
-              key={item}
-              className="flex items-start gap-3 rounded-xl border border-white/8 bg-panel px-4 py-3"
-            >
-              <span className="mt-1 text-emerald shrink-0">+</span>
-              <span className="text-sm text-foreground">{item}</span>
-            </div>
-          ))}
+      <section className="border-b border-white/8 bg-panel/40 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionTitle
+            title="Data Handling"
+            subtitle="How Chameleon Eye API handles customer data during processing."
+            align="left"
+          />
+          <div className="mt-10 grid gap-3 sm:grid-cols-2">
+            {dataHandling.map((item) => (
+              <div
+                key={item}
+                className="flex items-start gap-3 rounded-xl border border-white/8 bg-panel px-4 py-3"
+              >
+                <span className="mt-1 text-emerald shrink-0">+</span>
+                <span className="text-sm text-foreground">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Error Codes */}
+      <section className="border-b border-white/8 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionTitle
+            title="Error Codes"
+            subtitle="HTTP status codes returned by Chameleon Eye API."
+            align="left"
+          />
+          <div className="mt-10 overflow-hidden rounded-2xl border border-white/8">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-white/8 bg-panel2">
+                  <th className="px-6 py-3 text-left font-medium text-muted">
+                    Code
+                  </th>
+                  <th className="px-6 py-3 text-left font-medium text-muted">
+                    Meaning
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/8">
+                {errorCodes.map((row) => (
+                  <tr
+                    key={row.code}
+                    className="bg-panel hover:bg-panel2 transition-colors"
+                  >
+                    <td className="px-6 py-4 font-mono font-medium text-foreground whitespace-nowrap">
+                      {row.code}
+                    </td>
+                    <td className="px-6 py-4 text-muted">{row.meaning}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
@@ -343,6 +432,12 @@ export default function ApiDocsPage() {
           <div className="mt-10 flex flex-wrap gap-3">
             <Button href="/contact" variant="secondary">
               Request API Access
+            </Button>
+            <Button href="/api-docs/authentication" variant="ghost">
+              Authentication
+            </Button>
+            <Button href="/api-docs/rate-limits" variant="ghost">
+              Rate Limits
             </Button>
             <Button href="/trust" variant="ghost">
               Trust Center

@@ -4,9 +4,9 @@ import { SectionTitle } from "@/components/SectionTitle";
 import { StatusChip } from "@/components/trust/StatusChip";
 
 export const metadata: Metadata = {
-  title: "AI Intelligence Providers — Chairman AI",
+  title: "AI Intelligence Providers — Chameleon Eye AI",
   description:
-    "How Chairman AI selects and routes intelligence requests. Controlled intelligence router and privacy commitments.",
+    "How Chameleon Eye AI selects and routes intelligence requests. Controlled intelligence router and privacy commitments.",
 };
 
 const providerCategories = [
@@ -19,7 +19,7 @@ const providerCategories = [
   {
     label: "Approved cloud AI routing",
     description:
-      "Used only for cloud intelligence mode. Selected text is sent after your explicit consent. Chairman AI routes through approved infrastructure with privacy controls applied.",
+      "Used only for cloud intelligence mode. Selected text is sent after your explicit consent. Chameleon Eye AI routes through approved infrastructure with privacy controls applied.",
     status: "implemented" as const,
   },
   {
@@ -38,12 +38,12 @@ const providerCategories = [
 
 const faqs = [
   {
-    q: "Does Chairman AI share my data with AI providers?",
+    q: "Does Chameleon Eye AI share my data with AI providers?",
     a: "Cloud intelligence mode may send selected text to approved infrastructure. Private local mode sends nothing to the cloud. Your full private archive, local documents, and stored files are never automatically forwarded to any AI provider.",
   },
   {
     q: "Can I see which provider was used?",
-    a: "The technical routing is kept internal. You see the result, not the infrastructure. This is by design — Chairman AI adds routing rules, privacy guards, business logic, and consent controls on top of any approved infrastructure.",
+    a: "The technical routing is kept internal. You see the result, not the infrastructure. This is by design — Chameleon Eye AI adds routing rules, privacy guards, business logic, and consent controls on top of any approved infrastructure.",
   },
   {
     q: "Will provider names or routes change?",
@@ -65,7 +65,7 @@ export default function AiProvidersPage() {
             AI Intelligence Providers
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            How Chairman AI selects and routes intelligence requests.
+            How Chameleon Eye AI selects and routes intelligence requests.
           </p>
         </div>
       </section>
@@ -74,7 +74,7 @@ export default function AiProvidersPage() {
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="rounded-2xl border border-white/8 bg-panel p-8">
           <p className="text-base leading-8 text-muted">
-            Chairman AI uses a controlled intelligence router. The router
+            Chameleon Eye AI uses a controlled intelligence router. The router
             decides whether a request should remain local, require user
             approval, or use approved cloud AI infrastructure. No AI provider
             details are exposed to the frontend or transmitted to the browser.
@@ -86,7 +86,7 @@ export default function AiProvidersPage() {
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
         <SectionTitle
           title="Intelligence Route Categories"
-          subtitle="The types of processing paths Chairman AI may use, by category."
+          subtitle="The types of processing paths Chameleon Eye AI may use, by category."
           align="left"
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2">
@@ -129,9 +129,9 @@ export default function AiProvidersPage() {
           />
           <Card className="mt-10">
             <p className="text-sm leading-7 text-muted">
-              Chairman AI does not use customer private files, prompts, or
+              Chameleon Eye AI does not use customer private files, prompts, or
               business data to train a public model. Your content is used only
-              to generate your requested output. This applies to all Chairman AI
+              to generate your requested output. This applies to all Chameleon Eye AI
               intelligence routes — cloud and local.
             </p>
           </Card>
@@ -143,7 +143,7 @@ export default function AiProvidersPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
             title="Frequently Asked Questions"
-            subtitle="Common questions about how Chairman AI routes intelligence requests."
+            subtitle="Common questions about how Chameleon Eye AI routes intelligence requests."
             align="left"
           />
           <div className="mt-10 space-y-6">

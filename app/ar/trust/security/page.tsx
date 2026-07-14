@@ -81,7 +81,7 @@ const securityPrinciples = [
 
 const architectureNodes = [
   { label: "تطبيق المستخدم", color: "border-muted/40 bg-panel" },
-  { label: "Chairman API", color: "border-emerald/30 bg-emerald/8" },
+  { label: "Chameleon Eye API", color: "border-emerald/30 bg-emerald/8" },
   { label: "المصادقة", color: "border-emerald/30 bg-emerald/8" },
   { label: "حارس الخصوصية", color: "border-gold/30 bg-gold/8" },
   { label: "التحقق من الصلاحيات", color: "border-gold/30 bg-gold/8" },

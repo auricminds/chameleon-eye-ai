@@ -5,7 +5,7 @@ import { StatusChip } from "@/components/trust/StatusChip";
 import { Button } from "@/components/Button";
 
 export const metadata: Metadata = {
-  title: "الذكاء الخاص مقابل الذكاء السحابي — Chairman AI",
+  title: "الذكاء الخاص مقابل الذكاء السحابي — Chameleon Eye AI",
   description:
     "فهم إلى أين تذهب بياناتك — ومتى. مقارنة بين الذكاء المحلي الخاص والذكاء السحابي.",
 };

@@ -5,7 +5,7 @@ import { StatusChip } from "@/components/trust/StatusChip";
 import { Button } from "@/components/Button";
 
 export const metadata: Metadata = {
-  title: "Local vs Cloud Processing — Chairman AI",
+  title: "Local vs Cloud Processing — Chameleon Eye AI",
   description:
     "Understanding where your data goes — and when. Compare private local intelligence with cloud intelligence mode.",
 };
@@ -27,7 +27,7 @@ const comparisonRows = [
   },
   {
     mode: "Cloud / API Mode",
-    location: "Chairman API + approved cloud AI",
+    location: "Chameleon Eye API + approved cloud AI",
     whatIsSent: "Current typed request or selected approved text",
     bestFor: "Advanced cloud intelligence",
     approval: "Approval per privacy settings",
@@ -75,7 +75,7 @@ export default function LocalVsCloudPage() {
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="rounded-2xl border border-emerald/20 bg-emerald/5 p-6">
           <p className="text-sm leading-7 text-foreground">
-            Chairman AI does not automatically upload a user&apos;s full private
+            Chameleon Eye AI does not automatically upload a user&apos;s full private
             archive, document library, or local memory to cloud intelligence.
           </p>
         </div>

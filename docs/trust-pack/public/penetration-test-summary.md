@@ -1,6 +1,6 @@
 # Penetration Testing — Public Summary
 
-Chairman AI has completed penetration testing for the platform. A customer-safe summary is available through the Trust Pack request process.
+Chameleon Eye AI has completed penetration testing for the platform. A customer-safe summary is available through the Trust Pack request process.
 
 **Testing provider:** TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR
 **Test date:** TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR

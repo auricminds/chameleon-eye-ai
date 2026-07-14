@@ -65,7 +65,7 @@ const FORBIDDEN_PERSONAL_NAMES_PATTERNS = [
   /\bJane\s[A-Z][a-z]+\b/,
 ]
 
-const REQUIRED_COMPANY_NAMES = ['Chairman AI', 'Chairmans Holding', 'Chameleon Builder']
+const REQUIRED_COMPANY_NAMES = ['Chameleon Eye AI', 'Chameleon Eye', 'Chameleon Builder']
 
 let passed = 0
 let failed = 0
@@ -209,12 +209,12 @@ for (const route of TRUST_ROUTES) {
   } catch { /* already checked existence */ }
 }
 
-// Test: All pages use Chairmans Holding / Chairman AI language
+// Test: All pages use Chameleon Eye / Chameleon Eye AI language
 for (const route of ['app/trust/page.tsx', 'app/trust/compliance/page.tsx', 'app/trust/compliance/soc-2/page.tsx', 'app/trust/compliance/iso-27001/page.tsx']) {
   try {
     const content = readFileSync(join(process.cwd(), route), 'utf-8')
     const hasCompanyName = REQUIRED_COMPANY_NAMES.some(name => content.includes(name))
-    check(`${route} uses Chairman AI / Chairmans Holding language`, hasCompanyName)
+    check(`${route} uses Chameleon Eye AI / Chameleon Eye language`, hasCompanyName)
   } catch { /* already checked */ }
 }
 

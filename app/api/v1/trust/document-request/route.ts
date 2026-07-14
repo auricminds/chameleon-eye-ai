@@ -112,7 +112,7 @@ export async function POST(request: NextRequest) {
     {
       success: true,
       message:
-        "Request received. Chairmans Holding will review and respond within 2 business days.",
+        "Request received. Chameleon Eye will review and respond within 2 business days.",
     },
     { status: 201 }
   );

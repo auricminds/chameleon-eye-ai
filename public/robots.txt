@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Allow: /trust/
+Allow: /security
+Allow: /privacy
+Allow: /api-docs/
+Sitemap: https://chameleoneye.ai/sitemap.xml

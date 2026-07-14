@@ -5,9 +5,9 @@ import { Button } from "@/components/Button";
 import { StatusChip } from "@/components/trust/StatusChip";
 
 export const metadata: Metadata = {
-  title: "Verified Trust Center — Chairman AI",
+  title: "Verified Trust Center — Chameleon Eye AI",
   description:
-    "Chairman AI by Chairmans Holding maintains verified security, privacy, and compliance documentation for customers evaluating private predictive business intelligence.",
+    "Chameleon Eye AI maintains verified security, privacy, and compliance documentation for businesses evaluating private AI intelligence.",
 };
 
 const trustCards = [
@@ -43,7 +43,7 @@ const trustCards = [
     title: "Local-First Privacy",
     status: "available" as const,
     detail:
-      "Private Intelligence can run on the user's device when the local Chairman Brain is installed.",
+      "Private Intelligence can run on the user's device when the local Chameleon Brain is installed.",
   },
   {
     title: "Cloud Approval Controls",
@@ -73,7 +73,7 @@ export default function TrustPage() {
             Verified Trust Center
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            Chairman AI is designed for private predictive business intelligence,
+            Chameleon Eye AI is designed for private predictive business intelligence,
             with verified security documentation, certified information security
             management, and clear controls for local, hybrid, and cloud
             intelligence.
@@ -99,7 +99,7 @@ export default function TrustPage() {
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <SectionTitle
           title="Verified Security and Compliance"
-          subtitle="Chairman AI by Chairmans Holding maintains verified security documentation, certified information security management, and published privacy policies."
+          subtitle="Chameleon Eye AI maintains verified security documentation, certified information security management, and published privacy policies."
           align="left"
         />
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -137,9 +137,9 @@ export default function TrustPage() {
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="rounded-2xl border border-emerald/20 bg-emerald/5 p-8">
           <p className="text-base leading-8 text-foreground">
-            Chairman AI by Chairmans Holding maintains verified security,
-            privacy, and compliance documentation for customers evaluating
-            private predictive business intelligence.
+            Chameleon Eye AI maintains verified security,
+            privacy, and compliance documentation for businesses evaluating
+            private AI intelligence.
           </p>
         </div>
       </section>
@@ -169,7 +169,7 @@ export default function TrustPage() {
                 Security Architecture
               </h3>
               <p className="text-sm text-muted mb-4">
-                How Chairman AI protects your data through architecture and
+                How Chameleon Eye AI protects your data through architecture and
                 access controls.
               </p>
               <Button href="/trust/security" variant="secondary">
@@ -228,7 +228,7 @@ export default function TrustPage() {
       <section className="border-t border-white/8 py-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-xs leading-6 text-muted">
-            Chairman AI is operated by Chairmans Holding. Trust documents are
+            Chameleon Eye AI is operated by Chameleon Eye. Trust documents are
             available to qualified customers and partners through the Trust Pack
             request process.
           </p>

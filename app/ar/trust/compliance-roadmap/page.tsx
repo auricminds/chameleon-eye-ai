@@ -4,7 +4,7 @@ import { SectionTitle } from "@/components/SectionTitle";
 import { StatusChip } from "@/components/trust/StatusChip";
 
 export const metadata: Metadata = {
-  title: "خريطة طريق الامتثال — Chairman AI",
+  title: "خريطة طريق الامتثال — Chameleon Eye AI",
   description:
     "أين يقف Chairman اليوم وإلى أين يتجه في مجال الأمان والخصوصية والامتثال.",
 };

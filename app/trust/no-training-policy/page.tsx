@@ -6,7 +6,7 @@ import { Button } from "@/components/Button";
 export const metadata: Metadata = {
   title: "No-Training Policy — Chameleon Eye AI",
   description:
-    "Chairman AI does not use customer private files, prompts, or business data to train a public AI model. Your data is used only to generate your requested output.",
+    "Chameleon Eye AI does not use customer private files, prompts, or business data to train a public AI model. Your data is used only to generate your requested output.",
 };
 
 const whatThisMeans = [
@@ -66,7 +66,7 @@ export default function NoTrainingPolicyPage() {
             Core Commitment
           </p>
           <p className="text-lg leading-8 text-foreground font-medium">
-            Chairman AI does not use customer private files, prompts, or
+            Chameleon Eye AI does not use customer private files, prompts, or
             business data to train a public AI model.
           </p>
           <p className="mt-4 text-sm leading-7 text-muted">

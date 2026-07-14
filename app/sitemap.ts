@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/free-tools', '/architecture', '/ai-routing', '/api-docs',
     '/enterprise', '/local-mode', '/security', '/privacy',
     '/press', '/partners', '/contact', '/desktop',
+    '/api-docs/authentication', '/api-docs/rate-limits',
   ]
   const arPages = [
     '/ar', '/ar/product', '/ar/api', '/ar/apps', '/ar/pricing',
@@ -36,7 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return allPages.map(path => ({
     url: `${base}${path}`,
     lastModified: new Date(),
-    changeFrequency: path.startsWith('/trust') ? 'monthly' : 'weekly',
-    priority: path === '/' ? 1 : path.startsWith('/trust') ? 0.8 : 0.7,
+    changeFrequency: (path.startsWith('/trust') ? 'monthly' : path === '/security' || path === '/privacy' || path.startsWith('/api-docs') ? 'monthly' : 'weekly') as 'monthly' | 'weekly',
+    priority: path === '/' ? 1 : path.startsWith('/trust') || path === '/security' || path === '/privacy' || path.startsWith('/api-docs') ? 0.8 : 0.7,
   }))
 }

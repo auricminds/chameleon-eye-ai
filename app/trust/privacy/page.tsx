@@ -4,9 +4,9 @@ import { SectionTitle } from "@/components/SectionTitle";
 import { Button } from "@/components/Button";
 
 export const metadata: Metadata = {
-  title: "Privacy — Chairman AI Trust Center",
+  title: "Privacy — Chameleon Eye AI Trust Center",
   description:
-    "How Chairman AI handles your data across local, hybrid, and cloud modes. No customer-data training, DPA available, and clear user controls.",
+    "How Chameleon Eye AI handles your data across local, hybrid, and cloud modes. No customer-data training, DPA available, and clear user controls.",
 };
 
 const dataModes = [
@@ -16,12 +16,12 @@ const dataModes = [
     color: "border-emerald/30 bg-emerald/5",
     titleColor: "text-emerald",
     description:
-      "Private Intelligence can run on the user's device when the local Chairman Brain is installed.",
+      "Private Intelligence can run on the user's device when the local Chameleon Brain is installed.",
     details: [
       "Documents and files never leave your device",
       "Processing happens locally using on-device capabilities",
       "No network call is made for intelligence tasks",
-      "No Chairmans Holding account required for local-only use",
+      "No Chameleon Eye account required for local-only use",
     ],
   },
   {
@@ -44,9 +44,9 @@ const dataModes = [
     color: "border-white/15 bg-panel2",
     titleColor: "text-foreground",
     description:
-      "Cloud intelligence is processed through Chairman API and approved AI routes.",
+      "Cloud intelligence is processed through Chameleon Eye API and approved AI routes.",
     details: [
-      "Requests route through the Chairman API server-side",
+      "Requests route through the Chameleon Eye API server-side",
       "Provider keys are never exposed to the client",
       "Data isolation enforced at the workspace level",
       "No raw prompts stored by default",
@@ -100,7 +100,7 @@ export default function TrustPrivacyPage() {
             Privacy
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            How Chairman AI handles your data across all modes — and what we
+            How Chameleon Eye AI handles your data across all modes — and what we
             never do with it.
           </p>
         </div>
@@ -134,7 +134,7 @@ export default function TrustPrivacyPage() {
               No Customer-Data Training
             </p>
             <p className="text-sm leading-7 text-muted">
-              Chairman AI does not use customer private files, prompts, or
+              Chameleon Eye AI does not use customer private files, prompts, or
               business data to train a public AI model.
             </p>
             <div className="mt-4">
@@ -150,7 +150,7 @@ export default function TrustPrivacyPage() {
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <SectionTitle
           title="Local / Hybrid / Cloud Processing"
-          subtitle="Chairman AI operates across three privacy modes. You choose how much reaches the cloud."
+          subtitle="Chameleon Eye AI operates across three privacy modes. You choose how much reaches the cloud."
           align="left"
         />
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
@@ -269,8 +269,8 @@ export default function TrustPrivacyPage() {
                 Contact the privacy team for questions about data handling.
               </p>
             </div>
-            <Button href="mailto:privacy@chairmans.uk" variant="primary">
-              privacy@chairmans.uk
+            <Button href="mailto:privacy@chameleoneye.ai" variant="primary">
+              privacy@chameleoneye.ai
             </Button>
           </div>
           <div className="mt-8 flex flex-wrap gap-3">

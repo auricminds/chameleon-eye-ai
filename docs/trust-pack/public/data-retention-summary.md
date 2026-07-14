@@ -1,4 +1,4 @@
-# Data Retention Summary — Chairman AI
+# Data Retention Summary — Chameleon Eye AI
 
 ## Retention Categories
 
@@ -8,9 +8,9 @@
 
 **Usage metadata** — Usage counters stored for 12 months rolling. Used for billing and abuse prevention.
 
-**Local private files** — Not stored by Chairman AI. Remain on the user device in Local Private Mode.
+**Local private files** — Not stored by Chameleon Eye AI. Remain on the user device in Local Private Mode.
 
-**Selected cloud text** — Transient. Processed through Chairman API. Not stored by default.
+**Selected cloud text** — Transient. Processed through Chameleon Eye API. Not stored by default.
 
 **AI responses** — Not stored by default unless the user saves them.
 

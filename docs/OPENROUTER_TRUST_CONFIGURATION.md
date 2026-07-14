@@ -1,9 +1,9 @@
 # OpenRouter Trust Configuration Guide
-# Chairman AI — Internal Developer Reference
+# Chameleon Eye AI — Internal Developer Reference
 # DO NOT share publicly or commit API keys
 
 ## Purpose
-This guide explains how to configure the OpenRouter workspace for Chairman AI
+This guide explains how to configure the OpenRouter workspace for Chameleon Eye AI
 to maximise privacy, security, and trust compliance.
 
 ## Step 1: Create OpenRouter Workspace

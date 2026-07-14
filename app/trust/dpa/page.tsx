@@ -5,9 +5,9 @@ import { Button } from "@/components/Button";
 import { StatusChip } from "@/components/trust/StatusChip";
 
 export const metadata: Metadata = {
-  title: "Data Processing Agreement — Chairman AI",
+  title: "Data Processing Agreement — Chameleon Eye AI",
   description:
-    "Chairman AI Data Processing Agreement for qualified business customers and approved partners.",
+    "Chameleon Eye AI Data Processing Agreement for qualified business customers and approved partners.",
 };
 
 const dpaCoverage = [
@@ -57,7 +57,7 @@ export default function DpaPage() {
             <StatusChip status="available" />
           </div>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            Chairman AI provides a Data Processing Agreement for qualified
+            Chameleon Eye AI provides a Data Processing Agreement for qualified
             business customers and approved partners.
           </p>
         </div>
@@ -67,7 +67,7 @@ export default function DpaPage() {
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <SectionTitle
           title="DPA Coverage"
-          subtitle="The Chairman AI Data Processing Agreement covers the following areas."
+          subtitle="The Chameleon Eye AI Data Processing Agreement covers the following areas."
           align="left"
         />
         <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -85,7 +85,7 @@ export default function DpaPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
             title="DPA Status"
-            subtitle="Current status and availability of the Chairman AI DPA."
+            subtitle="Current status and availability of the Chameleon Eye AI DPA."
             align="left"
           />
           <div className="mt-10 overflow-x-auto rounded-2xl border border-white/8">

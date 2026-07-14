@@ -99,7 +99,7 @@ export function TrustPackForm() {
           Request Received
         </p>
         <p className="text-sm leading-7 text-muted">
-          Your trust document request has been submitted. Chairmans Holding will
+          Your trust document request has been submitted. Chameleon Eye will
           review and respond within 2 business days.
         </p>
       </div>

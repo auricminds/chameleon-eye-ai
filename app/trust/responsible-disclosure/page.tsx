@@ -4,9 +4,9 @@ import { SectionTitle } from "@/components/SectionTitle";
 import { Button } from "@/components/Button";
 
 export const metadata: Metadata = {
-  title: "Responsible Disclosure — Chairman AI",
+  title: "Responsible Disclosure — Chameleon Eye AI",
   description:
-    "How to report a security vulnerability to Chairman AI. Responsible disclosure process and safe harbour policy.",
+    "How to report a security vulnerability to Chameleon Eye AI. Responsible disclosure process and safe harbour policy.",
 };
 
 const rules = [
@@ -43,10 +43,10 @@ export default function ResponsibleDisclosurePage() {
             Responsible Disclosure
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            How to report a security vulnerability to Chairman AI.
+            How to report a security vulnerability to Chameleon Eye AI.
           </p>
           <div className="mt-8">
-            <Button href="mailto:security@chairmans.uk" variant="primary">
+            <Button href="mailto:security@chameleoneye.ai" variant="primary">
               Report a Vulnerability
             </Button>
           </div>
@@ -59,7 +59,7 @@ export default function ResponsibleDisclosurePage() {
           <div className="lg:col-span-2">
             <SectionTitle
               title="How to Report"
-              subtitle="Submit security reports via email. Chairmans Holding takes all reports seriously."
+              subtitle="Submit security reports via email. Chameleon Eye takes all reports seriously."
               align="left"
             />
             <div className="mt-10 space-y-6">
@@ -70,10 +70,10 @@ export default function ResponsibleDisclosurePage() {
                 <p className="mt-3 text-sm leading-7 text-muted">
                   Send your report to:{" "}
                   <a
-                    href="mailto:security@chairmans.uk"
+                    href="mailto:security@chameleoneye.ai"
                     className="text-emerald hover:underline"
                   >
-                    security@chairmans.uk
+                    security@chameleoneye.ai
                   </a>
                 </p>
                 <p className="mt-3 text-sm leading-7 text-muted">
@@ -139,7 +139,7 @@ export default function ResponsibleDisclosurePage() {
                 </h3>
                 <p className="mt-3 text-sm leading-7 text-muted">
                   A public bug bounty programme is not currently active.
-                  Chairmans Holding appreciates responsible security researchers
+                  Chameleon Eye appreciates responsible security researchers
                   and will recognise researchers who report valid, high-impact
                   vulnerabilities responsibly.
                 </p>
@@ -176,7 +176,7 @@ export default function ResponsibleDisclosurePage() {
           <div className="mt-10 rounded-2xl border border-gold/20 bg-gold/5 p-6">
             <p className="text-sm leading-7 text-muted">
               Acting within the guidelines above constitutes good-faith security
-              research. Chairmans Holding will not pursue legal action against
+              research. Chameleon Eye will not pursue legal action against
               researchers who follow these guidelines. Actions outside these
               guidelines may result in legal action under applicable computer
               fraud and cybercrime laws.

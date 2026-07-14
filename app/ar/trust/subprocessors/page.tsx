@@ -3,7 +3,7 @@ import { SectionTitle } from "@/components/SectionTitle";
 import { Card } from "@/components/Card";
 
 export const metadata: Metadata = {
-  title: "المعالجون الفرعيون — Chairman AI",
+  title: "المعالجون الفرعيون — Chameleon Eye AI",
   description:
     "الأطراف الثالثة التي قد تعالج البيانات نيابةً عن Chairman.",
 };

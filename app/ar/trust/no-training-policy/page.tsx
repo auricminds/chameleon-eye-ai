@@ -6,7 +6,7 @@ import { Button } from "@/components/Button";
 export const metadata: Metadata = {
   title: "سياسة عدم التدريب — Chameleon Eye AI",
   description:
-    "لا يستخدم Chairman AI ملفات العملاء الخاصة أو نصوص الطلبات أو بيانات الأعمال لتدريب نموذج ذكاء اصطناعي عام.",
+    "لا يستخدم Chameleon Eye AI ملفات العملاء الخاصة أو نصوص الطلبات أو بيانات الأعمال لتدريب نموذج ذكاء اصطناعي عام.",
 };
 
 const whatThisMeans = [
@@ -66,7 +66,7 @@ export default function ArNoTrainingPolicyPage() {
             الالتزام الأساسي
           </p>
           <p className="text-lg leading-8 text-foreground font-medium">
-            لا يستخدم Chairman AI ملفات العملاء الخاصة أو نصوص الطلبات أو
+            لا يستخدم Chameleon Eye AI ملفات العملاء الخاصة أو نصوص الطلبات أو
             بيانات الأعمال لتدريب نموذج ذكاء اصطناعي عام.
           </p>
           <p className="mt-4 text-sm leading-7 text-muted">

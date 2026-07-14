@@ -4,7 +4,7 @@ import { SectionTitle } from "@/components/SectionTitle";
 import { Button } from "@/components/Button";
 
 export const metadata: Metadata = {
-  title: "حذف البيانات وتصديرها — Chairman AI",
+  title: "حذف البيانات وتصديرها — Chameleon Eye AI",
   description:
     "حقك في الوصول إلى بياناتك وحذفها. كيفية تصدير أو حذف بيانات حساب Chairman الخاص بك.",
 };

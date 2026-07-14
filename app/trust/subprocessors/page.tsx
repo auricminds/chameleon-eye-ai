@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { SectionTitle } from "@/components/SectionTitle";
 
 export const metadata: Metadata = {
-  title: "Subprocessors — Chairman AI",
+  title: "Subprocessors — Chameleon Eye AI",
   description:
-    "Active subprocessors and infrastructure providers for Chairman AI by Chairmans Holding.",
+    "Active subprocessors and infrastructure providers for Chameleon Eye AI by Chameleon Eye.",
 };
 
 const subprocessors = [
@@ -52,8 +52,8 @@ export default function SubprocessorsPage() {
             Subprocessors
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            Active subprocessors and infrastructure providers for Chairman AI
-            by Chairmans Holding.
+            Active subprocessors and infrastructure providers for Chameleon Eye AI
+            by Chameleon Eye.
           </p>
         </div>
       </section>
@@ -62,7 +62,7 @@ export default function SubprocessorsPage() {
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <SectionTitle
           title="Active Subprocessors"
-          subtitle="Third-party services engaged by Chairmans Holding on behalf of Chairman AI customers."
+          subtitle="Third-party services engaged by Chameleon Eye on behalf of Chameleon Eye AI customers."
           align="left"
         />
         <div className="mt-10 overflow-x-auto rounded-2xl border border-white/8">

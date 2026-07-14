@@ -5,9 +5,9 @@ import { Button } from "@/components/Button";
 import { StatusChip } from "@/components/trust/StatusChip";
 
 export const metadata: Metadata = {
-  title: "Security — Chairman AI Trust Center",
+  title: "Security — Chameleon Eye AI Trust Center",
   description:
-    "How Chairman AI secures your data: verified security assurance, server-side key management, authentication, privacy guard, and security architecture.",
+    "How Chameleon Eye AI secures your data: verified security assurance, server-side key management, authentication, privacy guard, and security architecture.",
 };
 
 const verifiedAssurance = [
@@ -40,7 +40,7 @@ const verifiedAssurance = [
 
 const architectureNodes = [
   { label: "User App / Desktop / Web", color: "border-muted/40 bg-panel" },
-  { label: "Chairman API", color: "border-emerald/30 bg-emerald/8" },
+  { label: "Chameleon Eye API", color: "border-emerald/30 bg-emerald/8" },
   { label: "Authentication", color: "border-emerald/30 bg-emerald/8" },
   { label: "Entitlement Check", color: "border-gold/30 bg-gold/8" },
   { label: "Privacy Guard", color: "border-gold/30 bg-gold/8" },
@@ -122,7 +122,7 @@ export default function TrustSecurityPage() {
             Security
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            How Chairman AI protects your data through verified security
+            How Chameleon Eye AI protects your data through verified security
             assurance, architecture, access control, and operational security
             practices.
           </p>
@@ -134,7 +134,7 @@ export default function TrustSecurityPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
             title="Verified Security Assurance"
-            subtitle="Independent verification and certified controls for Chairman AI."
+            subtitle="Independent verification and certified controls for Chameleon Eye AI."
             align="left"
           />
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -177,7 +177,7 @@ export default function TrustSecurityPage() {
             </div>
           </div>
           <p className="mt-6 text-xs leading-6 text-muted">
-            The browser communicates only with Chairman AI-controlled API routes.
+            The browser communicates only with Chameleon Eye AI-controlled API routes.
             No AI provider keys are exposed in the frontend. The Approved AI
             Route is reached only after all checks pass.
           </p>
@@ -207,7 +207,7 @@ export default function TrustSecurityPage() {
               Logging Policy
             </p>
             <p className="text-sm leading-7 text-muted">
-              Chairman AI does not log raw private prompts, full AI responses,
+              Chameleon Eye AI does not log raw private prompts, full AI responses,
               private files, or secrets in normal application logs. Usage
               metadata may be stored for billing, abuse prevention, and audit
               integrity.
@@ -273,7 +273,7 @@ export default function TrustSecurityPage() {
                 Transport Security
               </h3>
               <p className="mt-3 text-sm leading-7 text-muted">
-                All traffic between the client and Chairman AI servers uses
+                All traffic between the client and Chameleon Eye AI servers uses
                 HTTPS/TLS. Strict-Transport-Security headers enforce TLS in
                 production environments.
               </p>
@@ -283,7 +283,7 @@ export default function TrustSecurityPage() {
                 Local Private Mode
               </h3>
               <p className="mt-3 text-sm leading-7 text-muted">
-                In local mode, no data is transmitted to Chairman AI or any AI
+                In local mode, no data is transmitted to Chameleon Eye AI or any AI
                 provider. Processing remains on-device for maximum isolation.
                 See{" "}
                 <a href="/local-mode" className="text-emerald hover:underline">
@@ -318,8 +318,8 @@ export default function TrustSecurityPage() {
               security team directly.
             </p>
           </div>
-          <Button href="mailto:security@chairmans.uk" variant="primary">
-            security@chairmans.uk
+          <Button href="mailto:security@chameleoneye.ai" variant="primary">
+            security@chameleoneye.ai
           </Button>
         </div>
         <div className="mt-8 flex flex-wrap gap-3">

@@ -4,9 +4,9 @@ import { Button } from "@/components/Button";
 import { TrustPackForm } from "./TrustPackForm";
 
 export const metadata: Metadata = {
-  title: "Trust Pack — Chairman AI",
+  title: "Trust Pack — Chameleon Eye AI",
   description:
-    "Request security, privacy, and compliance documents from Chairman AI for vendor review.",
+    "Request security, privacy, and compliance documents from Chameleon Eye AI for vendor review.",
 };
 
 const publicDocs = [
@@ -126,7 +126,7 @@ export default function TrustPackPage() {
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
             title="D — Request Trust Documents"
-            subtitle="Submit a request for trust documents. All requests are reviewed by the Chairmans Holding team."
+            subtitle="Submit a request for trust documents. All requests are reviewed by the Chameleon Eye team."
             align="left"
           />
           <div className="mt-10">

@@ -3,9 +3,9 @@ import { Card } from "@/components/Card";
 import { SectionTitle } from "@/components/SectionTitle";
 
 export const metadata: Metadata = {
-  title: "Data Retention Policy — Chairman AI",
+  title: "Data Retention Policy — Chameleon Eye AI",
   description:
-    "What Chairman AI stores, where, why, and how long. Understand data retention across all categories.",
+    "What Chameleon Eye AI stores, where, why, and how long. Understand data retention across all categories.",
 };
 
 const retentionRows = [
@@ -60,7 +60,7 @@ const retentionRows = [
   {
     type: "Selected cloud text",
     stored: "Transient",
-    location: "Chairman API",
+    location: "Chameleon Eye API",
     purpose: "Cloud analysis",
     retention: "Not stored by default",
     control: "N/A",
@@ -130,7 +130,7 @@ export default function DataRetentionPage() {
             Data Retention Policy
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            What Chairman AI stores, where, why, and how long.
+            What Chameleon Eye AI stores, where, why, and how long.
           </p>
         </div>
       </section>
@@ -142,7 +142,7 @@ export default function DataRetentionPage() {
             Default Behaviour
           </p>
           <p className="text-sm leading-7 text-muted">
-            By default, Chairman AI does not store raw prompts or AI responses.
+            By default, Chameleon Eye AI does not store raw prompts or AI responses.
             Only token counts, mode, cost, request status, and timestamps are
             recorded for billing and performance.
           </p>
@@ -262,8 +262,8 @@ export default function DataRetentionPage() {
               </h3>
               <p className="mt-3 text-sm leading-7 text-muted">
                 In private local mode, uploaded files and documents never leave
-                your device. Chairman AI does not copy, upload, or back up local
-                files to Chairman AI servers. Deletion is entirely under your
+                your device. Chameleon Eye AI does not copy, upload, or back up local
+                files to Chameleon Eye AI servers. Deletion is entirely under your
                 control.
               </p>
             </Card>

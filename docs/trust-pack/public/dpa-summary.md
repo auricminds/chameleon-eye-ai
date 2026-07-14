@@ -1,6 +1,6 @@
 # Data Processing Agreement — Public Summary
 
-Chairman AI provides a Data Processing Agreement for qualified business customers and approved partners.
+Chameleon Eye AI provides a Data Processing Agreement for qualified business customers and approved partners.
 
 **DPA version:** TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR
 **Last updated:** TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR
@@ -8,7 +8,7 @@ Chairman AI provides a Data Processing Agreement for qualified business customer
 
 ## DPA Coverage
 
-The Chairman AI DPA covers the following areas:
+The Chameleon Eye AI DPA covers the following areas:
 
 - Roles and responsibilities
 - Processing purpose

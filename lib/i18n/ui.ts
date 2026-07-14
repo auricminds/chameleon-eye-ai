@@ -46,8 +46,8 @@ const AR_NAV: NavLink[] = [
 
 const EN_TRUST_LINKS: NavLink[] = [
   { label: "Trust Center", href: "/trust" },
-  { label: "Security", href: "/trust/security" },
-  { label: "Privacy", href: "/trust/privacy" },
+  { label: "Security", href: "/security" },
+  { label: "Privacy", href: "/privacy" },
   { label: "Compliance", href: "/trust/compliance" },
   { label: "SOC 2", href: "/trust/compliance/soc-2" },
   { label: "ISO 27001", href: "/trust/compliance/iso-27001" },
@@ -57,6 +57,7 @@ const EN_TRUST_LINKS: NavLink[] = [
   { label: "Subprocessors", href: "/trust/subprocessors" },
   { label: "API Docs", href: "/api-docs" },
   { label: "Responsible Disclosure", href: "/trust/responsible-disclosure" },
+  { label: "Trust Pack", href: "/trust/trust-pack" },
 ];
 
 const AR_TRUST_LINKS: NavLink[] = [
@@ -125,7 +126,7 @@ export const UI: Record<Locale, UiStrings> = {
       legal:
         "Chameleon Eye AI works only with data, systems, files, and workflows the customer is authorized to use. Sensitive analysis must follow applicable laws, internal policies, and consent requirements.",
       noTraining:
-        "Chairman AI does not use customer private files, prompts, or business data to train a public model.",
+        "Chameleon Eye AI does not use customer private files, prompts, or business data to train a public model.",
     },
   },
   ar: {
@@ -149,7 +150,7 @@ export const UI: Record<Locale, UiStrings> = {
       legal:
         "تعمل Chameleon Eye AI فقط مع البيانات والأنظمة والملفات وسير العمل التي يملك العميل صلاحية استخدامها أو تحليلها. يجب أن تراعي التحليلات الحساسة القوانين والسياسات الداخلية ومتطلبات الموافقة.",
       noTraining:
-        "لا يستخدم Chairman AI ملفات العملاء الخاصة أو نصوص الطلبات أو بيانات الأعمال لتدريب نموذج عام.",
+        "لا تستخدم Chameleon Eye AI ملفات العملاء الخاصة أو نصوص الطلبات أو بيانات الأعمال لتدريب نموذج عام.",
     },
   },
 };

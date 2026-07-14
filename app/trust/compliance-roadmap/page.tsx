@@ -4,7 +4,7 @@ import { SectionTitle } from "@/components/SectionTitle";
 import { StatusChip } from "@/components/trust/StatusChip";
 
 export const metadata: Metadata = {
-  title: "Compliance Roadmap — Chairman AI",
+  title: "Compliance Roadmap — Chameleon Eye AI",
   description:
     "Where Chairman is today and where it is going on security, privacy, and compliance.",
 };

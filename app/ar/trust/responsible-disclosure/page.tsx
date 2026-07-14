@@ -4,7 +4,7 @@ import { SectionTitle } from "@/components/SectionTitle";
 import { Button } from "@/components/Button";
 
 export const metadata: Metadata = {
-  title: "الإفصاح المسؤول — Chairman AI",
+  title: "الإفصاح المسؤول — Chameleon Eye AI",
   description:
     "كيفية الإبلاغ عن ثغرة أمنية إلى Chairman. عملية الإفصاح المسؤول وسياسة الملاذ الآمن.",
 };

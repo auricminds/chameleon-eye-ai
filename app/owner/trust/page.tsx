@@ -4,7 +4,7 @@ import { SectionTitle } from "@/components/SectionTitle";
 
 export const metadata: Metadata = {
   title: "Trust Admin — Owner Panel",
-  description: "Owner trust administration panel for Chairman AI.",
+  description: "Owner trust administration panel for Chameleon Eye AI.",
 };
 
 const complianceFields = [
