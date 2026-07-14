@@ -10,9 +10,10 @@ type MessageBubbleProps = {
   message: TerminalMessage;
   locale: "en" | "ar";
   isAnalyzing?: boolean;
+  onSend?: (text: string) => void;
 };
 
-export function MessageBubble({ message, locale, isAnalyzing }: MessageBubbleProps) {
+export function MessageBubble({ message, locale, isAnalyzing, onSend }: MessageBubbleProps) {
   const isArabic = locale === "ar";
   const isUser = message.role === "user";
 
@@ -35,7 +36,7 @@ export function MessageBubble({ message, locale, isAnalyzing }: MessageBubblePro
   }
 
   if (!isUser && isWelcomeContent(message.content)) {
-    return <ChameleonWelcome locale={locale} />;
+    return <ChameleonWelcome locale={locale} onSend={onSend} />;
   }
 
   return (

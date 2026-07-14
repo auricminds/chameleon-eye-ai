@@ -183,7 +183,7 @@ export function ChameleonTerminal({ locale }: ChameleonTerminalProps) {
       .filter((m) => m.role === "user" || m.role === "assistant")
       .map((m) => ({ role: m.role, content: m.content }));
 
-    fetch("/api/chat", {
+    fetch("/api/chameleon/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -195,9 +195,9 @@ export function ChameleonTerminal({ locale }: ChameleonTerminalProps) {
     })
       .then(async (res) => {
         if (!res.ok) throw new Error("api_error");
-        return res.json() as Promise<{ content: string }>;
+        return res.json() as Promise<{ answer: string }>;
       })
-      .then(({ content: replyText }) => {
+      .then(({ answer: replyText }) => {
         const assistantMsg: TerminalMessage = {
           id: uid(),
           role: "assistant",
@@ -405,7 +405,7 @@ export function ChameleonTerminal({ locale }: ChameleonTerminalProps) {
           <div ref={scrollRef} className="min-h-0 flex-1 overflow-y-auto py-4 sm:py-6">
             <div className="mx-auto flex w-full max-w-[780px] flex-col gap-5 px-3 sm:px-4">
               {activeSession.messages.map((msg) => (
-                <MessageBubble key={msg.id} message={msg} locale={locale} />
+                <MessageBubble key={msg.id} message={msg} locale={locale} onSend={handleSend} />
               ))}
               {analyzing ? (
                 <MessageBubble message={{} as TerminalMessage} locale={locale} isAnalyzing />

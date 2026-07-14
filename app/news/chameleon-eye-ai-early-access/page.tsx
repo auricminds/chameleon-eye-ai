@@ -65,7 +65,7 @@ export default function EarlyAccessNewsPage() {
 
           <h2 className="text-xl font-semibold text-foreground mt-8">Private by design</h2>
           <p>
-            A central feature of Chameleon Eye AI is its approach to data privacy. The product offers three operational modes: local/private mode where files stay on the customer's device, hybrid approval mode where local analysis runs first and cloud involvement requires explicit user approval, and standard cloud workspace for approved data.
+            A central feature of Chameleon Eye AI is its approach to data privacy. The product offers three operational modes: local/private mode where files stay on the customer&apos;s device, hybrid approval mode where local analysis runs first and cloud involvement requires explicit user approval, and standard cloud workspace for approved data.
           </p>
 
           <p>
@@ -78,7 +78,7 @@ export default function EarlyAccessNewsPage() {
           </p>
 
           <p>
-            The Desktop Connector addresses a specific problem in the AI industry — desktop and mobile applications that embed static API keys in distributed packages. Chameleon Eye AI's Desktop Connector uses secure login, device activation, short-lived tokens, and device-level revocation to eliminate this security risk.
+            The Desktop Connector addresses a specific problem in the AI industry — desktop and mobile applications that embed static API keys in distributed packages. Chameleon Eye AI&apos;s Desktop Connector uses secure login, device activation, short-lived tokens, and device-level revocation to eliminate this security risk.
           </p>
 
           <h2 className="text-xl font-semibold text-foreground mt-8">Free tools available now</h2>
