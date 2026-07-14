@@ -43,17 +43,33 @@ const AR_NAV: NavLink[] = [
   { label: "Terminal", href: "/ar/terminal" },
 ];
 
+const EN_TRUST_LINKS: NavLink[] = [
+  { label: "Trust Center", href: "/trust" },
+  { label: "Security", href: "/security" },
+  { label: "Privacy", href: "/privacy" },
+  { label: "Enterprise", href: "/enterprise" },
+];
+
+const AR_TRUST_LINKS: NavLink[] = [
+  { label: "مركز الثقة", href: "/ar/trust" },
+  { label: "الأمان", href: "/ar/security" },
+  { label: "الخصوصية", href: "/ar/privacy" },
+  { label: "المؤسسات", href: "/ar/enterprise" },
+];
+
 export function getNavLinks(locale: Locale): NavLink[] {
   return locale === "ar" ? AR_NAV : EN_NAV;
 }
 
 export function getFooterLinks(locale: Locale): NavLink[] {
   const links = getNavLinks(locale);
+  const trustLinks = locale === "ar" ? AR_TRUST_LINKS : EN_TRUST_LINKS;
   return [
     ...links,
     locale === "ar"
       ? { label: "التواصل", href: "/ar/contact" }
       : { label: "Contact", href: "/contact" },
+    ...trustLinks,
   ];
 }
 

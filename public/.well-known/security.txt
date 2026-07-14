@@ -1,0 +1,3 @@
+Contact: security@chameleoneye.ai
+Preferred-Languages: en, ar
+Policy: https://chameleoneye.ai/security

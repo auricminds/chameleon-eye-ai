@@ -9,6 +9,7 @@
     "build:web": "next build",
     "start": "next start",
     "lint": "eslint",
+    "check:trust": "node scripts/check-provider-leaks.mjs",
     "icons:generate": "node scripts/generate-icons.mjs",
     "app:desktop:dev": "tauri dev",
     "app:desktop:build": "tauri build",
