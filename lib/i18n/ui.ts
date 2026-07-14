@@ -56,6 +56,8 @@ const EN_TRUST_LINKS: NavLink[] = [
   { label: "Subprocessors", href: "/trust/subprocessors" },
   { label: "AI Providers", href: "/trust/ai-providers" },
   { label: "API Docs", href: "/api-docs" },
+  { label: "Developers", href: "/developers" },
+  { label: "Changelog", href: "/changelog" },
   { label: "Responsible Disclosure", href: "/trust/responsible-disclosure" },
   { label: "Company Transparency", href: "/trust/company" },
   { label: "Trust Pack", href: "/trust/trust-pack" },

@@ -37,6 +37,30 @@ export const metadata: Metadata = {
   description:
     "Private AI intelligence for companies that need to see what is hidden. Analyze approved data, detect risks, and generate confidential reports.",
   manifest: "/manifest.webmanifest",
+  metadataBase: new URL("https://chameleoneye.ai"),
+  openGraph: {
+    type: "website",
+    siteName: "Chameleon Eye AI",
+    title: "Chameleon Eye AI — Private Business Intelligence",
+    description:
+      "Commercial private AI intelligence platform with local-first options, verified compliance documentation, and approval-based cloud processing.",
+    url: "https://chameleoneye.ai",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Chameleon Eye AI — Private Business Intelligence",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Chameleon Eye AI — Private Business Intelligence",
+    description:
+      "Commercial private AI intelligence platform with local-first options, verified compliance documentation, and approval-based cloud processing.",
+    images: ["/og-image.png"],
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
@@ -54,6 +78,44 @@ export const metadata: Metadata = {
 export const viewport = {
   themeColor: "#06110D",
 };
+
+const jsonLdSchemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Chameleon Eye",
+    url: "https://chameleoneye.ai",
+    logo: "https://chameleoneye.ai/logo.png",
+    description:
+      "Chameleon Eye AI is a commercial private AI intelligence platform for businesses.",
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer support",
+      email: "support@chameleoneye.ai",
+    },
+    sameAs: [
+      "https://linkedin.com/company/chameleon-eye",
+      "https://twitter.com/chameleoneye",
+      "https://github.com/chameleon-eye",
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Chameleon Eye AI",
+    url: "https://chameleoneye.ai",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web, macOS, Windows",
+    description:
+      "Private AI intelligence workspace for business risk analysis, cash waste detection, marketing intelligence, and structured business reports.",
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "USD",
+      price: "0",
+      description: "Free tools available. Workspace plans available.",
+    },
+  },
+];
 
 async function getLocale(): Promise<Locale> {
   const headersList = await headers();
@@ -79,6 +141,10 @@ export default async function RootLayout({
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: localeBootstrapScript }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchemas) }}
+        />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />

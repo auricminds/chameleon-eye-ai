@@ -7,4 +7,10 @@ Allow: /privacy
 Allow: /enterprise
 Allow: /api-docs/
 Allow: /api-docs/data-handling
+Allow: /developers
+Allow: /changelog
+Allow: /sitemap-public
+
+# Sitemap
 Sitemap: https://chameleoneye.ai/sitemap.xml
+Sitemap: https://chameleoneye.ai/sitemap-public

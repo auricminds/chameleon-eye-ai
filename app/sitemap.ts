@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/enterprise', '/local-mode', '/security', '/privacy',
     '/press', '/partners', '/contact', '/desktop',
     '/api-docs/authentication', '/api-docs/rate-limits', '/api-docs/data-handling',
+    '/developers', '/changelog',
   ]
   const arPages = [
     '/ar', '/ar/product', '/ar/api', '/ar/apps', '/ar/pricing',
@@ -38,7 +39,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return allPages.map(path => ({
     url: `${base}${path}`,
     lastModified: new Date(),
-    changeFrequency: (path.startsWith('/trust') ? 'monthly' : path === '/security' || path === '/privacy' || path.startsWith('/api-docs') ? 'monthly' : 'weekly') as 'monthly' | 'weekly',
-    priority: path === '/' ? 1 : path.startsWith('/trust') || path === '/security' || path === '/privacy' || path.startsWith('/api-docs') ? 0.8 : 0.7,
+    changeFrequency: (
+      path === '/developers' ? 'weekly' :
+      path === '/changelog' ? 'weekly' :
+      path.startsWith('/trust') ? 'monthly' :
+      path === '/security' || path === '/privacy' || path.startsWith('/api-docs') ? 'monthly' :
+      'weekly'
+    ) as 'monthly' | 'weekly',
+    priority:
+      path === '/' ? 1 :
+      path === '/developers' ? 0.9 :
+      path === '/changelog' ? 0.8 :
+      path.startsWith('/trust') || path === '/security' || path === '/privacy' || path.startsWith('/api-docs') ? 0.8 :
+      0.7,
   }))
 }
