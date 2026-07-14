@@ -134,22 +134,22 @@ export function TerminalComposer({
             <button
               type="button"
               onClick={onAttach}
-              className="rounded-xl border border-white/10 px-3 py-2 text-xs text-muted hover:text-foreground"
+              className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 text-muted transition-colors hover:border-emerald/30 hover:text-emerald"
               title={labels.attach}
             >
-              📎
+              <AttachIcon />
             </button>
             <button
               type="button"
               onClick={toggleMic}
-              className={`rounded-xl border px-3 py-2 text-xs transition-colors ${
+              className={`flex h-10 w-10 items-center justify-center rounded-xl border transition-colors ${
                 isListening
                   ? "border-gold/40 bg-gold/10 text-gold"
-                  : "border-white/10 text-muted hover:text-emerald"
+                  : "border-white/10 text-muted hover:border-emerald/30 hover:text-emerald"
               }`}
               title={isListening ? labels.micListening : labels.mic}
             >
-              {isListening ? "🎙" : "🎤"}
+              {isListening ? <MicActiveIcon /> : <MicIcon />}
             </button>
             <button
               type="button"
@@ -182,5 +182,40 @@ function ActionBtn({ onClick, label }: { onClick: () => void; label: string }) {
     >
       {label}
     </button>
+  );
+}
+
+function AttachIcon() {
+  return (
+    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4" aria-hidden>
+      <path d="M17 10.5l-7 7a5 5 0 01-7-7l7-7a3 3 0 014.24 4.24L7.12 15a1 1 0 01-1.42-1.41l7.07-7.07" />
+    </svg>
+  );
+}
+
+function MicIcon() {
+  return (
+    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4" aria-hidden>
+      <rect x="7" y="2" width="6" height="10" rx="3" />
+      <path d="M4 10a6 6 0 0012 0" />
+      <line x1="10" y1="16" x2="10" y2="18" />
+      <line x1="7" y1="18" x2="13" y2="18" />
+    </svg>
+  );
+}
+
+function MicActiveIcon() {
+  return (
+    <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4" aria-hidden>
+      <rect x="7" y="2" width="6" height="10" rx="3" opacity="0.9" />
+      <path
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        d="M4 10a6 6 0 0012 0M10 16v2M7 18h6"
+      />
+      <circle cx="10" cy="7" r="1.5" fill="currentColor" opacity="0.5" className="animate-pulse" />
+    </svg>
   );
 }
