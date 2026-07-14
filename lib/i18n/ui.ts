@@ -46,6 +46,8 @@ const AR_NAV: NavLink[] = [
 
 const EN_TRUST_LINKS: NavLink[] = [
   { label: "Trust Center", href: "/trust" },
+  { label: "No-Training Policy", href: "/trust/no-training-policy" },
+  { label: "Responsible Disclosure", href: "/trust/responsible-disclosure" },
   { label: "Security", href: "/security" },
   { label: "Privacy", href: "/privacy" },
   { label: "Enterprise", href: "/enterprise" },
@@ -53,6 +55,8 @@ const EN_TRUST_LINKS: NavLink[] = [
 
 const AR_TRUST_LINKS: NavLink[] = [
   { label: "مركز الثقة", href: "/ar/trust" },
+  { label: "سياسة عدم التدريب", href: "/ar/trust/no-training-policy" },
+  { label: "الإفصاح المسؤول", href: "/ar/trust/responsible-disclosure" },
   { label: "الأمان", href: "/ar/security" },
   { label: "الخصوصية", href: "/ar/privacy" },
   { label: "المؤسسات", href: "/ar/enterprise" },
