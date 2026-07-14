@@ -18,6 +18,7 @@ export type UiStrings = {
     aiDomain: string;
     linksHeading: string;
     legal: string;
+    noTraining: string;
   };
 };
 
@@ -112,6 +113,8 @@ export const UI: Record<Locale, UiStrings> = {
       linksHeading: "Links",
       legal:
         "Chameleon Eye AI works only with data, systems, files, and workflows the customer is authorized to use. Sensitive analysis must follow applicable laws, internal policies, and consent requirements.",
+      noTraining:
+        "Chairman AI does not use customer private files, prompts, or business data to train a public model.",
     },
   },
   ar: {
@@ -134,6 +137,8 @@ export const UI: Record<Locale, UiStrings> = {
       linksHeading: "روابط",
       legal:
         "تعمل Chameleon Eye AI فقط مع البيانات والأنظمة والملفات وسير العمل التي يملك العميل صلاحية استخدامها أو تحليلها. يجب أن تراعي التحليلات الحساسة القوانين والسياسات الداخلية ومتطلبات الموافقة.",
+      noTraining:
+        "لا يستخدم Chairman AI ملفات العملاء الخاصة أو نصوص الطلبات أو بيانات الأعمال لتدريب نموذج عام.",
     },
   },
 };

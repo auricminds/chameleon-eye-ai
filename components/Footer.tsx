@@ -57,8 +57,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-white/8 pt-6">
+        <div className="mt-10 border-t border-white/8 pt-6 space-y-2">
           <p className="text-xs leading-6 text-muted">{ui.legal}</p>
+          <p className="text-xs leading-6 text-muted">{ui.noTraining}</p>
         </div>
       </div>
     </footer>
