@@ -1,48 +1,40 @@
 import type { Metadata } from "next";
 import { SectionTitle } from "@/components/SectionTitle";
-import { Card } from "@/components/Card";
 
 export const metadata: Metadata = {
   title: "Subprocessors — Chairman AI",
   description:
-    "Third parties that may process data on Chairman's behalf. Our subprocessor list and privacy commitments.",
+    "Active subprocessors and infrastructure providers for Chairman AI by Chairmans Holding.",
 };
 
 const subprocessors = [
   {
-    name: "Cloud AI infrastructure provider",
-    category: "AI processing",
-    purpose: "Cloud intelligence requests",
-    data: "Selected text (with consent)",
-    policy: "Linked when confirmed",
+    provider: "OpenRouter",
+    purpose: "Cloud AI routing",
+    data: "Selected cloud request text only",
+    retention: "Transient — not stored by OpenRouter for training",
+    status: "Active",
   },
   {
-    name: "Payment processor",
-    category: "Billing",
-    purpose: "Subscription and payment",
-    data: "Billing data",
-    policy: "Standard payment processor policy",
+    provider: "Stripe",
+    purpose: "Subscriptions and billing",
+    data: "Billing metadata and payment status",
+    retention: "Per Stripe retention policy",
+    status: "Active",
   },
   {
-    name: "Email delivery",
-    category: "Communication",
-    purpose: "Account and support emails",
-    data: "Email address",
-    policy: "Standard email provider policy",
+    provider: "Supabase",
+    purpose: "Authentication and database",
+    data: "Account and application data",
+    retention: "Per data retention policy",
+    status: "Active",
   },
   {
-    name: "Analytics",
-    category: "Usage data",
-    purpose: "Product improvement",
-    data: "Anonymised usage events",
-    policy: "Opt-out available",
-  },
-  {
-    name: "Database infrastructure",
-    category: "Storage",
-    purpose: "Account and data storage",
-    data: "Account and usage data",
-    policy: "Enterprise infrastructure provider",
+    provider: "Vercel",
+    purpose: "Hosting",
+    data: "Application hosting and deployment logs",
+    retention: "Per Vercel retention policy",
+    status: "Active",
   },
 ];
 
@@ -60,7 +52,8 @@ export default function SubprocessorsPage() {
             Subprocessors
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            Third parties that may process data on Chairman&apos;s behalf.
+            Active subprocessors and infrastructure providers for Chairman AI
+            by Chairmans Holding.
           </p>
         </div>
       </section>
@@ -68,32 +61,50 @@ export default function SubprocessorsPage() {
       {/* Table */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <SectionTitle
-          title="Current Subprocessors"
-          subtitle="Categories of third-party services engaged by Chairman."
+          title="Active Subprocessors"
+          subtitle="Third-party services engaged by Chairmans Holding on behalf of Chairman AI customers."
           align="left"
         />
         <div className="mt-10 overflow-x-auto rounded-2xl border border-white/8">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-white/8 bg-panel2">
-                <th className="px-4 py-3 text-left font-semibold text-foreground">Name / Category</th>
-                <th className="px-4 py-3 text-left font-semibold text-foreground">Category</th>
-                <th className="px-4 py-3 text-left font-semibold text-foreground">Purpose</th>
-                <th className="px-4 py-3 text-left font-semibold text-foreground">Data Processed</th>
-                <th className="px-4 py-3 text-left font-semibold text-foreground">Privacy Policy</th>
+                <th className="px-4 py-3 text-left font-semibold text-foreground">
+                  Provider
+                </th>
+                <th className="px-4 py-3 text-left font-semibold text-foreground">
+                  Purpose
+                </th>
+                <th className="px-4 py-3 text-left font-semibold text-foreground">
+                  Data Processed
+                </th>
+                <th className="px-4 py-3 text-left font-semibold text-foreground">
+                  Retention Notes
+                </th>
+                <th className="px-4 py-3 text-left font-semibold text-foreground">
+                  Status
+                </th>
               </tr>
             </thead>
             <tbody>
               {subprocessors.map((sp, i) => (
                 <tr
-                  key={sp.name}
-                  className={`border-b border-white/5 ${i % 2 === 0 ? "bg-panel" : "bg-panel/60"}`}
+                  key={sp.provider}
+                  className={`border-b border-white/5 ${
+                    i % 2 === 0 ? "bg-panel" : "bg-panel/60"
+                  }`}
                 >
-                  <td className="px-4 py-3 font-medium text-foreground">{sp.name}</td>
-                  <td className="px-4 py-3 text-muted">{sp.category}</td>
+                  <td className="px-4 py-3 font-medium text-foreground">
+                    {sp.provider}
+                  </td>
                   <td className="px-4 py-3 text-muted">{sp.purpose}</td>
                   <td className="px-4 py-3 text-muted">{sp.data}</td>
-                  <td className="px-4 py-3 text-muted">{sp.policy}</td>
+                  <td className="px-4 py-3 text-muted">{sp.retention}</td>
+                  <td className="px-4 py-3">
+                    <span className="inline-flex items-center rounded-full border border-emerald/30 bg-emerald/10 px-2.5 py-0.5 text-xs font-medium text-emerald">
+                      {sp.status}
+                    </span>
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -102,36 +113,13 @@ export default function SubprocessorsPage() {
 
         {/* Notice */}
         <div className="mt-8 rounded-2xl border border-gold/20 bg-gold/5 p-6">
-          <p className="text-sm font-semibold text-gold mb-2">List Update Notice</p>
-          <p className="text-sm leading-7 text-muted">
-            This list will be updated when Chairman confirms specific provider agreements. Specific
-            provider names will be listed once DPA agreements are in place. We do not publish
-            names of providers we have not formally contracted with or reviewed.
+          <p className="text-sm font-semibold text-gold mb-2">
+            Subprocessor Changes
           </p>
-        </div>
-      </section>
-
-      {/* Additional Info */}
-      <section className="border-t border-white/8 bg-panel/40 py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-6 sm:grid-cols-2">
-            <Card>
-              <h3 className="text-base font-semibold text-foreground">Data Processing Agreements</h3>
-              <p className="mt-3 text-sm leading-7 text-muted">
-                Chairman is in the process of establishing formal Data Processing Agreements (DPAs)
-                with key subprocessors. Enterprise customers requiring executed DPAs should contact
-                the Chairman team to discuss availability and timing.
-              </p>
-            </Card>
-            <Card>
-              <h3 className="text-base font-semibold text-foreground">AI Processing Scope</h3>
-              <p className="mt-3 text-sm leading-7 text-muted">
-                Cloud AI infrastructure is only engaged when you explicitly choose cloud intelligence
-                mode and consent to sending selected text. Your private local files and full archive
-                are never sent to AI processing infrastructure automatically.
-              </p>
-            </Card>
-          </div>
+          <p className="text-sm leading-7 text-muted">
+            Subprocessors may change as the platform evolves. Material changes
+            will be reflected on this page.
+          </p>
         </div>
       </section>
     </>

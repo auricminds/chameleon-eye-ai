@@ -5,10 +5,51 @@ import { Button } from "@/components/Button";
 import { StatusChip } from "@/components/trust/StatusChip";
 
 export const metadata: Metadata = {
-  title: "Security — Chameleon Eye AI Trust Center",
+  title: "Security — Chairman AI Trust Center",
   description:
-    "How Chameleon Eye AI secures your data: server-side key management, authentication, privacy guard, rate limiting, and security architecture.",
+    "How Chairman AI secures your data: verified security assurance, server-side key management, authentication, privacy guard, and security architecture.",
 };
+
+const verifiedAssurance = [
+  {
+    label: "SOC 2 Type II attestation completed",
+    status: "completed" as const,
+    href: "/trust/compliance/soc-2",
+  },
+  {
+    label: "ISO/IEC 27001 certified ISMS",
+    status: "certified" as const,
+    href: "/trust/compliance/iso-27001",
+  },
+  {
+    label: "Penetration testing completed",
+    status: "completed" as const,
+    href: "/trust/penetration-testing",
+  },
+  {
+    label: "DPA available",
+    status: "available" as const,
+    href: "/trust/dpa",
+  },
+  {
+    label: "Responsible disclosure process published",
+    status: "published" as const,
+    href: "/trust/responsible-disclosure",
+  },
+];
+
+const architectureNodes = [
+  { label: "User App / Desktop / Web", color: "border-muted/40 bg-panel" },
+  { label: "Chairman API", color: "border-emerald/30 bg-emerald/8" },
+  { label: "Authentication", color: "border-emerald/30 bg-emerald/8" },
+  { label: "Entitlement Check", color: "border-gold/30 bg-gold/8" },
+  { label: "Privacy Guard", color: "border-gold/30 bg-gold/8" },
+  { label: "Cloud Consent", color: "border-gold/30 bg-gold/8" },
+  { label: "Intelligence Router", color: "border-emerald/30 bg-emerald/8" },
+  { label: "Approved AI Route", color: "border-white/15 bg-panel2" },
+  { label: "Response Validation", color: "border-emerald/30 bg-emerald/8" },
+  { label: "Usage Audit Metadata", color: "border-muted/40 bg-panel" },
+];
 
 const securityPrinciples = [
   {
@@ -65,28 +106,6 @@ const securityPrinciples = [
     detail:
       "Request metadata — mode, timestamp, status, token count — is logged for owner review. Raw content is not logged.",
   },
-  {
-    label: "Penetration test",
-    status: "planned" as const,
-    detail:
-      "An independent penetration test is planned before general availability of the cloud product.",
-  },
-  {
-    label: "SOC 2 readiness",
-    status: "planned" as const,
-    detail:
-      "SOC 2 Type II readiness is on the compliance roadmap. See the compliance roadmap for timeline.",
-  },
-];
-
-const architectureNodes = [
-  { label: "User App", color: "border-muted/40 bg-panel" },
-  { label: "Chairman API", color: "border-emerald/30 bg-emerald/8" },
-  { label: "Authentication", color: "border-emerald/30 bg-emerald/8" },
-  { label: "Privacy Guard", color: "border-gold/30 bg-gold/8" },
-  { label: "Entitlement Check", color: "border-gold/30 bg-gold/8" },
-  { label: "Intelligence Router", color: "border-emerald/30 bg-emerald/8" },
-  { label: "Approved Engine", color: "border-white/15 bg-panel2" },
 ];
 
 export default function TrustSecurityPage() {
@@ -103,18 +122,42 @@ export default function TrustSecurityPage() {
             Security
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            How Chameleon protects your data through architecture, access
-            control, and operational security practices.
+            How Chairman AI protects your data through verified security
+            assurance, architecture, access control, and operational security
+            practices.
           </p>
         </div>
       </section>
 
-      {/* Architecture Diagram */}
+      {/* Verified Security Assurance */}
       <section className="border-b border-white/8 bg-panel/40 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
+            title="Verified Security Assurance"
+            subtitle="Independent verification and certified controls for Chairman AI."
+            align="left"
+          />
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {verifiedAssurance.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="flex items-center justify-between gap-4 rounded-2xl border border-white/8 bg-panel p-5 hover:border-emerald/30 transition-colors"
+              >
+                <span className="text-sm text-foreground">{item.label}</span>
+                <StatusChip status={item.status} />
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Security Architecture */}
+      <section className="border-b border-white/8 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionTitle
             title="Security Architecture"
-            subtitle="Every request passes through authentication, privacy guard, and entitlement checks before reaching the intelligence router."
+            subtitle="Every request passes through authentication, privacy guard, entitlement checks, and cloud consent before reaching the intelligence router."
             align="left"
           />
           <div className="mt-10 overflow-x-auto">
@@ -134,10 +177,57 @@ export default function TrustSecurityPage() {
             </div>
           </div>
           <p className="mt-6 text-xs leading-6 text-muted">
-            The browser communicates only with Chameleon-controlled API routes.
-            No AI provider keys are exposed in the frontend. The Approved Engine
-            is reached only after all checks pass.
+            The browser communicates only with Chairman AI-controlled API routes.
+            No AI provider keys are exposed in the frontend. The Approved AI
+            Route is reached only after all checks pass.
           </p>
+        </div>
+      </section>
+
+      {/* Key Protection */}
+      <section className="border-b border-white/8 bg-panel/40 py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-2xl border border-emerald/20 bg-emerald/5 p-6">
+            <p className="text-sm font-semibold text-emerald mb-2">
+              Provider Key Protection
+            </p>
+            <p className="text-sm leading-7 text-muted">
+              Provider API keys remain server-side and are not embedded in
+              desktop, web, or mobile clients.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Logging */}
+      <section className="border-b border-white/8 py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-2xl border border-white/8 bg-panel p-6">
+            <p className="text-sm font-semibold text-foreground mb-2">
+              Logging Policy
+            </p>
+            <p className="text-sm leading-7 text-muted">
+              Chairman AI does not log raw private prompts, full AI responses,
+              private files, or secrets in normal application logs. Usage
+              metadata may be stored for billing, abuse prevention, and audit
+              integrity.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Data Isolation */}
+      <section className="border-b border-white/8 bg-panel/40 py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-2xl border border-white/8 bg-panel p-6">
+            <p className="text-sm font-semibold text-foreground mb-2">
+              Data Isolation
+            </p>
+            <p className="text-sm leading-7 text-muted">
+              Customer data is separated by account and protected through
+              application authorization and database access controls.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -183,7 +273,7 @@ export default function TrustSecurityPage() {
                 Transport Security
               </h3>
               <p className="mt-3 text-sm leading-7 text-muted">
-                All traffic between the client and Chameleon servers uses
+                All traffic between the client and Chairman AI servers uses
                 HTTPS/TLS. Strict-Transport-Security headers enforce TLS in
                 production environments.
               </p>
@@ -193,13 +283,10 @@ export default function TrustSecurityPage() {
                 Local Private Mode
               </h3>
               <p className="mt-3 text-sm leading-7 text-muted">
-                In local mode, no data is transmitted to Chameleon or any AI
+                In local mode, no data is transmitted to Chairman AI or any AI
                 provider. Processing remains on-device for maximum isolation.
                 See{" "}
-                <a
-                  href="/local-mode"
-                  className="text-emerald hover:underline"
-                >
+                <a href="/local-mode" className="text-emerald hover:underline">
                   Local Mode
                 </a>{" "}
                 for details.
@@ -231,19 +318,19 @@ export default function TrustSecurityPage() {
               security team directly.
             </p>
           </div>
-          <Button href="mailto:security@chameleoneye.ai" variant="primary">
-            security@chameleoneye.ai
+          <Button href="mailto:security@chairmans.uk" variant="primary">
+            security@chairmans.uk
           </Button>
         </div>
         <div className="mt-8 flex flex-wrap gap-3">
           <Button href="/trust/responsible-disclosure" variant="secondary">
             Responsible Disclosure
           </Button>
-          <Button href="/trust/compliance-roadmap" variant="ghost">
-            Compliance Roadmap
+          <Button href="/trust/compliance" variant="ghost">
+            Compliance Status
           </Button>
-          <Button href="/security" variant="ghost">
-            Security Architecture
+          <Button href="/trust/trust-pack" variant="ghost">
+            Request Trust Pack
           </Button>
         </div>
       </section>

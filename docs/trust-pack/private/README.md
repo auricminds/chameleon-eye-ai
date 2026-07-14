@@ -1,0 +1,1 @@
+Do not commit confidential SOC 2 reports, ISO certificates, penetration test reports, DPA files, auditor evidence, legal documents, or security-sensitive audit material to the repository. Store confidential trust documents only in approved secure company storage.

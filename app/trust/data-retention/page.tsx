@@ -1,105 +1,119 @@
 import type { Metadata } from "next";
 import { Card } from "@/components/Card";
 import { SectionTitle } from "@/components/SectionTitle";
-import { StatusChip } from "@/components/trust/StatusChip";
 
 export const metadata: Metadata = {
   title: "Data Retention Policy — Chairman AI",
   description:
-    "What Chairman stores, where, why, and how long. Understand data retention across all categories.",
+    "What Chairman AI stores, where, why, and how long. Understand data retention across all categories.",
 };
 
 const retentionRows = [
   {
     type: "Account email",
     stored: "Yes",
-    where: "Database",
-    why: "Authentication",
-    retention: "Account lifetime",
+    location: "Supabase",
+    purpose: "Authentication",
+    retention: "Until account deleted",
     control: "Delete account",
-    status: "implemented" as const,
   },
   {
     type: "Billing metadata",
     stored: "Yes",
-    where: "Billing provider",
-    why: "Legal requirement",
-    retention: "7 years",
-    control: "Billing portal",
-    status: "implemented" as const,
+    location: "Stripe/Supabase",
+    purpose: "Subscriptions",
+    retention: "As required by payment/legal",
+    control: "Contact support",
+  },
+  {
+    type: "Subscription status",
+    stored: "Yes",
+    location: "Supabase",
+    purpose: "Plan enforcement",
+    retention: "Until account deleted",
+    control: "Manage plan",
   },
   {
     type: "Usage counters",
     stored: "Yes",
-    where: "Database",
-    why: "Plan enforcement",
+    location: "Supabase",
+    purpose: "Billing, abuse prevention",
     retention: "12 months rolling",
-    control: "View in settings",
-    status: "implemented" as const,
+    control: "No direct control",
   },
   {
-    type: "Uploaded files",
-    stored: "Local only (default)",
-    where: "User device",
-    why: "User action",
+    type: "Cloud consent history",
+    stored: "Yes",
+    location: "Supabase",
+    purpose: "Audit, user reference",
     retention: "Until deleted by user",
-    control: "Delete in app",
-    status: "implemented" as const,
+    control: "Delete in settings",
   },
   {
-    type: "Cloud selected text",
-    stored: "Yes, if saved",
-    where: "Database",
-    why: "User saved draft",
-    retention: "Until deleted",
-    control: "Delete in drafts",
-    status: "planned" as const,
+    type: "Local private files",
+    stored: "No (local only)",
+    location: "User device",
+    purpose: "Local analysis",
+    retention: "User controls",
+    control: "Delete locally",
+  },
+  {
+    type: "Selected cloud text",
+    stored: "Transient",
+    location: "Chairman API",
+    purpose: "Cloud analysis",
+    retention: "Not stored by default",
+    control: "N/A",
   },
   {
     type: "AI responses",
-    stored: "Not stored by default",
-    where: "—",
-    why: "—",
-    retention: "Not retained",
-    control: "—",
-    status: "implemented" as const,
+    stored: "Stored only if saved",
+    location: "Supabase/local",
+    purpose: "User reference",
+    retention: "Until deleted",
+    control: "Delete from archive",
   },
   {
-    type: "Raw prompts",
-    stored: "Not stored by default",
-    where: "—",
-    why: "—",
-    retention: "Not retained",
-    control: "—",
-    status: "implemented" as const,
+    type: "Saved drafts",
+    stored: "Yes",
+    location: "Supabase/local",
+    purpose: "User reference",
+    retention: "Until deleted",
+    control: "Delete in app",
   },
   {
     type: "Website events",
-    stored: "Anonymized",
-    where: "Analytics",
-    why: "Usage improvement",
-    retention: "90 days",
-    control: "Opt out in settings",
-    status: "implemented" as const,
+    stored: "Yes",
+    location: "Vercel",
+    purpose: "Analytics",
+    retention: "30 days",
+    control: "N/A",
   },
   {
-    type: "Support messages",
+    type: "Security audit metadata",
     stored: "Yes",
-    where: "Support system",
-    why: "Issue resolution",
-    retention: "2 years",
-    control: "Request deletion",
-    status: "implemented" as const,
+    location: "Supabase",
+    purpose: "Audit integrity",
+    retention: "12 months",
+    control: "Not deletable",
   },
   {
-    type: "Security audit logs",
+    type: "Support requests",
     stored: "Yes",
-    where: "Database",
-    why: "Security review",
-    retention: "1 year",
-    control: "Owner visible only",
-    status: "planned" as const,
+    location: "Supabase",
+    purpose: "Support",
+    retention: "24 months",
+    control: "Contact support",
   },
+];
+
+const importantRules = [
+  "Local private files remain on the user device in Local Private Mode.",
+  "Raw cloud prompts are not stored by default.",
+  "Raw AI responses are not stored by default unless the user saves them.",
+  "Usage metadata may be retained for billing, abuse prevention, and audit integrity.",
+  "Billing metadata may be retained as required by payment/legal obligations.",
+  "Trust document requests may be retained for vendor review and audit tracking.",
 ];
 
 export default function DataRetentionPage() {
@@ -116,7 +130,7 @@ export default function DataRetentionPage() {
             Data Retention Policy
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            What Chairman stores, where, why, and how long.
+            What Chairman AI stores, where, why, and how long.
           </p>
         </div>
       </section>
@@ -124,13 +138,17 @@ export default function DataRetentionPage() {
       {/* Important Notice */}
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="rounded-2xl border border-emerald/20 bg-emerald/5 p-6">
-          <p className="text-sm font-semibold text-emerald mb-2">Default Behaviour</p>
+          <p className="text-sm font-semibold text-emerald mb-2">
+            Default Behaviour
+          </p>
           <p className="text-sm leading-7 text-muted">
-            By default, Chairman does not store raw prompts or AI responses. Only token counts,
-            mode, cost, request status, and timestamps are recorded for billing and performance.
+            By default, Chairman AI does not store raw prompts or AI responses.
+            Only token counts, mode, cost, request status, and timestamps are
+            recorded for billing and performance.
           </p>
           <p className="mt-3 text-sm leading-7 text-muted">
-            Cloud selected text is only stored if you explicitly save it as a document or draft.
+            Cloud selected text is only stored if you explicitly save it as a
+            document or draft.
           </p>
         </div>
       </section>
@@ -146,30 +164,42 @@ export default function DataRetentionPage() {
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-white/8 bg-panel2">
-                <th className="px-4 py-3 text-left font-semibold text-foreground">Data Type</th>
-                <th className="px-4 py-3 text-left font-semibold text-foreground">Stored?</th>
-                <th className="px-4 py-3 text-left font-semibold text-foreground">Where?</th>
-                <th className="px-4 py-3 text-left font-semibold text-foreground">Why?</th>
-                <th className="px-4 py-3 text-left font-semibold text-foreground">Retention</th>
-                <th className="px-4 py-3 text-left font-semibold text-foreground">User Control</th>
-                <th className="px-4 py-3 text-left font-semibold text-foreground">Status</th>
+                <th className="px-4 py-3 text-left font-semibold text-foreground">
+                  Data Type
+                </th>
+                <th className="px-4 py-3 text-left font-semibold text-foreground">
+                  Stored?
+                </th>
+                <th className="px-4 py-3 text-left font-semibold text-foreground">
+                  Location
+                </th>
+                <th className="px-4 py-3 text-left font-semibold text-foreground">
+                  Purpose
+                </th>
+                <th className="px-4 py-3 text-left font-semibold text-foreground">
+                  Retention
+                </th>
+                <th className="px-4 py-3 text-left font-semibold text-foreground">
+                  User Control
+                </th>
               </tr>
             </thead>
             <tbody>
               {retentionRows.map((row, i) => (
                 <tr
                   key={row.type}
-                  className={`border-b border-white/5 ${i % 2 === 0 ? "bg-panel" : "bg-panel/60"}`}
+                  className={`border-b border-white/5 ${
+                    i % 2 === 0 ? "bg-panel" : "bg-panel/60"
+                  }`}
                 >
-                  <td className="px-4 py-3 font-medium text-foreground">{row.type}</td>
+                  <td className="px-4 py-3 font-medium text-foreground">
+                    {row.type}
+                  </td>
                   <td className="px-4 py-3 text-muted">{row.stored}</td>
-                  <td className="px-4 py-3 text-muted">{row.where}</td>
-                  <td className="px-4 py-3 text-muted">{row.why}</td>
+                  <td className="px-4 py-3 text-muted">{row.location}</td>
+                  <td className="px-4 py-3 text-muted">{row.purpose}</td>
                   <td className="px-4 py-3 text-muted">{row.retention}</td>
                   <td className="px-4 py-3 text-muted">{row.control}</td>
-                  <td className="px-4 py-3">
-                    <StatusChip status={row.status} />
-                  </td>
                 </tr>
               ))}
             </tbody>
@@ -177,8 +207,27 @@ export default function DataRetentionPage() {
         </div>
       </section>
 
-      {/* Additional Notes */}
+      {/* Important Retention Rules */}
       <section className="border-t border-white/8 bg-panel/40 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionTitle
+            title="Important Retention Rules"
+            subtitle="Key rules about data storage and retention."
+            align="left"
+          />
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            {importantRules.map((rule) => (
+              <Card key={rule} className="flex items-start gap-3">
+                <span className="mt-1 text-emerald shrink-0">+</span>
+                <p className="text-sm leading-7 text-muted">{rule}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Additional Notes */}
+      <section className="border-t border-white/8 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
             title="Additional Notes"
@@ -187,35 +236,45 @@ export default function DataRetentionPage() {
           />
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
             <Card>
-              <h3 className="text-base font-semibold text-foreground">Billing Records</h3>
+              <h3 className="text-base font-semibold text-foreground">
+                Billing Records
+              </h3>
               <p className="mt-3 text-sm leading-7 text-muted">
-                Billing metadata is retained for up to 7 years to meet legal and tax requirements.
-                This is a legal obligation and cannot be waived upon account deletion. Users can
-                access their billing history via the billing portal.
+                Billing metadata is retained as required by payment and legal
+                obligations. This may be a legal requirement and cannot always
+                be waived upon account deletion. Users can access their billing
+                history via the billing portal.
               </p>
             </Card>
             <Card>
-              <h3 className="text-base font-semibold text-foreground">Anonymised Analytics</h3>
+              <h3 className="text-base font-semibold text-foreground">
+                Analytics
+              </h3>
               <p className="mt-3 text-sm leading-7 text-muted">
-                Website usage events are anonymised before storage. No personally identifiable
-                information is attached to analytics records. You can opt out of analytics
-                tracking in Settings → Privacy & Data.
+                Website usage events are retained for 30 days via Vercel
+                analytics. No personally identifiable information is attached
+                to analytics records.
               </p>
             </Card>
             <Card>
-              <h3 className="text-base font-semibold text-foreground">Local File Storage</h3>
+              <h3 className="text-base font-semibold text-foreground">
+                Local File Storage
+              </h3>
               <p className="mt-3 text-sm leading-7 text-muted">
-                In private local mode, uploaded files and documents never leave your device.
-                Chairman does not copy, upload, or back up local files to Chairman servers.
-                Deletion is entirely under your control.
+                In private local mode, uploaded files and documents never leave
+                your device. Chairman AI does not copy, upload, or back up local
+                files to Chairman AI servers. Deletion is entirely under your
+                control.
               </p>
             </Card>
             <Card>
-              <h3 className="text-base font-semibold text-foreground">Audit Log Access</h3>
+              <h3 className="text-base font-semibold text-foreground">
+                Audit Log Access
+              </h3>
               <p className="mt-3 text-sm leading-7 text-muted">
-                Security audit logs are retained for 1 year and are visible only to account
-                owners and authorised administrators. These logs support security review and
-                incident response — they are not shared with third parties.
+                Security audit metadata is retained for 12 months and is
+                visible only to account owners and authorised administrators.
+                These logs support security review and incident response.
               </p>
             </Card>
           </div>

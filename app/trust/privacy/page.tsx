@@ -4,9 +4,9 @@ import { SectionTitle } from "@/components/SectionTitle";
 import { Button } from "@/components/Button";
 
 export const metadata: Metadata = {
-  title: "Privacy — Chameleon Eye AI Trust Center",
+  title: "Privacy — Chairman AI Trust Center",
   description:
-    "How Chameleon Eye AI handles your data across local, hybrid, and cloud modes. What we collect and what we never collect.",
+    "How Chairman AI handles your data across local, hybrid, and cloud modes. No customer-data training, DPA available, and clear user controls.",
 };
 
 const dataModes = [
@@ -16,12 +16,12 @@ const dataModes = [
     color: "border-emerald/30 bg-emerald/5",
     titleColor: "text-emerald",
     description:
-      "Data stays entirely on your device. No request is made to Chameleon servers or any AI provider.",
+      "Private Intelligence can run on the user's device when the local Chairman Brain is installed.",
     details: [
       "Documents and files never leave your device",
       "Processing happens locally using on-device capabilities",
       "No network call is made for intelligence tasks",
-      "No Chameleon account required for local-only use",
+      "No Chairmans Holding account required for local-only use",
     ],
   },
   {
@@ -30,7 +30,7 @@ const dataModes = [
     color: "border-gold/30 bg-gold/5",
     titleColor: "text-gold",
     description:
-      "Local by default. You select text, review it, and explicitly approve before anything is sent to the cloud.",
+      "Only selected text is sent to cloud intelligence after user approval.",
     details: [
       "Local files remain on-device",
       "Only the text you select and approve is transmitted",
@@ -44,7 +44,7 @@ const dataModes = [
     color: "border-white/15 bg-panel2",
     titleColor: "text-foreground",
     description:
-      "For cloud intelligence workflows and API integrations. Subject to privacy checks and routing controls.",
+      "Cloud intelligence is processed through Chairman API and approved AI routes.",
     details: [
       "Requests route through the Chairman API server-side",
       "Provider keys are never exposed to the client",
@@ -57,8 +57,14 @@ const dataModes = [
 const weCollect = [
   { item: "Account email address", reason: "Authentication" },
   { item: "Billing metadata", reason: "Plan management and legal compliance" },
-  { item: "Usage counters (token counts, mode, status)", reason: "Plan enforcement and billing" },
-  { item: "Anonymised website events", reason: "Product improvement (opt-out available)" },
+  {
+    item: "Usage counters (token counts, mode, status)",
+    reason: "Plan enforcement and billing",
+  },
+  {
+    item: "Anonymised website events",
+    reason: "Product improvement (opt-out available)",
+  },
   { item: "Support messages", reason: "Issue resolution" },
   { item: "Audit log metadata (no content)", reason: "Security and owner review" },
 ];
@@ -70,6 +76,14 @@ const weDoNotCollect = [
   "Behavioural profiles for advertising",
   "Data for third-party ad targeting",
   "Personal data for model training",
+];
+
+const userControls = [
+  { label: "Cloud consent history", href: null },
+  { label: "Data export request", href: "/trust/data-deletion" },
+  { label: "Data deletion request", href: "/trust/data-deletion" },
+  { label: "Privacy settings", href: "/settings/privacy" },
+  { label: "Local-first options", href: "/local-mode" },
 ];
 
 export default function TrustPrivacyPage() {
@@ -86,17 +100,57 @@ export default function TrustPrivacyPage() {
             Privacy
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            How Chameleon handles your data across all modes — and what we never
-            do with it.
+            How Chairman AI handles your data across all modes — and what we
+            never do with it.
           </p>
+        </div>
+      </section>
+
+      {/* DPA Available */}
+      <section className="border-b border-white/8 bg-panel/40 py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-2xl border border-emerald/20 bg-emerald/5 p-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-sm font-semibold text-emerald mb-2">
+                Data Processing Agreement Available
+              </p>
+              <p className="text-sm leading-7 text-muted">
+                A Data Processing Agreement is available for qualified business
+                customers and approved partners.
+              </p>
+            </div>
+            <Button href="/trust/dpa" variant="secondary">
+              Request DPA
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* No-Training */}
+      <section className="border-b border-white/8 py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-2xl border border-emerald/20 bg-emerald/5 p-6">
+            <p className="text-sm font-semibold text-emerald mb-2">
+              No Customer-Data Training
+            </p>
+            <p className="text-sm leading-7 text-muted">
+              Chairman AI does not use customer private files, prompts, or
+              business data to train a public AI model.
+            </p>
+            <div className="mt-4">
+              <Button href="/trust/no-training-policy" variant="secondary">
+                Read the No-Training Policy
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Three Data Modes */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <SectionTitle
-          title="Three Data Modes"
-          subtitle="Chameleon operates across three privacy modes. You choose how much reaches the cloud."
+          title="Local / Hybrid / Cloud Processing"
+          subtitle="Chairman AI operates across three privacy modes. You choose how much reaches the cloud."
           align="left"
         />
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
@@ -174,22 +228,32 @@ export default function TrustPrivacyPage() {
         </div>
       </section>
 
-      {/* No-Training Statement */}
+      {/* User Controls */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="rounded-2xl border border-emerald/30 bg-emerald/5 p-8">
-          <p className="text-base font-semibold text-emerald mb-3">
-            No-Training Commitment
-          </p>
-          <p className="text-base leading-8 text-foreground">
-            Chairman AI does not use customer private files, prompts, or
-            business data to train a public AI model. Your content is used only
-            to generate your requested output.
-          </p>
-          <div className="mt-6">
-            <Button href="/trust/no-training-policy" variant="secondary">
-              Read the No-Training Policy
-            </Button>
-          </div>
+        <SectionTitle
+          title="User Controls"
+          subtitle="Tools and settings available to manage your data."
+          align="left"
+        />
+        <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {userControls.map((ctrl) => (
+            <div
+              key={ctrl.label}
+              className="flex items-center gap-3 rounded-xl border border-white/8 bg-panel px-4 py-3"
+            >
+              <span className="text-emerald shrink-0">+</span>
+              {ctrl.href ? (
+                <a
+                  href={ctrl.href}
+                  className="text-sm text-foreground hover:text-emerald transition-colors"
+                >
+                  {ctrl.label}
+                </a>
+              ) : (
+                <span className="text-sm text-foreground">{ctrl.label}</span>
+              )}
+            </div>
+          ))}
         </div>
       </section>
 
@@ -202,11 +266,11 @@ export default function TrustPrivacyPage() {
                 Privacy Questions
               </h2>
               <p className="mt-2 text-sm leading-7 text-muted">
-                Contact our privacy team for questions about data handling.
+                Contact the privacy team for questions about data handling.
               </p>
             </div>
-            <Button href="mailto:privacy@chameleoneye.ai" variant="primary">
-              privacy@chameleoneye.ai
+            <Button href="mailto:privacy@chairmans.uk" variant="primary">
+              privacy@chairmans.uk
             </Button>
           </div>
           <div className="mt-8 flex flex-wrap gap-3">

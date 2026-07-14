@@ -6,8 +6,17 @@ import { Button } from "@/components/Button";
 export const metadata: Metadata = {
   title: "Responsible Disclosure — Chairman AI",
   description:
-    "How to report a security vulnerability to Chairman. Our responsible disclosure process and safe harbour policy.",
+    "How to report a security vulnerability to Chairman AI. Responsible disclosure process and safe harbour policy.",
 };
+
+const rules = [
+  "Report suspected vulnerabilities responsibly.",
+  "Do not access other users' data.",
+  "Do not run destructive tests.",
+  "Do not perform denial-of-service testing.",
+  "Provide clear reproduction steps.",
+  "The company will review valid reports responsibly.",
+];
 
 const whatToReport = [
   "Authentication bypass or account takeover",
@@ -18,15 +27,6 @@ const whatToReport = [
   "API key exposure in frontend or public endpoints",
   "Cross-site scripting (XSS) with significant impact",
   "Server-side request forgery (SSRF)",
-];
-
-const whatNotToDo = [
-  "Do not access, exfiltrate, or modify other users' data",
-  "Do not run destructive tests (data deletion, denial-of-service, resource exhaustion)",
-  "Do not perform denial-of-service or load attacks against Chairman systems",
-  "Do not publicly disclose the vulnerability before Chairman has addressed the issue",
-  "Do not use automated scanners that generate excessive traffic",
-  "Do not social-engineer Chairman employees or contractors",
 ];
 
 export default function ResponsibleDisclosurePage() {
@@ -43,10 +43,10 @@ export default function ResponsibleDisclosurePage() {
             Responsible Disclosure
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            How to report a security vulnerability to Chairman.
+            How to report a security vulnerability to Chairman AI.
           </p>
           <div className="mt-8">
-            <Button href="mailto:security@chameleoneye.ai" variant="primary">
+            <Button href="mailto:security@chairmans.uk" variant="primary">
               Report a Vulnerability
             </Button>
           </div>
@@ -59,39 +59,74 @@ export default function ResponsibleDisclosurePage() {
           <div className="lg:col-span-2">
             <SectionTitle
               title="How to Report"
-              subtitle="Submit security reports via email. We take all reports seriously."
+              subtitle="Submit security reports via email. Chairmans Holding takes all reports seriously."
               align="left"
             />
             <div className="mt-10 space-y-6">
               <Card>
-                <h3 className="text-base font-semibold text-foreground">Report Security Issues</h3>
+                <h3 className="text-base font-semibold text-foreground">
+                  Report Security Issues
+                </h3>
                 <p className="mt-3 text-sm leading-7 text-muted">
                   Send your report to:{" "}
                   <a
-                    href="mailto:security@chameleoneye.ai"
+                    href="mailto:security@chairmans.uk"
                     className="text-emerald hover:underline"
                   >
-                    security@chameleoneye.ai
+                    security@chairmans.uk
                   </a>
                 </p>
                 <p className="mt-3 text-sm leading-7 text-muted">
-                  Include in your report: a clear description of the vulnerability, steps to
-                  reproduce it, the potential impact, and any proof-of-concept code or screenshots
-                  if relevant. Encrypt sensitive reports using our public key if available.
+                  Include in your report: a clear description of the
+                  vulnerability, steps to reproduce it, the potential impact,
+                  and any proof-of-concept code or screenshots if relevant.
                 </p>
               </Card>
 
               <Card>
-                <h3 className="text-base font-semibold text-foreground">Response Timeline</h3>
+                <h3 className="text-base font-semibold text-foreground">
+                  Disclosure Rules
+                </h3>
+                <ul className="mt-4 space-y-3">
+                  {rules.map((rule) => (
+                    <li
+                      key={rule}
+                      className="flex items-start gap-2 text-sm text-muted"
+                    >
+                      <span className="mt-1 text-emerald shrink-0">+</span>
+                      <span>{rule}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+
+              <Card>
+                <h3 className="text-base font-semibold text-foreground">
+                  Response Timeline
+                </h3>
                 <div className="mt-4 space-y-3">
                   {[
                     { step: "Acknowledgement", time: "Within 5 business days" },
-                    { step: "Initial assessment", time: "Within 10 business days" },
-                    { step: "Fix and coordination", time: "Depends on severity" },
-                    { step: "Public disclosure", time: "Coordinated after fix" },
+                    {
+                      step: "Initial assessment",
+                      time: "Within 10 business days",
+                    },
+                    {
+                      step: "Fix and coordination",
+                      time: "Depends on severity",
+                    },
+                    {
+                      step: "Public disclosure",
+                      time: "Coordinated after fix",
+                    },
                   ].map((item) => (
-                    <div key={item.step} className="flex items-center justify-between gap-4 border-b border-white/5 pb-3">
-                      <span className="text-sm text-foreground">{item.step}</span>
+                    <div
+                      key={item.step}
+                      className="flex items-center justify-between gap-4 border-b border-white/5 pb-3"
+                    >
+                      <span className="text-sm text-foreground">
+                        {item.step}
+                      </span>
                       <span className="text-sm text-muted">{item.time}</span>
                     </div>
                   ))}
@@ -99,12 +134,14 @@ export default function ResponsibleDisclosurePage() {
               </Card>
 
               <Card>
-                <h3 className="text-base font-semibold text-foreground">Researcher Acknowledgement</h3>
+                <h3 className="text-base font-semibold text-foreground">
+                  Public Bug Bounty
+                </h3>
                 <p className="mt-3 text-sm leading-7 text-muted">
-                  Chairman appreciates responsible security researchers. With your permission, we
-                  will acknowledge credited disclosures publicly. We do not currently operate a
-                  formal bug bounty programme, but we do recognise researchers who report valid,
-                  high-impact vulnerabilities responsibly.
+                  A public bug bounty programme is not currently active.
+                  Chairmans Holding appreciates responsible security researchers
+                  and will recognise researchers who report valid, high-impact
+                  vulnerabilities responsibly.
                 </p>
               </Card>
             </div>
@@ -112,7 +149,9 @@ export default function ResponsibleDisclosurePage() {
 
           <div className="space-y-6">
             <Card>
-              <h3 className="text-base font-semibold text-foreground mb-4">What to Report</h3>
+              <h3 className="text-base font-semibold text-foreground mb-4">
+                What to Report
+              </h3>
               <ul className="space-y-2">
                 {whatToReport.map((item) => (
                   <li key={item} className="flex gap-2 text-sm text-muted">
@@ -126,31 +165,21 @@ export default function ResponsibleDisclosurePage() {
         </div>
       </section>
 
-      {/* What NOT to do */}
+      {/* Safe Harbour */}
       <section className="border-t border-white/8 bg-panel/40 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
-            title="What NOT to Do"
-            subtitle="Actions that fall outside responsible disclosure and may result in legal action."
+            title="Safe Harbour"
+            subtitle="Acting within these guidelines constitutes good-faith security research."
             align="left"
           />
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
-            {whatNotToDo.map((item) => (
-              <div
-                key={item}
-                className="flex gap-3 rounded-xl border border-white/8 bg-panel p-4"
-              >
-                <span className="mt-0.5 text-gold shrink-0">—</span>
-                <span className="text-sm leading-6 text-muted">{item}</span>
-              </div>
-            ))}
-          </div>
-          <div className="mt-8 rounded-2xl border border-gold/20 bg-gold/5 p-6">
+          <div className="mt-10 rounded-2xl border border-gold/20 bg-gold/5 p-6">
             <p className="text-sm leading-7 text-muted">
-              Acting within the guidelines above constitutes good-faith security research. Chairman
-              will not pursue legal action against researchers who follow these guidelines. Actions
-              outside these guidelines may result in legal action under applicable computer fraud
-              and cybercrime laws.
+              Acting within the guidelines above constitutes good-faith security
+              research. Chairmans Holding will not pursue legal action against
+              researchers who follow these guidelines. Actions outside these
+              guidelines may result in legal action under applicable computer
+              fraud and cybercrime laws.
             </p>
           </div>
         </div>

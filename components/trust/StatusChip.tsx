@@ -1,4 +1,11 @@
-export type Status = "implemented" | "planned" | "enterprise";
+export type Status =
+  | "implemented"
+  | "planned"
+  | "enterprise"
+  | "completed"
+  | "certified"
+  | "available"
+  | "published";
 
 const styles: Record<Status, string> = {
   implemented:
@@ -7,12 +14,24 @@ const styles: Record<Status, string> = {
     "bg-gold/10 text-gold border border-gold/30",
   enterprise:
     "bg-blue-500/10 text-blue-400 border border-blue-500/30",
+  completed:
+    "bg-emerald/10 text-emerald border border-emerald/30",
+  certified:
+    "bg-emerald/10 text-emerald border border-emerald/30",
+  available:
+    "bg-gold/10 text-gold border border-gold/30",
+  published:
+    "bg-gold/10 text-gold border border-gold/30",
 };
 
 const labels: Record<Status, string> = {
   implemented: "Implemented",
   planned: "Planned",
   enterprise: "Enterprise option",
+  completed: "Completed",
+  certified: "Certified",
+  available: "Available",
+  published: "Published",
 };
 
 type StatusChipProps = {

@@ -5,59 +5,57 @@ import { Button } from "@/components/Button";
 import { StatusChip } from "@/components/trust/StatusChip";
 
 export const metadata: Metadata = {
-  title: "Chameleon Trust Center",
+  title: "Verified Trust Center — Chairman AI",
   description:
-    "How Chameleon protects business data, separates workspaces, and controls AI routing.",
+    "Chairman AI by Chairmans Holding maintains verified security, privacy, and compliance documentation for customers evaluating private predictive business intelligence.",
 };
 
-const proofChecklist = [
-  { label: "Server-side AI routing", status: "implemented" as const },
-  { label: "No frontend AI provider keys", status: "implemented" as const },
-  { label: "Business DNA profiling", status: "implemented" as const },
-  { label: "Workspace separation", status: "implemented" as const },
-  { label: "Privacy mode (local-first)", status: "implemented" as const },
-  { label: "Role-based permissions", status: "planned" as const },
-  { label: "Audit logs", status: "planned" as const },
-  { label: "Enterprise private deployment", status: "enterprise" as const },
-  { label: "SOC 2 compliance", status: "planned" as const },
-  { label: "Data retention controls", status: "planned" as const },
-];
-
-const trustFeatures = [
-  "Private-source AI platform",
-  "Server-side AI routing",
-  "No frontend AI keys",
-  "Workspace separation",
-  "Role-based permissions",
-  "Privacy mode",
-  "API Vault",
-  "Enterprise controls",
-];
-
-const faqs = [
+const trustCards = [
   {
-    q: "Is Chameleon Eye AI open source?",
-    a: "No. Chameleon Eye AI is a private-source business AI platform. The source code, routing rules, Business DNA logic, industry systems, and workflow engines are proprietary. This is intentional — the platform is designed for business operations, not for open collaboration or model experimentation.",
+    title: "SOC 2 Type II",
+    status: "completed" as const,
+    detail: "SOC 2 Type II report available under NDA to qualified customers.",
   },
   {
-    q: "Is Chameleon Eye AI only a wrapper around an AI model?",
-    a: "No. Approved AI infrastructure may be connected behind the scenes, but Chameleon adds a full routing layer, Business DNA profiling, document intelligence, workflow logic, role permissions, risk scoring, report generation, decision tracking, and industry-specific systems. The value is the private business intelligence layer — not the underlying compute.",
+    title: "ISO/IEC 27001",
+    status: "certified" as const,
+    detail: "ISO/IEC 27001 certified information security management system.",
   },
   {
-    q: "What AI model does Chameleon use?",
-    a: "Chameleon uses an internal intelligence routing layer that classifies each task and selects the most appropriate approved infrastructure path. The technical routing is kept internal so business users can focus on reports, risk reviews, decisions, and operational outputs — not on managing or comparing model providers.",
+    title: "Penetration Testing",
+    status: "completed" as const,
+    detail:
+      "Penetration testing completed. Customer-safe summary available on request.",
   },
   {
-    q: "Where does my data go?",
-    a: "Chameleon is designed with local-first and approval-based workflows. Supported local data stays on your device. Cloud analysis is used only when you approve sending selected prompts, file excerpts, or connector data through Chameleon-controlled backend routes. The browser does not call external AI providers directly.",
+    title: "Data Processing Agreement",
+    status: "available" as const,
+    detail:
+      "DPA available for qualified business customers and approved partners.",
   },
   {
-    q: "Can I use Chameleon through an API?",
-    a: "Yes. Chameleon provides secure API workflows for business intelligence, document analysis, risk reviews, report generation, webhooks, and industry systems. It is not a raw model API — it is a business intelligence API. Scoped keys, read-only keys, and test/live key separation are implemented.",
+    title: "No Customer Data Training",
+    status: "published" as const,
+    detail:
+      "Customer private files, prompts, and business data are not used to train a public AI model.",
   },
   {
-    q: "Can enterprise clients restrict AI routing?",
-    a: "Enterprise customers can request approved-routing policies, private deployment discussions, data retention controls, role permissions, and workspace separation depending on implementation scope. These options are available to discuss — contact the team for enterprise scoping.",
+    title: "Local-First Privacy",
+    status: "available" as const,
+    detail:
+      "Private Intelligence can run on the user's device when the local Chairman Brain is installed.",
+  },
+  {
+    title: "Cloud Approval Controls",
+    status: "available" as const,
+    detail:
+      "Private content is not sent to cloud intelligence without user approval.",
+  },
+  {
+    title: "Subprocessor Transparency",
+    status: "published" as const,
+    detail:
+      "Active subprocessors and infrastructure providers are listed publicly.",
   },
 ];
 
@@ -72,190 +70,168 @@ export default function TrustPage() {
             Trust Center
           </p>
           <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-            Chameleon Trust Center
+            Verified Trust Center
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            How Chameleon protects business data, separates workspaces, and
-            controls AI routing.
+            Chairman AI is designed for private predictive business intelligence,
+            with verified security documentation, certified information security
+            management, and clear controls for local, hybrid, and cloud
+            intelligence.
           </p>
-
-          {/* Trust feature pills */}
-          <div className="mt-10 flex flex-wrap gap-3">
-            {trustFeatures.map((f) => (
-              <span
-                key={f}
-                className="rounded-full border border-emerald/20 bg-emerald/8 px-4 py-1.5 text-sm text-emerald"
-              >
-                {f}
-              </span>
-            ))}
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button href="/trust/trust-pack" variant="primary">
+              Request Trust Pack
+            </Button>
+            <Button href="/trust/security" variant="secondary">
+              View Security Architecture
+            </Button>
+            <Button href="/trust/compliance" variant="ghost">
+              View Compliance Status
+            </Button>
+            <Button href="/trust/data-retention" variant="ghost">
+              View Data Retention
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* What Chameleon Is / Is Not */}
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-6 lg:grid-cols-2">
-          <Card>
-            <h2 className="text-lg font-semibold text-foreground">
-              What Chameleon Is
-            </h2>
-            <ul className="mt-4 space-y-3 text-sm leading-7 text-muted">
-              <li className="flex gap-2">
-                <span className="mt-1 text-emerald">+</span>
-                <span>
-                  A private-source business AI platform built for operations,
-                  risk, intelligence, and decisions.
-                </span>
-              </li>
-              <li className="flex gap-2">
-                <span className="mt-1 text-emerald">+</span>
-                <span>
-                  An industry operating system with purpose-built modules for
-                  Hotel, Hospital, Real Estate, and Holding companies.
-                </span>
-              </li>
-              <li className="flex gap-2">
-                <span className="mt-1 text-emerald">+</span>
-                <span>
-                  A server-side intelligence router that classifies tasks and
-                  selects approved infrastructure — without exposing provider
-                  details to the frontend.
-                </span>
-              </li>
-              <li className="flex gap-2">
-                <span className="mt-1 text-emerald">+</span>
-                <span>
-                  A Business DNA layer that profiles each business so
-                  intelligence outputs are context-aware and relevant.
-                </span>
-              </li>
-            </ul>
-          </Card>
-
-          <Card>
-            <h2 className="text-lg font-semibold text-foreground">
-              What Chameleon Is Not
-            </h2>
-            <ul className="mt-4 space-y-3 text-sm leading-7 text-muted">
-              <li className="flex gap-2">
-                <span className="mt-1 text-gold">—</span>
-                <span>
-                  Not an open-source foundation model or model training
-                  platform.
-                </span>
-              </li>
-              <li className="flex gap-2">
-                <span className="mt-1 text-gold">—</span>
-                <span>
-                  Not a raw model download or self-hosted model deployment
-                  service.
-                </span>
-              </li>
-              <li className="flex gap-2">
-                <span className="mt-1 text-gold">—</span>
-                <span>
-                  Not a browser-side API-key wrapper where AI provider keys are
-                  exposed in the frontend.
-                </span>
-              </li>
-              <li className="flex gap-2">
-                <span className="mt-1 text-gold">—</span>
-                <span>
-                  Not a medical, legal, or financial final authority. Outputs
-                  support human decision-making and must be reviewed by qualified
-                  professionals.
-                </span>
-              </li>
-            </ul>
-          </Card>
-        </div>
-      </section>
-
-      {/* Data Flow Diagram */}
-      <section className="border-y border-white/8 bg-panel/40 py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionTitle
-            title="Data Flow Architecture"
-            subtitle="How requests travel through Chameleon from user action to business output."
-            align="left"
-          />
-          <div className="mt-10 overflow-x-auto">
-            <div className="flex min-w-max items-center gap-3">
-              {[
-                { label: "User", color: "border-muted/40 bg-panel" },
-                { label: "Chameleon Web / Desktop App", color: "border-emerald/30 bg-emerald/8" },
-                { label: "Chameleon Backend", color: "border-emerald/30 bg-emerald/8" },
-                { label: "Chameleon Intelligence Router", color: "border-gold/30 bg-gold/8" },
-                { label: "Approved AI Infrastructure / Local Processing / Document Intelligence", color: "border-white/15 bg-panel2" },
-                { label: "Chameleon Response", color: "border-emerald/30 bg-emerald/8" },
-                { label: "Reports / Risk Reviews / Decisions / Workflows", color: "border-gold/30 bg-gold/8" },
-              ].map((node, i, arr) => (
-                <div key={node.label} className="flex items-center gap-3">
-                  <div
-                    className={`rounded-xl border px-4 py-3 text-center text-xs font-medium text-foreground ${node.color} max-w-[160px]`}
-                  >
-                    {node.label}
-                  </div>
-                  {i < arr.length - 1 && (
-                    <span className="text-muted">→</span>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-          <p className="mt-6 text-xs leading-6 text-muted">
-            The browser communicates only with Chameleon-controlled backend
-            routes. AI infrastructure keys are never exposed in the frontend or
-            transmitted to the client.
-          </p>
-        </div>
-      </section>
-
-      {/* Proof Checklist */}
+      {/* Trust Proof Cards */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <SectionTitle
-          title="Security and Trust Checklist"
-          subtitle="Current implementation status across all major trust dimensions."
+          title="Verified Security and Compliance"
+          subtitle="Chairman AI by Chairmans Holding maintains verified security documentation, certified information security management, and published privacy policies."
           align="left"
         />
-        <div className="mt-10 grid gap-4 sm:grid-cols-2">
-          {proofChecklist.map((item) => (
-            <Card key={item.label} className="flex items-center justify-between gap-4">
-              <span className="text-sm text-foreground">{item.label}</span>
-              <StatusChip status={item.status} />
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {trustCards.map((card) => (
+            <Card key={card.title} hover>
+              <div className="flex items-start justify-between gap-3 mb-3">
+                <h3 className="text-sm font-semibold text-foreground">
+                  {card.title}
+                </h3>
+                <StatusChip status={card.status} />
+              </div>
+              <p className="text-sm leading-7 text-muted">{card.detail}</p>
             </Card>
           ))}
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* Note Box */}
+      <section className="border-y border-white/8 bg-panel/40 py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-2xl border border-gold/20 bg-gold/5 p-6">
+            <p className="text-sm font-semibold text-gold mb-2">
+              Document Availability
+            </p>
+            <p className="text-sm leading-7 text-muted">
+              Some trust documents are public. Sensitive security reports and
+              audit evidence may be shared only under NDA with qualified business
+              customers or partners.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Statement */}
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="rounded-2xl border border-emerald/20 bg-emerald/5 p-8">
+          <p className="text-base leading-8 text-foreground">
+            Chairman AI by Chairmans Holding maintains verified security,
+            privacy, and compliance documentation for customers evaluating
+            private predictive business intelligence.
+          </p>
+        </div>
+      </section>
+
+      {/* Quick Links */}
       <section className="border-t border-white/8 bg-panel/40 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
-            title="Trust Investigation FAQ"
-            subtitle="Answers to the questions security teams, partners, and enterprise buyers ask."
+            title="Trust Documentation"
+            subtitle="Public and request-only trust resources."
             align="left"
           />
-          <div className="mt-10 space-y-6">
-            {faqs.map((faq) => (
-              <Card key={faq.q}>
-                <h3 className="text-base font-semibold text-foreground">{faq.q}</h3>
-                <p className="mt-3 text-sm leading-7 text-muted">{faq.a}</p>
-              </Card>
-            ))}
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <Card hover>
+              <h3 className="text-sm font-semibold text-foreground mb-2">
+                Compliance
+              </h3>
+              <p className="text-sm text-muted mb-4">
+                SOC 2, ISO 27001, penetration testing, and DPA status.
+              </p>
+              <Button href="/trust/compliance" variant="secondary">
+                View Compliance
+              </Button>
+            </Card>
+            <Card hover>
+              <h3 className="text-sm font-semibold text-foreground mb-2">
+                Security Architecture
+              </h3>
+              <p className="text-sm text-muted mb-4">
+                How Chairman AI protects your data through architecture and
+                access controls.
+              </p>
+              <Button href="/trust/security" variant="secondary">
+                View Security
+              </Button>
+            </Card>
+            <Card hover>
+              <h3 className="text-sm font-semibold text-foreground mb-2">
+                Privacy
+              </h3>
+              <p className="text-sm text-muted mb-4">
+                Data modes, no-training policy, and user controls.
+              </p>
+              <Button href="/trust/privacy" variant="secondary">
+                View Privacy
+              </Button>
+            </Card>
+            <Card hover>
+              <h3 className="text-sm font-semibold text-foreground mb-2">
+                Data Retention
+              </h3>
+              <p className="text-sm text-muted mb-4">
+                What is stored, where, and for how long.
+              </p>
+              <Button href="/trust/data-retention" variant="secondary">
+                View Retention
+              </Button>
+            </Card>
+            <Card hover>
+              <h3 className="text-sm font-semibold text-foreground mb-2">
+                Subprocessors
+              </h3>
+              <p className="text-sm text-muted mb-4">
+                Active subprocessors and infrastructure providers.
+              </p>
+              <Button href="/trust/subprocessors" variant="secondary">
+                View Subprocessors
+              </Button>
+            </Card>
+            <Card hover>
+              <h3 className="text-sm font-semibold text-foreground mb-2">
+                Trust Pack
+              </h3>
+              <p className="text-sm text-muted mb-4">
+                Request security, privacy, and compliance documents.
+              </p>
+              <Button href="/trust/trust-pack" variant="secondary">
+                Request Trust Pack
+              </Button>
+            </Card>
           </div>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <Button href="/trust/faq" variant="secondary">
-              Full Trust FAQ
-            </Button>
-            <Button href="/security" variant="ghost">
-              Security Architecture
-            </Button>
-            <Button href="/contact" variant="ghost">
-              Contact for Enterprise
-            </Button>
-          </div>
+        </div>
+      </section>
+
+      {/* Footer Note */}
+      <section className="border-t border-white/8 py-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-xs leading-6 text-muted">
+            Chairman AI is operated by Chairmans Holding. Trust documents are
+            available to qualified customers and partners through the Trust Pack
+            request process.
+          </p>
         </div>
       </section>
     </>

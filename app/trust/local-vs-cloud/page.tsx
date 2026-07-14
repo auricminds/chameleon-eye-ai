@@ -5,10 +5,34 @@ import { StatusChip } from "@/components/trust/StatusChip";
 import { Button } from "@/components/Button";
 
 export const metadata: Metadata = {
-  title: "Private vs Cloud Intelligence — Chairman AI",
+  title: "Local vs Cloud Processing — Chairman AI",
   description:
     "Understanding where your data goes — and when. Compare private local intelligence with cloud intelligence mode.",
 };
+
+const comparisonRows = [
+  {
+    mode: "Local Private Mode",
+    location: "User device",
+    whatIsSent: "Nothing sent to cloud AI",
+    bestFor: "Private files and confidential work",
+    approval: "No cloud approval needed",
+  },
+  {
+    mode: "Hybrid Approval Mode",
+    location: "Local first + selected cloud",
+    whatIsSent: "Only selected text after approval",
+    bestFor: "Deeper analysis on approved excerpts",
+    approval: "Approval required",
+  },
+  {
+    mode: "Cloud / API Mode",
+    location: "Chairman API + approved cloud AI",
+    whatIsSent: "Current typed request or selected approved text",
+    bestFor: "Advanced cloud intelligence",
+    approval: "Approval per privacy settings",
+  },
+];
 
 const localFeatures = [
   "Runs on your device when desktop app is installed",
@@ -21,50 +45,11 @@ const localFeatures = [
 
 const cloudFeatures = [
   "Used only for selected requests",
-  "May use approved third-party AI infrastructure",
+  "May use approved AI infrastructure",
   "Selected text may be sent after your explicit consent",
   "Your full private archive is not sent automatically",
   "Token count and cost tracked for billing",
   "Raw prompts not stored by default",
-];
-
-const comparisonRows = [
-  {
-    feature: "Data leaves device",
-    local: "Never",
-    cloud: "Selected text only (with consent)",
-    localGood: true,
-  },
-  {
-    feature: "Speed",
-    local: "Depends on device",
-    cloud: "Fast",
-    localGood: false,
-  },
-  {
-    feature: "Requires internet",
-    local: "No",
-    cloud: "Yes",
-    localGood: true,
-  },
-  {
-    feature: "File content sent",
-    local: "Never",
-    cloud: "Never (only selected text)",
-    localGood: true,
-  },
-  {
-    feature: "Response stored",
-    local: "No",
-    cloud: "No (by default)",
-    localGood: true,
-  },
-  {
-    feature: "Best for",
-    local: "Sensitive documents, confidential data",
-    cloud: "Complex analysis, large context",
-    localGood: null,
-  },
 ];
 
 export default function LocalVsCloudPage() {
@@ -78,7 +63,7 @@ export default function LocalVsCloudPage() {
             Trust Center
           </p>
           <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-            Private Intelligence vs Cloud Intelligence
+            Local vs Cloud Processing
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
             Understanding where your data goes — and when.
@@ -86,93 +71,131 @@ export default function LocalVsCloudPage() {
         </div>
       </section>
 
-      {/* Two column cards */}
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-8 lg:grid-cols-2">
-          {/* Local */}
-          <Card className="border-emerald/20">
-            <div className="flex items-start justify-between gap-4 mb-6">
-              <div>
-                <h2 className="text-xl font-semibold text-foreground">Private Intelligence</h2>
-                <p className="text-sm text-muted mt-1">Local processing on your device</p>
-              </div>
-              <StatusChip status="implemented" />
-            </div>
-            <ul className="space-y-3">
-              {localFeatures.map((f) => (
-                <li key={f} className="flex items-start gap-2 text-sm text-muted">
-                  <span className="mt-1 text-emerald shrink-0">+</span>
-                  <span>{f}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-6 pt-6 border-t border-white/8">
-              <span className="inline-flex items-center rounded-full border border-emerald/30 bg-emerald/10 px-3 py-1 text-xs font-medium text-emerald">
-                Available with Desktop App
-              </span>
-            </div>
-          </Card>
-
-          {/* Cloud */}
-          <Card className="border-gold/20">
-            <div className="flex items-start justify-between gap-4 mb-6">
-              <div>
-                <h2 className="text-xl font-semibold text-foreground">Cloud Intelligence</h2>
-                <p className="text-sm text-muted mt-1">Consent-gated cloud processing</p>
-              </div>
-              <StatusChip status="implemented" />
-            </div>
-            <ul className="space-y-3">
-              {cloudFeatures.map((f) => (
-                <li key={f} className="flex items-start gap-2 text-sm text-muted">
-                  <span className="mt-1 text-gold shrink-0">~</span>
-                  <span>{f}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-6 pt-6 border-t border-white/8">
-              <span className="inline-flex items-center rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-xs font-medium text-gold">
-                Available (consent required)
-              </span>
-            </div>
-          </Card>
+      {/* Key Statement */}
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="rounded-2xl border border-emerald/20 bg-emerald/5 p-6">
+          <p className="text-sm leading-7 text-foreground">
+            Chairman AI does not automatically upload a user&apos;s full private
+            archive, document library, or local memory to cloud intelligence.
+          </p>
         </div>
       </section>
 
       {/* Comparison Table */}
+      <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+        <SectionTitle
+          title="Processing Mode Comparison"
+          subtitle="Key differences between local, hybrid, and cloud modes."
+          align="left"
+        />
+        <div className="mt-10 overflow-x-auto rounded-2xl border border-white/8">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b border-white/8 bg-panel2">
+                <th className="px-4 py-3 text-left font-semibold text-foreground">
+                  Mode
+                </th>
+                <th className="px-4 py-3 text-left font-semibold text-foreground">
+                  Processing Location
+                </th>
+                <th className="px-4 py-3 text-left font-semibold text-foreground">
+                  What Is Sent
+                </th>
+                <th className="px-4 py-3 text-left font-semibold text-foreground">
+                  Best For
+                </th>
+                <th className="px-4 py-3 text-left font-semibold text-foreground">
+                  Approval
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {comparisonRows.map((row, i) => (
+                <tr
+                  key={row.mode}
+                  className={`border-b border-white/5 ${
+                    i % 2 === 0 ? "bg-panel" : "bg-panel/60"
+                  }`}
+                >
+                  <td className="px-4 py-3 font-medium text-foreground">
+                    {row.mode}
+                  </td>
+                  <td className="px-4 py-3 text-muted">{row.location}</td>
+                  <td className="px-4 py-3 text-muted">{row.whatIsSent}</td>
+                  <td className="px-4 py-3 text-muted">{row.bestFor}</td>
+                  <td className="px-4 py-3 text-muted">{row.approval}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* Two column cards */}
       <section className="border-y border-white/8 bg-panel/40 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionTitle
-            title="Side-by-Side Comparison"
-            subtitle="Key differences between private local and cloud intelligence modes."
-            align="left"
-          />
-          <div className="mt-10 overflow-x-auto rounded-2xl border border-white/8">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-white/8 bg-panel2">
-                  <th className="px-4 py-3 text-left font-semibold text-foreground">Feature</th>
-                  <th className="px-4 py-3 text-left font-semibold text-emerald">Private Local</th>
-                  <th className="px-4 py-3 text-left font-semibold text-gold">Cloud Intelligence</th>
-                </tr>
-              </thead>
-              <tbody>
-                {comparisonRows.map((row, i) => (
-                  <tr
-                    key={row.feature}
-                    className={`border-b border-white/5 ${i % 2 === 0 ? "bg-panel" : "bg-panel/60"}`}
+          <div className="grid gap-8 lg:grid-cols-2">
+            {/* Local */}
+            <Card className="border-emerald/20">
+              <div className="flex items-start justify-between gap-4 mb-6">
+                <div>
+                  <h2 className="text-xl font-semibold text-foreground">
+                    Private Intelligence
+                  </h2>
+                  <p className="text-sm text-muted mt-1">
+                    Local processing on your device
+                  </p>
+                </div>
+                <StatusChip status="implemented" />
+              </div>
+              <ul className="space-y-3">
+                {localFeatures.map((f) => (
+                  <li
+                    key={f}
+                    className="flex items-start gap-2 text-sm text-muted"
                   >
-                    <td className="px-4 py-3 font-medium text-foreground">{row.feature}</td>
-                    <td className={`px-4 py-3 ${row.localGood === true ? "text-emerald" : "text-muted"}`}>
-                      {row.local}
-                    </td>
-                    <td className={`px-4 py-3 ${row.localGood === false ? "text-emerald" : "text-muted"}`}>
-                      {row.cloud}
-                    </td>
-                  </tr>
+                    <span className="mt-1 text-emerald shrink-0">+</span>
+                    <span>{f}</span>
+                  </li>
                 ))}
-              </tbody>
-            </table>
+              </ul>
+              <div className="mt-6 pt-6 border-t border-white/8">
+                <span className="inline-flex items-center rounded-full border border-emerald/30 bg-emerald/10 px-3 py-1 text-xs font-medium text-emerald">
+                  Available with Desktop App
+                </span>
+              </div>
+            </Card>
+
+            {/* Cloud */}
+            <Card className="border-gold/20">
+              <div className="flex items-start justify-between gap-4 mb-6">
+                <div>
+                  <h2 className="text-xl font-semibold text-foreground">
+                    Cloud Intelligence
+                  </h2>
+                  <p className="text-sm text-muted mt-1">
+                    Consent-gated cloud processing
+                  </p>
+                </div>
+                <StatusChip status="implemented" />
+              </div>
+              <ul className="space-y-3">
+                {cloudFeatures.map((f) => (
+                  <li
+                    key={f}
+                    className="flex items-start gap-2 text-sm text-muted"
+                  >
+                    <span className="mt-1 text-gold shrink-0">~</span>
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-6 pt-6 border-t border-white/8">
+                <span className="inline-flex items-center rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-xs font-medium text-gold">
+                  Available (consent required)
+                </span>
+              </div>
+            </Card>
           </div>
         </div>
       </section>

@@ -11,7 +11,7 @@ import { PRIVACY_SENTENCE, SECURITY_SENTENCE } from "@/lib/constants";
 const analyzeCards = [
   {
     title: "Business reports",
-    copy: "Detect weak signals, missing facts, and operational risks.",
+    copy: "Identify missing information, unresolved tasks, and early operational signals based on the data you approve.",
   },
   {
     title: "Internal documents",
@@ -19,7 +19,7 @@ const analyzeCards = [
   },
   {
     title: "Marketing plans",
-    copy: "Detect weak positioning, unclear audience, budget waste, and missing next actions.",
+    copy: "Identify weak positioning, unclear audience, budget waste, and missing next actions.",
   },
   {
     title: "HR data where authorized",
@@ -27,7 +27,7 @@ const analyzeCards = [
   },
   {
     title: "Operational logs",
-    copy: "Detect repeated errors, delays, bottlenecks, and process weakness.",
+    copy: "Identify repeated errors, delays, bottlenecks, and process weakness.",
   },
   {
     title: "Customer journey data",
@@ -35,7 +35,7 @@ const analyzeCards = [
   },
   {
     title: "Platform usage signals",
-    copy: "Detect weak flows, user friction, and guidance opportunities.",
+    copy: "Identify weak flows, user friction, and guidance opportunities.",
   },
   {
     title: "Incident summaries where authorized",
@@ -78,6 +78,17 @@ const desktopFeatures = [
   "local/private file mode",
 ];
 
+const verifiedTrustCards = [
+  "SOC 2 Type II completed",
+  "ISO/IEC 27001 certified",
+  "Penetration testing completed",
+  "DPA available",
+  "No customer-data training",
+  "Local-first private mode",
+  "Cloud approval controls",
+  "Published subprocessor list",
+];
+
 export default function HomePage() {
   return (
     <>
@@ -92,8 +103,8 @@ export default function HomePage() {
             <p className="mt-6 max-w-xl text-base leading-8 text-muted sm:text-lg">
               Chameleon Eye AI helps companies analyze approved files, reports,
               workflows, team signals, customer journeys, and operational data
-              to detect hidden risks, cash waste, weak performance, and
-              early-warning patterns.
+              to identify missing information, unresolved tasks, and early
+              operational signals based on the data you approve.
             </p>
             <p className="mt-4 max-w-xl text-sm leading-7 text-muted">
               Use it directly in your private workspace, connect it through API,
@@ -176,7 +187,9 @@ export default function HomePage() {
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {analyzeCards.map((item) => (
             <Card key={item.title} hover>
-              <h3 className="text-base font-semibold text-foreground">{item.title}</h3>
+              <h3 className="text-base font-semibold text-foreground">
+                {item.title}
+              </h3>
               <p className="mt-3 text-sm leading-7 text-muted">{item.copy}</p>
             </Card>
           ))}
@@ -226,7 +239,9 @@ export default function HomePage() {
           ))}
         </div>
         <Card className="mx-auto mt-10 max-w-3xl border-emerald/20 bg-panel2">
-          <p className="text-sm font-medium text-foreground">Example endpoints</p>
+          <p className="text-sm font-medium text-foreground">
+            Example endpoints
+          </p>
           <div className="mt-4 space-y-2 font-mono text-sm text-muted">
             <p>POST /v1/guidance/profile-check</p>
             <p>POST /v1/risk/check</p>
@@ -281,6 +296,28 @@ export default function HomePage() {
           <Button href="/reports" variant="secondary">
             View AI Reports
           </Button>
+        </div>
+      </section>
+
+      {/* Verified Trust Section */}
+      <section className="border-y border-white/8 bg-panel/40 py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionTitle
+            title="Verified Trust"
+            subtitle="Chairman AI by Chairmans Holding maintains verified security, privacy, and compliance documentation."
+          />
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {verifiedTrustCards.map((item) => (
+              <Card key={item} className="py-4 text-center text-sm text-foreground">
+                {item}
+              </Card>
+            ))}
+          </div>
+          <div className="mt-8 text-center">
+            <Button href="/trust" variant="secondary">
+              View Trust Center
+            </Button>
+          </div>
         </div>
       </section>
 

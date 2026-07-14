@@ -6,27 +6,27 @@ import { StatusChip } from "@/components/trust/StatusChip";
 export const metadata: Metadata = {
   title: "AI Intelligence Providers — Chairman AI",
   description:
-    "How Chairman selects and routes intelligence requests. Our controlled intelligence router and privacy commitments.",
+    "How Chairman AI selects and routes intelligence requests. Controlled intelligence router and privacy commitments.",
 };
 
 const providerCategories = [
   {
-    label: "Local models on user device",
+    label: "Local AI on user device",
     description:
       "Desktop app local mode. No cloud request. No network call. Your device performs all processing — nothing is sent externally.",
     status: "implemented" as const,
   },
   {
-    label: "Approved cloud AI infrastructure",
+    label: "Approved cloud AI routing",
     description:
-      "Used only for cloud intelligence mode. Selected text is sent after your explicit consent. Chairman routes through approved infrastructure with privacy controls applied.",
+      "Used only for cloud intelligence mode. Selected text is sent after your explicit consent. Chairman AI routes through approved infrastructure with privacy controls applied.",
     status: "implemented" as const,
   },
   {
-    label: "Zero Data Retention eligible routes",
+    label: "Source-checked research routes",
     description:
-      "For privacy-sensitive cloud requests, routes with zero data retention are prioritised where available and technically eligible. ZDR availability depends on infrastructure support.",
-    status: "planned" as const,
+      "Research-oriented routes with source attribution where available. Used for structured analysis and factual business context tasks.",
+    status: "implemented" as const,
   },
   {
     label: "Future private / self-hosted infrastructure",
@@ -38,16 +38,16 @@ const providerCategories = [
 
 const faqs = [
   {
-    q: "Does Chairman share my data with AI providers?",
+    q: "Does Chairman AI share my data with AI providers?",
     a: "Cloud intelligence mode may send selected text to approved infrastructure. Private local mode sends nothing to the cloud. Your full private archive, local documents, and stored files are never automatically forwarded to any AI provider.",
   },
   {
     q: "Can I see which provider was used?",
-    a: "The technical routing is kept internal. You see the result, not the infrastructure. This is by design — Chairman adds routing rules, privacy guards, business logic, and consent controls on top of any approved infrastructure.",
+    a: "The technical routing is kept internal. You see the result, not the infrastructure. This is by design — Chairman AI adds routing rules, privacy guards, business logic, and consent controls on top of any approved infrastructure.",
   },
   {
-    q: "Is Zero Data Retention guaranteed?",
-    a: "Zero Data Retention routes are used where available and technically eligible. We cannot guarantee ZDR for all request types. Private local mode is the strongest privacy option if ZDR is a strict requirement.",
+    q: "Will provider names or routes change?",
+    a: "Provider names and routes may change as part of reliability, privacy, and cost controls. Sensitive cloud analysis requires explicit user approval regardless of which route is used.",
   },
 ];
 
@@ -65,7 +65,7 @@ export default function AiProvidersPage() {
             AI Intelligence Providers
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            How Chairman selects and routes intelligence requests.
+            How Chairman AI selects and routes intelligence requests.
           </p>
         </div>
       </section>
@@ -74,9 +74,10 @@ export default function AiProvidersPage() {
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="rounded-2xl border border-white/8 bg-panel p-8">
           <p className="text-base leading-8 text-muted">
-            Chairman uses a controlled intelligence router. The router selects approved processing
-            routes based on the user&apos;s plan, selected mode, privacy settings, and availability.
-            No AI provider details are exposed to the frontend or transmitted to the browser.
+            Chairman AI uses a controlled intelligence router. The router
+            decides whether a request should remain local, require user
+            approval, or use approved cloud AI infrastructure. No AI provider
+            details are exposed to the frontend or transmitted to the browser.
           </p>
         </div>
       </section>
@@ -85,24 +86,41 @@ export default function AiProvidersPage() {
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
         <SectionTitle
           title="Intelligence Route Categories"
-          subtitle="The types of processing paths Chairman may use, by category."
+          subtitle="The types of processing paths Chairman AI may use, by category."
           align="left"
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2">
           {providerCategories.map((cat) => (
             <Card key={cat.label} hover>
               <div className="flex items-start justify-between gap-4">
-                <h3 className="text-base font-semibold text-foreground">{cat.label}</h3>
+                <h3 className="text-base font-semibold text-foreground">
+                  {cat.label}
+                </h3>
                 <StatusChip status={cat.status} />
               </div>
-              <p className="mt-3 text-sm leading-7 text-muted">{cat.description}</p>
+              <p className="mt-3 text-sm leading-7 text-muted">
+                {cat.description}
+              </p>
             </Card>
           ))}
         </div>
       </section>
 
+      {/* Statement */}
+      <section className="border-y border-white/8 bg-panel/40 py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-2xl border border-gold/20 bg-gold/5 p-6">
+            <p className="text-sm leading-7 text-muted">
+              Provider names and routes may change as part of reliability,
+              privacy, and cost controls. Sensitive cloud analysis requires
+              explicit user approval.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* No-Training Policy */}
-      <section className="border-y border-white/8 bg-panel/40 py-16">
+      <section className="py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
             title="No-Training Policy"
@@ -111,28 +129,33 @@ export default function AiProvidersPage() {
           />
           <Card className="mt-10">
             <p className="text-sm leading-7 text-muted">
-              Chairman AI does not use customer private files, prompts, or business data to train
-              a public model. Your content is used only to generate your requested output. This
-              applies to all Chairman intelligence routes — cloud and local.
+              Chairman AI does not use customer private files, prompts, or
+              business data to train a public model. Your content is used only
+              to generate your requested output. This applies to all Chairman AI
+              intelligence routes — cloud and local.
             </p>
           </Card>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <SectionTitle
-          title="Frequently Asked Questions"
-          subtitle="Common questions about how Chairman routes intelligence requests."
-          align="left"
-        />
-        <div className="mt-10 space-y-6">
-          {faqs.map((faq) => (
-            <Card key={faq.q}>
-              <h3 className="text-base font-semibold text-foreground">{faq.q}</h3>
-              <p className="mt-3 text-sm leading-7 text-muted">{faq.a}</p>
-            </Card>
-          ))}
+      <section className="border-t border-white/8 bg-panel/40 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionTitle
+            title="Frequently Asked Questions"
+            subtitle="Common questions about how Chairman AI routes intelligence requests."
+            align="left"
+          />
+          <div className="mt-10 space-y-6">
+            {faqs.map((faq) => (
+              <Card key={faq.q}>
+                <h3 className="text-base font-semibold text-foreground">
+                  {faq.q}
+                </h3>
+                <p className="mt-3 text-sm leading-7 text-muted">{faq.a}</p>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
     </>

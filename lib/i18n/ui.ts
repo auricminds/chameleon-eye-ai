@@ -46,19 +46,26 @@ const AR_NAV: NavLink[] = [
 
 const EN_TRUST_LINKS: NavLink[] = [
   { label: "Trust Center", href: "/trust" },
-  { label: "No-Training Policy", href: "/trust/no-training-policy" },
+  { label: "Security", href: "/trust/security" },
+  { label: "Privacy", href: "/trust/privacy" },
+  { label: "Compliance", href: "/trust/compliance" },
+  { label: "SOC 2", href: "/trust/compliance/soc-2" },
+  { label: "ISO 27001", href: "/trust/compliance/iso-27001" },
+  { label: "DPA", href: "/trust/dpa" },
+  { label: "Penetration Testing", href: "/trust/penetration-testing" },
+  { label: "Data Retention", href: "/trust/data-retention" },
+  { label: "Subprocessors", href: "/trust/subprocessors" },
+  { label: "API Docs", href: "/api-docs" },
   { label: "Responsible Disclosure", href: "/trust/responsible-disclosure" },
-  { label: "Security", href: "/security" },
-  { label: "Privacy", href: "/privacy" },
-  { label: "Enterprise", href: "/enterprise" },
 ];
 
 const AR_TRUST_LINKS: NavLink[] = [
   { label: "مركز الثقة", href: "/ar/trust" },
+  { label: "الأمان", href: "/ar/trust/security" },
+  { label: "الخصوصية", href: "/ar/trust/privacy" },
+  { label: "الامتثال", href: "/ar/trust/compliance" },
   { label: "سياسة عدم التدريب", href: "/ar/trust/no-training-policy" },
   { label: "الإفصاح المسؤول", href: "/ar/trust/responsible-disclosure" },
-  { label: "الأمان", href: "/ar/security" },
-  { label: "الخصوصية", href: "/ar/privacy" },
   { label: "المؤسسات", href: "/ar/enterprise" },
 ];
 

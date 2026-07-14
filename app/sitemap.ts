@@ -7,6 +7,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/trust/local-vs-cloud', '/trust/ai-providers', '/trust/subprocessors',
     '/trust/responsible-disclosure', '/trust/compliance-roadmap',
     '/trust/data-deletion', '/trust/no-training-policy', '/trust/faq',
+    '/trust/compliance',
+    '/trust/compliance/soc-2',
+    '/trust/compliance/iso-27001',
+    '/trust/penetration-testing',
+    '/trust/dpa',
+    '/trust/trust-pack',
   ]
   const mainPages = [
     '/', '/product', '/api', '/apps', '/pricing', '/compare',
