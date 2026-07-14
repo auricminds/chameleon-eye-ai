@@ -1,7 +1,10 @@
 User-agent: *
 Allow: /
 Allow: /trust/
+Allow: /trust/company
 Allow: /security
 Allow: /privacy
+Allow: /enterprise
 Allow: /api-docs/
+Allow: /api-docs/data-handling
 Sitemap: https://chameleoneye.ai/sitemap.xml

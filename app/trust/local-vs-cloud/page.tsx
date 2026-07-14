@@ -12,25 +12,36 @@ export const metadata: Metadata = {
 
 const comparisonRows = [
   {
-    mode: "Local Private Mode",
-    location: "User device",
+    mode: "Offline Local Mode",
+    location: "User device / local deployment",
+    contacted: "No",
     whatIsSent: "Nothing sent to cloud AI",
-    bestFor: "Private files and confidential work",
+    bestFor: "Confidential files, regulated data, source code, internal reports",
     approval: "No cloud approval needed",
   },
   {
     mode: "Hybrid Approval Mode",
-    location: "Local first + selected cloud",
-    whatIsSent: "Only selected text after approval",
-    bestFor: "Deeper analysis on approved excerpts",
+    location: "Local first + approved cloud route",
+    contacted: "Only after explicit approval",
+    whatIsSent: "Selected text or approved summaries only",
+    bestFor: "Confidential business workflows needing deeper analysis",
     approval: "Approval required",
   },
   {
-    mode: "Cloud / API Mode",
-    location: "Chameleon Eye API + approved cloud AI",
-    whatIsSent: "Current typed request or selected approved text",
-    bestFor: "Advanced cloud intelligence",
-    approval: "Approval per privacy settings",
+    mode: "Private Cloud / ZDR Route",
+    location: "Chameleon Eye API + privacy-approved route",
+    contacted: "Yes — approved privacy route only",
+    whatIsSent: "Approved payload only",
+    bestFor: "Sensitive cloud analysis where ZDR contract is required",
+    approval: "Approval required",
+  },
+  {
+    mode: "Standard Cloud / API Mode",
+    location: "Chameleon Eye API + approved AI infrastructure",
+    contacted: "Yes",
+    whatIsSent: "Current request or approved payload",
+    bestFor: "Normal business intelligence workflows",
+    approval: "Controlled by workspace / API permissions",
   },
 ];
 
@@ -85,7 +96,7 @@ export default function LocalVsCloudPage() {
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
         <SectionTitle
           title="Processing Mode Comparison"
-          subtitle="Key differences between local, hybrid, and cloud modes."
+          subtitle="Key differences between offline local, hybrid, ZDR, and standard cloud modes."
           align="left"
         />
         <div className="mt-10 overflow-x-auto rounded-2xl border border-white/8">
@@ -97,6 +108,9 @@ export default function LocalVsCloudPage() {
                 </th>
                 <th className="px-4 py-3 text-left font-semibold text-foreground">
                   Processing Location
+                </th>
+                <th className="px-4 py-3 text-left font-semibold text-foreground">
+                  Third-party AI API contacted?
                 </th>
                 <th className="px-4 py-3 text-left font-semibold text-foreground">
                   What Is Sent
@@ -121,6 +135,7 @@ export default function LocalVsCloudPage() {
                     {row.mode}
                   </td>
                   <td className="px-4 py-3 text-muted">{row.location}</td>
+                  <td className="px-4 py-3 text-muted">{row.contacted}</td>
                   <td className="px-4 py-3 text-muted">{row.whatIsSent}</td>
                   <td className="px-4 py-3 text-muted">{row.bestFor}</td>
                   <td className="px-4 py-3 text-muted">{row.approval}</td>
@@ -128,6 +143,23 @@ export default function LocalVsCloudPage() {
               ))}
             </tbody>
           </table>
+        </div>
+
+        {/* Highlighted statements */}
+        <div className="mt-8 space-y-4">
+          <div className="rounded-2xl border border-emerald/20 bg-emerald/5 p-6">
+            <p className="text-sm leading-7 text-foreground">
+              Chameleon Eye AI does not automatically upload a customer&apos;s full
+              private archive, document library, local memory, source code
+              repository, HR database, financial records, or customer database
+              to cloud intelligence.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-emerald/20 bg-emerald/5 p-6">
+            <p className="text-sm leading-7 text-foreground">
+              In Offline Local Mode, no third-party AI API is contacted.
+            </p>
+          </div>
         </div>
       </section>
 

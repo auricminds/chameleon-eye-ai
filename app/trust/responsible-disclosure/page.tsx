@@ -45,11 +45,6 @@ export default function ResponsibleDisclosurePage() {
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
             How to report a security vulnerability to Chameleon Eye AI.
           </p>
-          <div className="mt-8">
-            <Button href="mailto:security@chameleoneye.ai" variant="primary">
-              Report a Vulnerability
-            </Button>
-          </div>
         </div>
       </section>
 
@@ -59,7 +54,7 @@ export default function ResponsibleDisclosurePage() {
           <div className="lg:col-span-2">
             <SectionTitle
               title="How to Report"
-              subtitle="Submit security reports via email. Chameleon Eye takes all reports seriously."
+              subtitle="Submit security reports via the security contact. Chameleon Eye takes all reports seriously."
               align="left"
             />
             <div className="mt-10 space-y-6">
@@ -68,13 +63,10 @@ export default function ResponsibleDisclosurePage() {
                   Report Security Issues
                 </h3>
                 <p className="mt-3 text-sm leading-7 text-muted">
-                  Send your report to:{" "}
-                  <a
-                    href="mailto:security@chameleoneye.ai"
-                    className="text-emerald hover:underline"
-                  >
-                    security@chameleoneye.ai
-                  </a>
+                  Security contact:{" "}
+                  <span className="text-foreground font-medium">
+                    TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR
+                  </span>
                 </p>
                 <p className="mt-3 text-sm leading-7 text-muted">
                   Include in your report: a clear description of the
@@ -181,6 +173,11 @@ export default function ResponsibleDisclosurePage() {
               guidelines may result in legal action under applicable computer
               fraud and cybercrime laws.
             </p>
+          </div>
+          <div className="mt-8">
+            <Button href="/trust" variant="ghost">
+              Back to Trust Center
+            </Button>
           </div>
         </div>
       </section>

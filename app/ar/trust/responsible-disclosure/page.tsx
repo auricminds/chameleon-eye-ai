@@ -6,7 +6,7 @@ import { Button } from "@/components/Button";
 export const metadata: Metadata = {
   title: "الإفصاح المسؤول — Chameleon Eye AI",
   description:
-    "كيفية الإبلاغ عن ثغرة أمنية إلى Chairman. عملية الإفصاح المسؤول وسياسة الملاذ الآمن.",
+    "كيفية الإبلاغ عن ثغرة أمنية إلى Chameleon Eye AI. عملية الإفصاح المسؤول وسياسة الملاذ الآمن.",
 };
 
 const whatToReport = [
@@ -23,10 +23,10 @@ const whatToReport = [
 const whatNotToDo = [
   "لا تصل إلى بيانات المستخدمين الآخرين أو تستخرجها أو تعدّلها",
   "لا تُجري اختبارات مدمّرة (حذف البيانات، رفض الخدمة، استنزاف الموارد)",
-  "لا تُنفّذ هجمات رفض الخدمة أو هجمات التحميل على أنظمة Chairman",
-  "لا تُفصح علناً عن الثغرة قبل أن تتناولها Chairman",
+  "لا تُنفّذ هجمات رفض الخدمة أو هجمات التحميل على أنظمة Chameleon Eye AI",
+  "لا تُفصح علناً عن الثغرة قبل أن تتناولها Chameleon Eye AI",
   "لا تستخدم أدوات المسح الآلي التي تُولّد حركة مرور مفرطة",
-  "لا تُهندس اجتماعياً موظفي Chairman أو المقاولين",
+  "لا تُهندس اجتماعياً موظفي Chameleon Eye AI أو المقاولين",
 ];
 
 export default function ArResponsibleDisclosurePage() {
@@ -43,7 +43,7 @@ export default function ArResponsibleDisclosurePage() {
             الإفصاح المسؤول
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            كيفية الإبلاغ عن ثغرة أمنية إلى Chairman.
+            كيفية الإبلاغ عن ثغرة أمنية إلى Chameleon Eye AI.
           </p>
           <div className="mt-8">
             <Button href="mailto:security@chameleoneye.ai" variant="primary">
@@ -101,7 +101,7 @@ export default function ArResponsibleDisclosurePage() {
               <Card>
                 <h3 className="text-base font-semibold text-foreground">الاعتراف بالباحثين</h3>
                 <p className="mt-3 text-sm leading-7 text-muted">
-                  يُقدّر Chairman الباحثين الأمنيين المسؤولين. بإذنك، سنعترف بالإفصاحات الموثّقة
+                  يُقدّر Chameleon Eye AI الباحثين الأمنيين المسؤولين. بإذنك، سنعترف بالإفصاحات الموثّقة
                   علناً. لا نُشغّل حالياً برنامج مكافآت أخطاء رسمي، لكننا نُكرّم الباحثين الذين
                   يبلّغون عن ثغرات صالحة وذات تأثير كبير بشكل مسؤول.
                 </p>
@@ -146,7 +146,7 @@ export default function ArResponsibleDisclosurePage() {
           </div>
           <div className="mt-8 rounded-2xl border border-gold/20 bg-gold/5 p-6">
             <p className="text-sm leading-7 text-muted">
-              يُعدّ التصرف وفق الإرشادات أعلاه بحثاً أمنياً بحسن نية. لن تتخذ Chairman إجراءات
+              يُعدّ التصرف وفق الإرشادات أعلاه بحثاً أمنياً بحسن نية. لن تتخذ Chameleon Eye AI إجراءات
               قانونية ضد الباحثين الذين يلتزمون بهذه الإرشادات. قد تؤدي الإجراءات خارج هذه
               الإرشادات إلى اتخاذ إجراءات قانونية بموجب قوانين جرائم الكمبيوتر والجرائم
               الإلكترونية المعمول بها.

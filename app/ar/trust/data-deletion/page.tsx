@@ -6,7 +6,7 @@ import { Button } from "@/components/Button";
 export const metadata: Metadata = {
   title: "حذف البيانات وتصديرها — Chameleon Eye AI",
   description:
-    "حقك في الوصول إلى بياناتك وحذفها. كيفية تصدير أو حذف بيانات حساب Chairman الخاص بك.",
+    "حقك في الوصول إلى بياناتك وحذفها. كيفية تصدير أو حذف بيانات حساب Chameleon Eye AI الخاص بك.",
 };
 
 const exportIncluded = [
@@ -143,7 +143,7 @@ export default function ArDataDeletionPage() {
           <p className="text-sm font-semibold text-foreground mb-2">حالة الخدمة الذاتية</p>
           <p className="text-sm leading-7 text-muted">
             الحذف الذاتي الآلي الكامل للبيانات قيد التطوير. تُعالَج طلبات الحذف الحالية من قبل
-            فريق Chairman خلال 30 يوماً من الاستلام. سنُخطرك عند توفر الحذف الذاتي الآلي.
+            فريق Chameleon Eye AI خلال 30 يوماً من الاستلام. سنُخطرك عند توفر الحذف الذاتي الآلي.
           </p>
         </div>
       </section>

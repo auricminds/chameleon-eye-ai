@@ -105,6 +105,14 @@ const retentionRows = [
     retention: "24 months",
     control: "Contact support",
   },
+  {
+    type: "Device activation records",
+    stored: "Yes",
+    location: "Supabase",
+    purpose: "Account security and revocation",
+    retention: "Until account deleted or device revoked",
+    control: "Revoke device in settings",
+  },
 ];
 
 const importantRules = [

@@ -20,7 +20,7 @@ export default function PrivacySettingsPage() {
           Privacy &amp; Data
         </h1>
         <p className="mt-3 text-base text-muted">
-          Control how Chairman processes your data and when cloud intelligence is used.
+          Control how Chameleon Eye AI processes your data and when cloud intelligence is used.
         </p>
       </div>
 
@@ -29,7 +29,7 @@ export default function PrivacySettingsPage() {
         <Card>
           <h2 className="text-lg font-semibold text-foreground mb-1">Data Mode</h2>
           <p className="text-sm text-muted mb-6">
-            Choose how Chairman handles intelligence requests by default.
+            Choose how Chameleon Eye AI handles intelligence requests by default.
           </p>
           <div className="space-y-3">
             {/* Local Mode */}
@@ -140,14 +140,14 @@ export default function PrivacySettingsPage() {
         <Card>
           <h2 className="text-lg font-semibold text-foreground mb-1">Data Controls</h2>
           <p className="text-sm text-muted mb-6">
-            Export or delete your Chairman data. Requests are processed within 30 days.
+            Export or delete your Chameleon Eye AI data. Requests are processed within 30 days.
           </p>
 
           {/* Cloud Safety Notice */}
           <div className="mb-6 rounded-xl border border-emerald/20 bg-emerald/5 p-4">
             <p className="text-xs leading-6 text-muted">
               <span className="font-semibold text-emerald">Privacy guarantee: </span>
-              Chairman will not send private documents, full archives, or local memory to cloud
+              Chameleon Eye AI will not send private documents, full archives, or local memory to cloud
               intelligence unless you explicitly approve selected text.
             </p>
           </div>
@@ -163,7 +163,7 @@ export default function PrivacySettingsPage() {
 
           <p className="mt-6 text-xs text-muted border-t border-white/8 pt-4">
             Full automated self-service data deletion is in development. Current requests are
-            processed by the Chairman team.
+            processed by the Chameleon Eye team.
           </p>
         </Card>
       </div>

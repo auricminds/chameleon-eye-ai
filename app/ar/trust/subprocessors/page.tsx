@@ -5,7 +5,7 @@ import { Card } from "@/components/Card";
 export const metadata: Metadata = {
   title: "المعالجون الفرعيون — Chameleon Eye AI",
   description:
-    "الأطراف الثالثة التي قد تعالج البيانات نيابةً عن Chairman.",
+    "الأطراف الثالثة التي قد تعالج البيانات نيابةً عن Chameleon Eye AI.",
 };
 
 const subprocessors = [
@@ -60,7 +60,7 @@ export default function ArSubprocessorsPage() {
             المعالجون الفرعيون
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            الأطراف الثالثة التي قد تعالج البيانات نيابةً عن Chairman.
+            الأطراف الثالثة التي قد تعالج البيانات نيابةً عن Chameleon Eye AI.
           </p>
         </div>
       </section>
@@ -69,7 +69,7 @@ export default function ArSubprocessorsPage() {
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <SectionTitle
           title="المعالجون الفرعيون الحاليون"
-          subtitle="فئات الخدمات الخارجية التي يتعامل معها Chairman."
+          subtitle="فئات الخدمات الخارجية التي يتعامل معها Chameleon Eye AI."
           align="left"
         />
         <div className="mt-10 overflow-x-auto rounded-2xl border border-white/8">
@@ -104,7 +104,7 @@ export default function ArSubprocessorsPage() {
         <div className="mt-8 rounded-2xl border border-gold/20 bg-gold/5 p-6">
           <p className="text-sm font-semibold text-gold mb-2">إشعار تحديث القائمة</p>
           <p className="text-sm leading-7 text-muted">
-            ستُحدَّث هذه القائمة عند تأكيد Chairman لاتفاقيات مزودين محددين. ستُدرج أسماء المزودين
+            ستُحدَّث هذه القائمة عند تأكيد Chameleon Eye AI لاتفاقيات مزودين محددين. ستُدرج أسماء المزودين
             المحددة بمجرد إبرام اتفاقيات DPA. لا ننشر أسماء المزودين الذين لم نتعاقد معهم أو
             نراجعهم رسمياً.
           </p>
@@ -118,9 +118,9 @@ export default function ArSubprocessorsPage() {
             <Card>
               <h3 className="text-base font-semibold text-foreground">اتفاقيات معالجة البيانات</h3>
               <p className="mt-3 text-sm leading-7 text-muted">
-                يعمل Chairman على إبرام اتفاقيات معالجة البيانات (DPA) الرسمية مع المعالجين
+                يعمل Chameleon Eye AI على إبرام اتفاقيات معالجة البيانات (DPA) الرسمية مع المعالجين
                 الفرعيين الرئيسيين. يجب على عملاء المؤسسات الذين يحتاجون إلى DPA منفَّذة التواصل
-                مع فريق Chairman لمناقشة التوفر والجدول الزمني.
+                مع فريق Chameleon Eye AI لمناقشة التوفر والجدول الزمني.
               </p>
             </Card>
             <Card>

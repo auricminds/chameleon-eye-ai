@@ -13,13 +13,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/trust/penetration-testing',
     '/trust/dpa',
     '/trust/trust-pack',
+    '/trust/company',
   ]
   const mainPages = [
     '/', '/product', '/api', '/apps', '/pricing', '/compare',
     '/free-tools', '/architecture', '/ai-routing', '/api-docs',
     '/enterprise', '/local-mode', '/security', '/privacy',
     '/press', '/partners', '/contact', '/desktop',
-    '/api-docs/authentication', '/api-docs/rate-limits',
+    '/api-docs/authentication', '/api-docs/rate-limits', '/api-docs/data-handling',
   ]
   const arPages = [
     '/ar', '/ar/product', '/ar/api', '/ar/apps', '/ar/pricing',

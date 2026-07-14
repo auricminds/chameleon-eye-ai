@@ -48,15 +48,16 @@ const EN_TRUST_LINKS: NavLink[] = [
   { label: "Trust Center", href: "/trust" },
   { label: "Security", href: "/security" },
   { label: "Privacy", href: "/privacy" },
-  { label: "Compliance", href: "/trust/compliance" },
   { label: "SOC 2", href: "/trust/compliance/soc-2" },
   { label: "ISO 27001", href: "/trust/compliance/iso-27001" },
-  { label: "DPA", href: "/trust/dpa" },
   { label: "Penetration Testing", href: "/trust/penetration-testing" },
+  { label: "DPA", href: "/trust/dpa" },
   { label: "Data Retention", href: "/trust/data-retention" },
   { label: "Subprocessors", href: "/trust/subprocessors" },
+  { label: "AI Providers", href: "/trust/ai-providers" },
   { label: "API Docs", href: "/api-docs" },
   { label: "Responsible Disclosure", href: "/trust/responsible-disclosure" },
+  { label: "Company Transparency", href: "/trust/company" },
   { label: "Trust Pack", href: "/trust/trust-pack" },
 ];
 

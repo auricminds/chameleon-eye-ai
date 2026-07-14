@@ -6,7 +6,7 @@ import { StatusChip } from "@/components/trust/StatusChip";
 export const metadata: Metadata = {
   title: "Compliance Roadmap — Chameleon Eye AI",
   description:
-    "Where Chairman is today and where it is going on security, privacy, and compliance.",
+    "Where Chameleon Eye AI is today and where it is going on security, privacy, and compliance.",
 };
 
 const current = [
@@ -53,7 +53,7 @@ export default function ComplianceRoadmapPage() {
             Compliance Roadmap
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            Where Chairman is today and where it is going.
+            Where Chameleon Eye AI is today and where it is going.
           </p>
         </div>
       </section>
@@ -63,9 +63,9 @@ export default function ComplianceRoadmapPage() {
         <div className="rounded-2xl border border-gold/20 bg-gold/5 p-6">
           <p className="text-sm font-semibold text-gold mb-2">Important Notice</p>
           <p className="text-sm leading-7 text-muted">
-            Chairman is not currently SOC 2 certified, ISO 27001 certified, HIPAA compliant, or
+            Chameleon Eye AI is not currently SOC 2 certified, ISO 27001 certified, HIPAA compliant, or
             GDPR certified. This roadmap represents intentions, not completed certifications. Use
-            of Chairman for regulated-data processing requires your own legal and compliance review.
+            of Chameleon Eye AI for regulated-data processing requires your own legal and compliance review.
           </p>
         </div>
       </section>
@@ -136,7 +136,7 @@ export default function ComplianceRoadmapPage() {
               ))}
             </ul>
             <p className="mt-6 text-xs text-muted border-t border-white/8 pt-4">
-              Enterprise compliance options are available upon request. Contact the Chairman team
+              Enterprise compliance options are available upon request. Contact the Chameleon Eye AI team
               to discuss your specific requirements and timeline.
             </p>
           </Card>
@@ -155,22 +155,22 @@ export default function ComplianceRoadmapPage() {
             <Card>
               <h3 className="text-sm font-semibold text-foreground">Readiness Assessment</h3>
               <p className="mt-2 text-sm leading-6 text-muted">
-                Chairman is planning an external SOC 2 readiness assessment. This will identify
+                Chameleon Eye AI is planning an external SOC 2 readiness assessment. This will identify
                 gaps between current controls and SOC 2 Trust Services Criteria.
               </p>
             </Card>
             <Card>
               <h3 className="text-sm font-semibold text-foreground">No Current Certification</h3>
               <p className="mt-2 text-sm leading-6 text-muted">
-                Chairman does not currently hold a SOC 2 Type I or Type II report. Any claims of
-                SOC 2 compliance should be verified directly with the Chairman team.
+                Chameleon Eye AI does not currently hold a SOC 2 Type I or Type II report. Any claims of
+                SOC 2 compliance should be verified directly with the Chameleon Eye AI team.
               </p>
             </Card>
             <Card>
               <h3 className="text-sm font-semibold text-foreground">Enterprise Path</h3>
               <p className="mt-2 text-sm leading-6 text-muted">
                 Enterprise customers requiring SOC 2 Type II reports can discuss timeline and
-                scope with the Chairman team as part of an enterprise engagement.
+                scope with the Chameleon Eye AI team as part of an enterprise engagement.
               </p>
             </Card>
           </div>

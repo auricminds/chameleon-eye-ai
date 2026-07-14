@@ -11,20 +11,28 @@ export const metadata: Metadata = {
 
 const processingModes = [
   {
-    title: "Local Private Mode",
-    detail: "Sensitive files can remain on the user's device.",
+    title: "Offline Local Mode",
+    detail:
+      "Sensitive files can remain on the user's device. No third-party AI API is contacted in offline local mode.",
     color: "border-emerald/20",
     titleColor: "text-emerald",
   },
   {
     title: "Hybrid Approval Mode",
     detail:
-      "Only selected text or approved summaries are sent to cloud intelligence.",
+      "Only selected text or approved summaries are sent to cloud intelligence after user approval.",
     color: "",
     titleColor: "text-foreground",
   },
   {
-    title: "Cloud / API Mode",
+    title: "Private Cloud / ZDR Route",
+    detail:
+      "Cloud processing through an approved privacy route where zero data retention is contracted. Request is blocked if route is unavailable.",
+    color: "border-gold/20",
+    titleColor: "text-gold",
+  },
+  {
+    title: "Standard Cloud / API Mode",
     detail:
       "Cloud intelligence is processed through Chameleon Eye API and approved AI routes.",
     color: "border-blue-500/20",
@@ -38,6 +46,7 @@ const customerControls = [
   { label: "Data deletion request", href: "/trust/data-retention" },
   { label: "Workspace privacy settings", href: "/settings/privacy" },
   { label: "Device revocation", href: null },
+  { label: "Local file controls", href: null },
 ];
 
 export default function PrivacyPage() {
@@ -84,10 +93,10 @@ export default function PrivacyPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
             title="Processing Modes"
-            subtitle="Chameleon Eye AI operates across three privacy modes. You choose how much reaches the cloud."
+            subtitle="Chameleon Eye AI operates across four privacy modes. You choose how much reaches the cloud."
             align="left"
           />
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
             {processingModes.map((mode) => (
               <Card key={mode.title} className={mode.color}>
                 <h3 className={`text-base font-semibold ${mode.titleColor}`}>
@@ -129,46 +138,68 @@ export default function PrivacyPage() {
         </div>
       </section>
 
-      {/* D. DPA Available */}
+      {/* Regulated / Sensitive Data Warning */}
       <section className="border-y border-white/8 bg-panel/40 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
-            title="Data Processing Agreement"
-            subtitle="Available for business customers and approved partners."
+            title="Regulated / Sensitive Data Warning"
+            subtitle="Customer responsibility for regulated data categories."
             align="left"
           />
-          <div className="mt-8 rounded-2xl border border-white/8 bg-panel p-6 max-w-2xl">
-            <p className="text-sm leading-7 text-muted">
-              A Data Processing Agreement is available for qualified business
-              customers and approved partners.
+          <div className="mt-8 rounded-2xl border border-gold/20 bg-gold/5 p-6">
+            <p className="text-sm font-semibold text-gold mb-2">
+              Important Notice
             </p>
-            <div className="mt-6">
-              <Button href="/trust/dpa" variant="secondary">
-                Request DPA
-              </Button>
-            </div>
+            <p className="text-sm leading-7 text-muted">
+              Customers should not process regulated medical, financial, legal,
+              or highly sensitive personal data through cloud analysis unless
+              they have verified the applicable contractual, legal, and
+              compliance requirements for their use case.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* D. DPA Available */}
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <SectionTitle
+          title="Data Processing Agreement"
+          subtitle="Available for business customers and approved partners."
+          align="left"
+        />
+        <div className="mt-8 rounded-2xl border border-white/8 bg-panel p-6 max-w-2xl">
+          <p className="text-sm leading-7 text-muted">
+            A Data Processing Agreement is available for qualified business
+            customers and approved partners.
+          </p>
+          <div className="mt-6">
+            <Button href="/trust/dpa" variant="secondary">
+              Request DPA
+            </Button>
           </div>
         </div>
       </section>
 
       {/* E. Data Retention */}
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <SectionTitle
-          title="Data Retention"
-          subtitle="What is stored, where, and for how long."
-          align="left"
-        />
-        <div className="mt-8 rounded-2xl border border-white/8 bg-panel p-6 max-w-2xl">
-          <p className="text-sm leading-7 text-muted">
-            Chameleon Eye AI stores only the minimum data required for your
-            workspace to function. Raw private content is not stored by default.
-            Usage metadata may be retained for billing, abuse prevention, and
-            audit integrity.
-          </p>
-          <div className="mt-6">
-            <Button href="/trust/data-retention" variant="secondary">
-              View Full Data Retention Table
-            </Button>
+      <section className="border-y border-white/8 bg-panel/40 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionTitle
+            title="Data Retention"
+            subtitle="What is stored, where, and for how long."
+            align="left"
+          />
+          <div className="mt-8 rounded-2xl border border-white/8 bg-panel p-6 max-w-2xl">
+            <p className="text-sm leading-7 text-muted">
+              Chameleon Eye AI stores only the minimum data required for your
+              workspace to function. Raw private content is not stored by default.
+              Usage metadata may be retained for billing, abuse prevention, and
+              audit integrity.
+            </p>
+            <div className="mt-6">
+              <Button href="/trust/data-retention" variant="secondary">
+                View Full Data Retention Table
+              </Button>
+            </div>
           </div>
         </div>
       </section>

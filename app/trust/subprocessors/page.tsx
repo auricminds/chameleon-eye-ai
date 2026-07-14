@@ -11,8 +11,8 @@ const subprocessors = [
   {
     provider: "OpenRouter",
     purpose: "Cloud AI routing",
-    data: "Selected cloud request text only",
-    retention: "Transient — not stored by OpenRouter for training",
+    data: "Approved cloud request text only",
+    retention: "Per OpenRouter usage policy",
     status: "Active",
   },
   {
@@ -31,10 +31,31 @@ const subprocessors = [
   },
   {
     provider: "Vercel",
-    purpose: "Hosting",
+    purpose: "Hosting and deployment",
     data: "Application hosting and deployment logs",
     retention: "Per Vercel retention policy",
     status: "Active",
+  },
+  {
+    provider: "OpenAI",
+    purpose: "Cloud AI processing (if used)",
+    data: "Approved request text only",
+    retention: "Per OpenAI API usage policy",
+    status: "Planned",
+  },
+  {
+    provider: "Anthropic",
+    purpose: "Cloud AI processing (if used)",
+    data: "Approved request text only",
+    retention: "Per Anthropic API usage policy",
+    status: "Planned",
+  },
+  {
+    provider: "Google Cloud",
+    purpose: "Cloud AI processing or hosting (if used)",
+    data: "Approved request text only",
+    retention: "Per Google Cloud policy",
+    status: "Planned",
   },
 ];
 
@@ -52,8 +73,8 @@ export default function SubprocessorsPage() {
             Subprocessors
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            Active subprocessors and infrastructure providers for Chameleon Eye AI
-            by Chameleon Eye.
+            Active and planned subprocessors and infrastructure providers for
+            Chameleon Eye AI by Chameleon Eye.
           </p>
         </div>
       </section>
@@ -61,7 +82,7 @@ export default function SubprocessorsPage() {
       {/* Table */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <SectionTitle
-          title="Active Subprocessors"
+          title="Subprocessors"
           subtitle="Third-party services engaged by Chameleon Eye on behalf of Chameleon Eye AI customers."
           align="left"
         />
@@ -101,7 +122,13 @@ export default function SubprocessorsPage() {
                   <td className="px-4 py-3 text-muted">{sp.data}</td>
                   <td className="px-4 py-3 text-muted">{sp.retention}</td>
                   <td className="px-4 py-3">
-                    <span className="inline-flex items-center rounded-full border border-emerald/30 bg-emerald/10 px-2.5 py-0.5 text-xs font-medium text-emerald">
+                    <span
+                      className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium ${
+                        sp.status === "Active"
+                          ? "border-emerald/30 bg-emerald/10 text-emerald"
+                          : "border-gold/30 bg-gold/10 text-gold"
+                      }`}
+                    >
                       {sp.status}
                     </span>
                   </td>
@@ -117,8 +144,9 @@ export default function SubprocessorsPage() {
             Subprocessor Changes
           </p>
           <p className="text-sm leading-7 text-muted">
-            Subprocessors may change as the platform evolves. Material changes
-            will be reflected on this page.
+            Providers marked Active are currently in use. Providers marked
+            Planned may be added as the platform evolves. Material changes will
+            be reflected on this page.
           </p>
         </div>
       </section>

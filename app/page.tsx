@@ -81,6 +81,18 @@ const desktopFeatures = [
 
 const verifiedTrustCards = [
   {
+    title: "Offline / Local Mode",
+    status: "available" as const,
+    detail:
+      "Sensitive files can remain on-device. No third-party AI API is contacted in offline local mode.",
+  },
+  {
+    title: "Hybrid Approval Mode",
+    status: "available" as const,
+    detail:
+      "Only selected text or approved summaries are sent to cloud intelligence after user approval.",
+  },
+  {
     title: "SOC 2 Type II",
     status: "completed" as const,
     detail: "Report available under NDA to qualified customers.",
@@ -93,24 +105,23 @@ const verifiedTrustCards = [
   {
     title: "Penetration Testing",
     status: "completed" as const,
-    detail: "Customer-safe summary available on request.",
+    detail: "Penetration testing completed. Customer-safe summary available on request.",
   },
   {
-    title: "DPA",
+    title: "DPA Available",
     status: "available" as const,
-    detail: "Data Processing Agreement available for business customers and partners.",
+    detail: "Data Processing Agreement available for qualified business customers and approved partners.",
   },
   {
     title: "No Customer Data Training",
     status: "published" as const,
     detail:
-      "Customer private files and business data are not used to train a public AI model.",
+      "Customer private files, prompts, and business data are not used to train a public AI model.",
   },
   {
-    title: "Local-First / Hybrid",
-    status: "available" as const,
-    detail:
-      "Sensitive files can remain on-device; cloud analysis requires approval.",
+    title: "Vulnerability Disclosure",
+    status: "published" as const,
+    detail: "Responsible disclosure process published for security reports.",
   },
 ];
 
@@ -185,14 +196,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Verified Trust Section — near first fold */}
+      {/* Verified Trust Section */}
       <section className="border-y border-white/8 bg-panel/40 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
-            title="Verified Trust & Security"
-            subtitle="Chameleon Eye AI maintains verified security, privacy, and compliance documentation for businesses evaluating private AI intelligence."
+            title="Verified Trust & Private AI Controls"
+            subtitle="Chameleon Eye AI is a commercial private AI intelligence platform with local-first options, verified compliance documentation, and approval-based cloud processing."
           />
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {verifiedTrustCards.map((item) => (
               <Card key={item.title} hover>
                 <div className="flex items-start justify-between gap-3 mb-3">

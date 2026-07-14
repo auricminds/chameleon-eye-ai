@@ -6,7 +6,7 @@ import { StatusChip } from "@/components/trust/StatusChip";
 export const metadata: Metadata = {
   title: "سياسة الاحتفاظ بالبيانات — Chameleon Eye AI",
   description:
-    "ما الذي يخزّنه Chairman، وأين، ولماذا، وإلى متى.",
+    "ما الذي يخزّنه Chameleon Eye AI، وأين، ولماذا، وإلى متى.",
 };
 
 const retentionRows = [
@@ -116,7 +116,7 @@ export default function ArDataRetentionPage() {
             سياسة الاحتفاظ بالبيانات
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            ما الذي يخزّنه Chairman، وأين، ولماذا، وإلى متى.
+            ما الذي يخزّنه Chameleon Eye AI، وأين، ولماذا، وإلى متى.
           </p>
         </div>
       </section>
@@ -126,7 +126,7 @@ export default function ArDataRetentionPage() {
         <div className="rounded-2xl border border-emerald/20 bg-emerald/5 p-6">
           <p className="text-sm font-semibold text-emerald mb-2">السلوك الافتراضي</p>
           <p className="text-sm leading-7 text-muted">
-            بشكل افتراضي، لا يقوم Chairman بتخزين نصوص الطلبات الخام أو ردود الذكاء الاصطناعي.
+            بشكل افتراضي، لا يقوم Chameleon Eye AI بتخزين نصوص الطلبات الخام أو ردود الذكاء الاصطناعي.
             يُسجَّل فقط عدد الرموز المميزة والوضع والتكلفة وحالة الطلب والطوابع الزمنية لأغراض
             الفوترة والأداء.
           </p>
@@ -207,7 +207,7 @@ export default function ArDataRetentionPage() {
               <h3 className="text-base font-semibold text-foreground">التخزين المحلي للملفات</h3>
               <p className="mt-3 text-sm leading-7 text-muted">
                 في وضع الخصوصية المحلي، لا تغادر الملفات والمستندات المرفوعة جهازك أبداً.
-                لا تقوم Chairman بنسخ أو رفع أو نسخ احتياطي للملفات المحلية على خوادمها.
+                لا تقوم Chameleon Eye AI بنسخ أو رفع أو نسخ احتياطي للملفات المحلية على خوادمها.
                 الحذف بالكامل تحت سيطرتك.
               </p>
             </Card>

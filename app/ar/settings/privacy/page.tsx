@@ -20,7 +20,7 @@ export default function ArPrivacySettingsPage() {
           الخصوصية والبيانات
         </h1>
         <p className="mt-3 text-base text-muted">
-          تحكم في كيفية معالجة Chairman لبياناتك ومتى يُستخدم الذكاء السحابي.
+          تحكم في كيفية معالجة Chameleon Eye AI لبياناتك ومتى يُستخدم الذكاء السحابي.
         </p>
       </div>
 
@@ -29,7 +29,7 @@ export default function ArPrivacySettingsPage() {
         <Card>
           <h2 className="text-lg font-semibold text-foreground mb-1">وضع البيانات</h2>
           <p className="text-sm text-muted mb-6">
-            اختر كيف يتعامل Chairman مع طلبات الذكاء افتراضياً.
+            اختر كيف يتعامل Chameleon Eye AI مع طلبات الذكاء افتراضياً.
           </p>
           <div className="space-y-3">
             {/* Local Mode */}
@@ -140,14 +140,14 @@ export default function ArPrivacySettingsPage() {
         <Card>
           <h2 className="text-lg font-semibold text-foreground mb-1">ضوابط البيانات</h2>
           <p className="text-sm text-muted mb-6">
-            صدّر بيانات Chairman أو احذفها. تُعالَج الطلبات خلال 30 يوماً.
+            صدّر بيانات Chameleon Eye AI أو احذفها. تُعالَج الطلبات خلال 30 يوماً.
           </p>
 
           {/* Cloud Safety Notice */}
           <div className="mb-6 rounded-xl border border-emerald/20 bg-emerald/5 p-4">
             <p className="text-xs leading-6 text-muted">
               <span className="font-semibold text-emerald">ضمان الخصوصية: </span>
-              لن يُرسِل Chairman المستندات الخاصة أو الأرشيفات الكاملة أو الذاكرة المحلية إلى
+              لن يُرسِل Chameleon Eye AI المستندات الخاصة أو الأرشيفات الكاملة أو الذاكرة المحلية إلى
               الذكاء السحابي إلا إذا وافقت صراحةً على النص المحدد.
             </p>
           </div>
@@ -163,7 +163,7 @@ export default function ArPrivacySettingsPage() {
 
           <p className="mt-6 text-xs text-muted border-t border-white/8 pt-4">
             الحذف الذاتي الآلي الكامل للبيانات قيد التطوير. تُعالَج الطلبات الحالية من قبل
-            فريق Chairman.
+            فريق Chameleon Eye.
           </p>
         </Card>
       </div>

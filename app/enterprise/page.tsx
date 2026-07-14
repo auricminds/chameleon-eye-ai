@@ -92,6 +92,34 @@ const enterpriseUseCases = [
   },
 ];
 
+const securityDeploymentOptions = [
+  {
+    title: "Offline Local Deployment",
+    detail:
+      "For customers requiring no third-party AI API contact for sensitive files.",
+  },
+  {
+    title: "Hybrid Approval Deployment",
+    detail:
+      "Local-first analysis with approved cloud escalation.",
+  },
+  {
+    title: "Private Cloud / ZDR Route",
+    detail:
+      "Privacy-approved cloud route for sensitive analysis where zero data retention is required.",
+  },
+  {
+    title: "Standard Cloud / API",
+    detail:
+      "For normal business workflows and integrations.",
+  },
+  {
+    title: "Trust Pack",
+    detail:
+      "SOC 2, ISO 27001, DPA, pen-test summary, and security questionnaire available for vendor review.",
+  },
+];
+
 export default function EnterprisePage() {
   return (
     <>
@@ -119,70 +147,98 @@ export default function EnterprisePage() {
         </div>
       </section>
 
-      {/* Capabilities */}
+      {/* Enterprise Security & Deployment Options */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <SectionTitle
-          title="Enterprise Capabilities"
-          subtitle="What is available now, what is coming, and what is available to discuss for enterprise scope."
+          title="Enterprise Security & Deployment Options"
+          subtitle="Deployment models available for enterprise customers with specific security and privacy requirements."
           align="left"
         />
-        <div className="mt-10 grid gap-4 sm:grid-cols-2">
-          {enterpriseCapabilities.map((cap) => (
-            <Card key={cap.label}>
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="text-sm font-semibold text-foreground">{cap.label}</h3>
-                  <p className="mt-2 text-xs leading-6 text-muted">{cap.desc}</p>
-                </div>
-                <StatusChip status={cap.status} className="shrink-0" />
-              </div>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {securityDeploymentOptions.map((option) => (
+            <Card key={option.title} hover className="border-emerald/10">
+              <h3 className="text-base font-semibold text-foreground">
+                {option.title}
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-muted">
+                {option.detail}
+              </p>
             </Card>
           ))}
         </div>
+        <div className="mt-8">
+          <Button href="/contact" variant="primary">
+            Request Enterprise Review
+          </Button>
+        </div>
       </section>
 
-      {/* Use Cases */}
+      {/* Capabilities */}
       <section className="border-y border-white/8 bg-panel/40 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
-            title="Enterprise Use Cases"
-            subtitle="How organizations in key industries deploy Chameleon."
+            title="Enterprise Capabilities"
+            subtitle="What is available now, what is coming, and what is available to discuss for enterprise scope."
             align="left"
           />
-          <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            {enterpriseUseCases.map((uc) => (
-              <Card key={uc.title} hover>
-                <h3 className="text-base font-semibold text-foreground">{uc.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-muted">{uc.desc}</p>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            {enterpriseCapabilities.map((cap) => (
+              <Card key={cap.label}>
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 className="text-sm font-semibold text-foreground">{cap.label}</h3>
+                    <p className="mt-2 text-xs leading-6 text-muted">{cap.desc}</p>
+                  </div>
+                  <StatusChip status={cap.status} className="shrink-0" />
+                </div>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Important note */}
+      {/* Use Cases */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <Card className="border-gold/20 bg-gold/5 max-w-3xl">
-          <h2 className="text-base font-semibold text-foreground">A note on enterprise options</h2>
-          <p className="mt-3 text-sm leading-7 text-muted">
-            Enterprise capabilities marked as{" "}
-            <span className="text-blue-400">Enterprise option</span> are
-            available to discuss and scope. Private deployment, custom routing
-            policies, and dedicated support depend on implementation scope,
-            infrastructure requirements, and agreed timelines. Contact the team
-            to begin an enterprise scoping conversation.
-          </p>
-        </Card>
-        <div className="mt-10 flex flex-wrap gap-3">
-          <Button href="/contact" variant="secondary">
-            Contact Enterprise Team
-          </Button>
-          <Button href="/trust" variant="ghost">
-            Trust Center
-          </Button>
-          <Button href="/security" variant="ghost">
-            Security Architecture
-          </Button>
+        <SectionTitle
+          title="Enterprise Use Cases"
+          subtitle="How organizations in key industries deploy Chameleon."
+          align="left"
+        />
+        <div className="mt-10 grid gap-6 lg:grid-cols-2">
+          {enterpriseUseCases.map((uc) => (
+            <Card key={uc.title} hover>
+              <h3 className="text-base font-semibold text-foreground">{uc.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-muted">{uc.desc}</p>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Important note */}
+      <section className="border-t border-white/8 bg-panel/40 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Card className="border-gold/20 bg-gold/5 max-w-3xl">
+            <h2 className="text-base font-semibold text-foreground">A note on enterprise options</h2>
+            <p className="mt-3 text-sm leading-7 text-muted">
+              Enterprise capabilities marked as{" "}
+              <span className="text-blue-400">Enterprise option</span> are
+              available to discuss and scope. Private deployment, custom routing
+              policies, and dedicated support depend on implementation scope,
+              infrastructure requirements, and agreed timelines. Contact the team
+              to begin an enterprise scoping conversation.
+            </p>
+          </Card>
+          <div className="mt-10 flex flex-wrap gap-3">
+            <Button href="/contact" variant="secondary">
+              Contact Enterprise Team
+            </Button>
+            <Button href="/trust" variant="ghost">
+              Trust Center
+            </Button>
+            <Button href="/security" variant="ghost">
+              Security Architecture
+            </Button>
+          </div>
         </div>
       </section>
     </>

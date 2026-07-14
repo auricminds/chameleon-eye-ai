@@ -6,7 +6,7 @@ import { Button } from "@/components/Button";
 export const metadata: Metadata = {
   title: "Data Deletion and Export — Chameleon Eye AI",
   description:
-    "Your right to access and delete your data. How to export or delete your Chairman account data.",
+    "Your right to access and delete your data. How to export or delete your Chameleon Eye AI account data.",
 };
 
 const exportIncluded = [
@@ -144,7 +144,7 @@ export default function DataDeletionPage() {
           <p className="text-sm font-semibold text-foreground mb-2">Self-Service Status</p>
           <p className="text-sm leading-7 text-muted">
             Full automated self-service data deletion is in development. Current deletion requests
-            are processed by the Chairman team within 30 days of receipt. We will notify you when
+            are processed by the Chameleon Eye AI team within 30 days of receipt. We will notify you when
             automated self-service deletion becomes available.
           </p>
         </div>

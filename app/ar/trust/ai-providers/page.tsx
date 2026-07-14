@@ -6,7 +6,7 @@ import { StatusChip } from "@/components/trust/StatusChip";
 export const metadata: Metadata = {
   title: "مزودو الذكاء الاصطناعي — Chameleon Eye AI",
   description:
-    "كيف يختار Chairman ويوجّه طلبات الذكاء. الموجّه المتحكَّم به وسياسات الخصوصية.",
+    "كيف يختار Chameleon Eye AI ويوجّه طلبات الذكاء. الموجّه المتحكَّم به وسياسات الخصوصية.",
 };
 
 const providerCategories = [
@@ -19,7 +19,7 @@ const providerCategories = [
   {
     label: "البنية التحتية السحابية للذكاء الاصطناعي المعتمدة",
     description:
-      "تُستخدم فقط في وضع الذكاء السحابي. يُرسَل النص المحدد بعد موافقتك الصريحة. يُوجِّه Chairman عبر بنية تحتية معتمدة مع تطبيق ضوابط الخصوصية.",
+      "تُستخدم فقط في وضع الذكاء السحابي. يُرسَل النص المحدد بعد موافقتك الصريحة. يُوجِّه Chameleon Eye AI عبر بنية تحتية معتمدة مع تطبيق ضوابط الخصوصية.",
     status: "implemented" as const,
   },
   {
@@ -38,12 +38,12 @@ const providerCategories = [
 
 const faqs = [
   {
-    q: "هل يشارك Chairman بياناتي مع مزودي الذكاء الاصطناعي؟",
+    q: "هل يشارك Chameleon Eye AI بياناتي مع مزودي الذكاء الاصطناعي؟",
     a: "قد يرسل وضع الذكاء السحابي النص المحدد إلى البنية التحتية المعتمدة. أما وضع الخصوصية المحلي فلا يرسل أي شيء إلى السحابة. أرشيفك الخاص الكامل والمستندات المحلية والملفات المخزّنة لا تُحوَّل تلقائياً إلى أي مزود ذكاء اصطناعي.",
   },
   {
     q: "هل يمكنني رؤية أي مزود تم استخدامه؟",
-    a: "يبقى التوجيه التقني داخلياً. أنت ترى النتيجة وليس البنية التحتية. هذا مقصود — يضيف Chairman قواعد التوجيه وضمانات الخصوصية ومنطق الأعمال وضوابط الموافقة فوق أي بنية تحتية معتمدة.",
+    a: "يبقى التوجيه التقني داخلياً. أنت ترى النتيجة وليس البنية التحتية. هذا مقصود — يضيف Chameleon Eye AI قواعد التوجيه وضمانات الخصوصية ومنطق الأعمال وضوابط الموافقة فوق أي بنية تحتية معتمدة.",
   },
   {
     q: "هل عدم الاحتفاظ بالبيانات (ZDR) مضمون؟",
@@ -65,7 +65,7 @@ export default function ArAiProvidersPage() {
             مزودو الذكاء الاصطناعي
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            كيف يختار Chairman ويوجّه طلبات الذكاء.
+            كيف يختار Chameleon Eye AI ويوجّه طلبات الذكاء.
           </p>
         </div>
       </section>
@@ -74,7 +74,7 @@ export default function ArAiProvidersPage() {
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="rounded-2xl border border-white/8 bg-panel p-8">
           <p className="text-base leading-8 text-muted">
-            يستخدم Chairman موجِّه ذكاء متحكَّم به. يختار الموجِّه مسارات المعالجة المعتمدة بناءً
+            يستخدم Chameleon Eye AI موجِّه ذكاء متحكَّم به. يختار الموجِّه مسارات المعالجة المعتمدة بناءً
             على خطة المستخدم والوضع المختار وإعدادات الخصوصية والتوفر. لا تُكشف تفاصيل أي مزود
             ذكاء اصطناعي للواجهة الأمامية أو تُرسَل إلى المتصفح.
           </p>
@@ -85,7 +85,7 @@ export default function ArAiProvidersPage() {
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
         <SectionTitle
           title="فئات مسارات الذكاء"
-          subtitle="أنواع مسارات المعالجة التي قد يستخدمها Chairman، مصنّفةً حسب الفئة."
+          subtitle="أنواع مسارات المعالجة التي قد يستخدمها Chameleon Eye AI، مصنّفةً حسب الفئة."
           align="left"
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2">
@@ -113,7 +113,7 @@ export default function ArAiProvidersPage() {
             <p className="text-sm leading-7 text-muted">
               لا يستخدم Chameleon Eye AI ملفات العملاء الخاصة أو نصوص الطلبات أو بيانات الأعمال
               لتدريب نموذج عام. يُستخدم محتواك فقط لتوليد المخرجات التي طلبتها. ينطبق ذلك
-              على جميع مسارات الذكاء في Chairman — سواء السحابية أو المحلية.
+              على جميع مسارات الذكاء في Chameleon Eye AI — سواء السحابية أو المحلية.
             </p>
           </Card>
         </div>
@@ -123,7 +123,7 @@ export default function ArAiProvidersPage() {
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <SectionTitle
           title="الأسئلة الشائعة"
-          subtitle="أسئلة شائعة حول كيفية توجيه Chairman لطلبات الذكاء."
+          subtitle="أسئلة شائعة حول كيفية توجيه Chameleon Eye AI لطلبات الذكاء."
           align="left"
         />
         <div className="mt-10 space-y-6">

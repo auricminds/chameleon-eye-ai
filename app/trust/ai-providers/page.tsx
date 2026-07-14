@@ -11,28 +11,28 @@ export const metadata: Metadata = {
 
 const providerCategories = [
   {
-    label: "Local AI on user device",
+    label: "Offline Local Processing",
     description:
-      "Desktop app local mode. No cloud request. No network call. Your device performs all processing — nothing is sent externally.",
+      "No third-party AI API is contacted. Processing remains entirely on the user's device or local deployment.",
     status: "implemented" as const,
   },
   {
-    label: "Approved cloud AI routing",
+    label: "Hybrid Approval Processing",
     description:
-      "Used only for cloud intelligence mode. Selected text is sent after your explicit consent. Chameleon Eye AI routes through approved infrastructure with privacy controls applied.",
+      "Local-first analysis. Only selected text or approved summaries are sent to cloud AI after explicit user approval.",
     status: "implemented" as const,
   },
   {
-    label: "Source-checked research routes",
+    label: "Private Cloud / ZDR Route",
     description:
-      "Research-oriented routes with source attribution where available. Used for structured analysis and factual business context tasks.",
+      "Approved cloud AI route with stricter retention requirements where the provider contract supports zero data retention. If this route is required but unavailable, the request is blocked rather than silently downgraded.",
     status: "implemented" as const,
   },
   {
-    label: "Future private / self-hosted infrastructure",
+    label: "Standard Cloud / API Processing",
     description:
-      "Enterprise option for fully private deployment. Your organisation's data never leaves your controlled environment. Available under a private deployment agreement.",
-    status: "enterprise" as const,
+      "Approved payload only. Plan and permission controlled. For normal business intelligence workflows.",
+    status: "implemented" as const,
   },
 ];
 
@@ -47,7 +47,7 @@ const faqs = [
   },
   {
     q: "Will provider names or routes change?",
-    a: "Provider names and routes may change as part of reliability, privacy, and cost controls. Sensitive cloud analysis requires explicit user approval regardless of which route is used.",
+    a: "Provider names and routes may change as part of reliability, privacy, cost, and availability controls. Sensitive cloud analysis requires explicit user approval regardless of which route is used.",
   },
 ];
 
@@ -106,14 +106,20 @@ export default function AiProvidersPage() {
         </div>
       </section>
 
-      {/* Statement */}
+      {/* Statements */}
       <section className="border-y border-white/8 bg-panel/40 py-12">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
           <div className="rounded-2xl border border-gold/20 bg-gold/5 p-6">
             <p className="text-sm leading-7 text-muted">
               Provider names and routes may change as part of reliability,
-              privacy, and cost controls. Sensitive cloud analysis requires
-              explicit user approval.
+              privacy, cost, and availability controls.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-gold/20 bg-gold/5 p-6">
+            <p className="text-sm leading-7 text-muted">
+              Sensitive cloud analysis should use approved privacy routes. If
+              required privacy controls are unavailable, the request is blocked
+              rather than silently downgraded.
             </p>
           </div>
         </div>

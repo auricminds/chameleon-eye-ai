@@ -18,6 +18,7 @@ const publicDocs = [
   { label: "Subprocessor List", href: "/trust/subprocessors" },
   { label: "No-Training Policy", href: "/trust/no-training-policy" },
   { label: "Responsible Disclosure", href: "/trust/responsible-disclosure" },
+  { label: "Company Transparency", href: "/trust/company" },
 ];
 
 const onRequestDocs = [

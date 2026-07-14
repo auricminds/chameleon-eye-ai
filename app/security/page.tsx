@@ -70,8 +70,10 @@ const loggingItems = [
 
 const isolationItems = [
   "Account-level access control",
-  "Database access controls",
-  "Audit metadata",
+  "Workspace permissions",
+  "Role-based controls where applicable",
+  "Authorized-data-only processing policy",
+  "Audit metadata for accountability",
 ];
 
 const headerItems = [
@@ -81,6 +83,12 @@ const headerItems = [
   "Permissions Policy",
   "HSTS in production",
   "Frame restrictions",
+];
+
+const continuousSecurityItems = [
+  "Penetration testing completed",
+  "Vulnerability disclosure process published",
+  "Security review cycle ongoing",
 ];
 
 export default function SecurityPage() {
@@ -173,7 +181,39 @@ export default function SecurityPage() {
         </div>
       </section>
 
-      {/* D. Desktop Connector Security */}
+      {/* D. Data in Transit */}
+      <section className="border-y border-white/8 bg-panel/40 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionTitle
+            title="Data in Transit"
+            subtitle="Encryption and transport security for all platform communications."
+            align="left"
+          />
+          <div className="mt-6 rounded-2xl border border-emerald/20 bg-emerald/5 p-6">
+            <p className="text-sm leading-7 text-muted">
+              Chameleon Eye AI uses HTTPS/TLS for data transmitted between
+              users and the platform.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* E. Password and Account Security */}
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <SectionTitle
+          title="Password and Account Security"
+          subtitle="Credential handling and authentication security."
+          align="left"
+        />
+        <div className="mt-6 rounded-2xl border border-white/8 bg-panel p-6">
+          <p className="text-sm leading-7 text-muted">
+            Authentication credentials are handled using secure practices.
+            Passwords are never stored in plain text.
+          </p>
+        </div>
+      </section>
+
+      {/* F. Desktop Connector Security */}
       <section className="border-y border-white/8 bg-panel/40 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
@@ -195,7 +235,7 @@ export default function SecurityPage() {
         </div>
       </section>
 
-      {/* E. Logging Policy */}
+      {/* G. Logging Policy */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <SectionTitle
           title="Logging Policy"
@@ -215,12 +255,12 @@ export default function SecurityPage() {
         </div>
       </section>
 
-      {/* F. Data Isolation */}
+      {/* H. Access Control */}
       <section className="border-y border-white/8 bg-panel/40 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
-            title="Data Isolation"
-            subtitle="Customer data is separated at account level with database access controls."
+            title="Access Control"
+            subtitle="Customer data is separated at account level with workspace permissions and role-based controls."
             align="left"
           />
           <div className="mt-10 grid gap-3 sm:grid-cols-3">
@@ -237,7 +277,7 @@ export default function SecurityPage() {
         </div>
       </section>
 
-      {/* G. Security Headers */}
+      {/* I. Security Headers */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <SectionTitle
           title="Security Headers"
@@ -254,6 +294,28 @@ export default function SecurityPage() {
               <span className="text-sm text-foreground">{item}</span>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* J. Continuous Security */}
+      <section className="border-y border-white/8 bg-panel/40 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionTitle
+            title="Continuous Security"
+            subtitle="Ongoing security assurance processes."
+            align="left"
+          />
+          <div className="mt-10 grid gap-3 sm:grid-cols-3">
+            {continuousSecurityItems.map((item) => (
+              <div
+                key={item}
+                className="flex items-start gap-3 rounded-xl border border-white/8 bg-panel px-4 py-3"
+              >
+                <span className="mt-1 text-emerald shrink-0">+</span>
+                <span className="text-sm text-foreground">{item}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
