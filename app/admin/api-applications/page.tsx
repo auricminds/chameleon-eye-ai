@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { AdminBadge } from '@/components/admin/AdminBadge'
 import { adminQuery } from '@/lib/admin/supabase'
+import { ApiAppActions } from './ApiAppActions'
 
 export const metadata: Metadata = {
   title: 'API Applications — Admin',
@@ -118,21 +119,7 @@ export default async function ApiApplicationsPage({ searchParams }: { searchPara
                     {formatDate(app.created_at)}
                   </td>
                   <td className="px-4 py-3">
-                    <div className="flex gap-1">
-                      <button
-                        disabled
-                        className="rounded-lg border border-emerald/20 bg-emerald/5 px-2 py-1 text-xs text-emerald disabled:opacity-50 disabled:cursor-not-allowed"
-                        title="Connect Supabase to enable actions"
-                      >
-                        Approve
-                      </button>
-                      <button
-                        disabled
-                        className="rounded-lg border border-red-400/20 bg-red-400/5 px-2 py-1 text-xs text-red-400 disabled:opacity-50 disabled:cursor-not-allowed"
-                      >
-                        Reject
-                      </button>
-                    </div>
+                    <ApiAppActions appId={app.id} />
                   </td>
                 </tr>
               ))

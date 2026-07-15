@@ -15,7 +15,7 @@ export async function POST(
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
-  if (!hasPermission(session.role, 'api_applications') && !hasPermission(session.role, '*')) {
+  if (!hasPermission(session.role, 'api_applications.approve') && !hasPermission(session.role, '*')) {
     return NextResponse.json({ error: 'Insufficient permissions.' }, { status: 403 })
   }
 

@@ -28,7 +28,7 @@ export async function PATCH(
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
-  if (!hasPermission(session.role, '*') && !hasPermission(session.role, 'subscriptions')) {
+  if (!hasPermission(session.role, '*') && !hasPermission(session.role, 'subscriptions.manage')) {
     return NextResponse.json({ error: 'Insufficient permissions.' }, { status: 403 })
   }
 

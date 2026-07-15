@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { AdminBadge } from '@/components/admin/AdminBadge'
 import { adminQuery } from '@/lib/admin/supabase'
+import { ApiKeyActions } from './ApiKeyActions'
 
 export const metadata: Metadata = {
   title: 'API Keys — Admin',
@@ -141,14 +142,7 @@ export default async function ApiKeysPage({ searchParams }: { searchParams: Sear
                     {formatDate(key.last_used_at)}
                   </td>
                   <td className="px-4 py-3">
-                    <div className="flex gap-1">
-                      <button disabled className="rounded border border-white/10 px-2 py-1 text-xs text-muted disabled:opacity-50 disabled:cursor-not-allowed">
-                        Disable
-                      </button>
-                      <button disabled className="rounded border border-red-400/20 px-2 py-1 text-xs text-red-400 disabled:opacity-50 disabled:cursor-not-allowed">
-                        Revoke
-                      </button>
-                    </div>
+                    <ApiKeyActions keyId={key.id} currentStatus={key.status} />
                   </td>
                 </tr>
               ))

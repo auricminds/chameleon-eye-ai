@@ -75,7 +75,7 @@ export async function POST(
     return NextResponse.json({ error: 'A reason of at least 10 characters is required.' }, { status: 400 })
   }
 
-  if (!hasPermission(session.role, 'users') && !hasPermission(session.role, '*')) {
+  if (!hasPermission(session.role, 'users.view') && !hasPermission(session.role, '*')) {
     return NextResponse.json({ error: 'Insufficient permissions.' }, { status: 403 })
   }
 
@@ -141,15 +141,25 @@ export async function POST(
         })
         break
 
-      case 'add_note':
+      case 'add_note': {
+        // Fetch existing notes to append
+        const { data: existingUser } = await adminQuery<Array<{ internal_notes: string | null }>>(
+          `platform_users?id=eq.${userId}&select=internal_notes&limit=1`
+        )
+        const existingNotes = existingUser?.[0]?.internal_notes ?? ''
+        const noteText = typeof extra.note === 'string' ? extra.note : reason
+        const appendedNotes = existingNotes
+          ? `${existingNotes}\n[${now}] [${session.email}]: ${noteText}`
+          : `[${now}] [${session.email}]: ${noteText}`
         await adminQuery(`platform_users?id=eq.${userId}`, {
           method: 'PATCH',
           body: JSON.stringify({
-            internal_notes: extra.note ?? reason,
+            internal_notes: appendedNotes,
             updated_at: now,
           }),
         })
         break
+      }
 
       case 'revoke_api_keys':
         await adminQuery(`api_keys?user_id=eq.${userId}`, {
@@ -163,10 +173,16 @@ export async function POST(
         })
         break
 
-      case 'add_credits':
+      case 'add_credits': {
         if (!extra.credit_amount || typeof extra.credit_amount !== 'number') {
           return NextResponse.json({ error: 'credit_amount is required.' }, { status: 400 })
         }
+        // Fetch current balance from latest ledger entry
+        const { data: ledgerData } = await adminQuery<Array<{ balance_after: number }>>(
+          `token_ledger?user_id=eq.${userId}&select=balance_after&order=created_at.desc&limit=1`
+        )
+        const currentBalance = ledgerData?.[0]?.balance_after ?? 0
+        const newBalance = currentBalance + (extra.credit_amount as number)
         await adminQuery('token_ledger', {
           method: 'POST',
           body: JSON.stringify({
@@ -174,13 +190,14 @@ export async function POST(
             entry_type: 'admin_adjustment',
             credit_amount: extra.credit_amount,
             debit_amount: 0,
-            balance_after: 0, // would need to compute from current balance
+            balance_after: newBalance,
             reason,
             admin_user_id: session.adminUserId !== 'bootstrap' ? session.adminUserId : null,
             admin_reason: reason,
           }),
         })
         break
+      }
 
       case 'cancel_subscription':
         await adminQuery(`subscriptions?user_id=eq.${userId}&status=neq.cancelled`, {

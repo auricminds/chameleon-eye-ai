@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { KpiCard } from '@/components/admin/KpiCard'
-import { DateFilter } from '@/components/admin/DateFilter'
-import { adminQuery } from '@/lib/admin/supabase'
+import { countQuery } from '@/lib/admin/queries'
 
 export const metadata: Metadata = {
   title: 'Dashboard — Admin',
@@ -12,25 +12,55 @@ const isConfigured = !!(
 )
 
 async function fetchDashboardData() {
-  if (!isConfigured) return null
+  if (!isConfigured) {
+    return {
+      totalUsers: 0, activeUsers: 0, suspendedUsers: 0, bannedUsers: 0,
+      trialUsers: 0, activeSubscriptions: 0, pastDueSubscriptions: 0,
+      pendingApiApps: 0, activeApiKeys: 0,
+      totalRequests: 0, successRequests: 0, failedRequests: 0,
+      failedPayments: 0,
+    }
+  }
 
-  const [users, apiKeys, plans] = await Promise.all([
-    adminQuery<{ count: number }>('platform_users?select=count', {
-      headers: { 'Prefer': 'count=exact', 'Range': '0-0' },
-    }),
-    adminQuery<{ count: number }>('api_keys?status=eq.active&select=count', {
-      headers: { 'Prefer': 'count=exact', 'Range': '0-0' },
-    }),
-    adminQuery<{ count: number }>('api_applications?status=eq.submitted&select=count', {
-      headers: { 'Prefer': 'count=exact', 'Range': '0-0' },
-    }),
+  const [
+    totalUsers, activeUsers, suspendedUsers, bannedUsers, trialUsers,
+    activeSubscriptions, pastDueSubscriptions,
+    pendingApiApps, activeApiKeys,
+    totalRequests, successRequests, failedRequests,
+    failedPayments,
+  ] = await Promise.all([
+    countQuery('platform_users'),
+    countQuery('platform_users', 'account_status=eq.active'),
+    countQuery('platform_users', 'account_status=eq.suspended'),
+    countQuery('platform_users', 'account_status=eq.banned'),
+    countQuery('subscriptions', 'status=eq.trialing'),
+    countQuery('subscriptions', 'status=eq.active'),
+    countQuery('subscriptions', 'status=eq.past_due'),
+    countQuery('api_applications', 'status=eq.submitted'),
+    countQuery('api_keys', 'status=eq.active'),
+    countQuery('ai_usage_logs'),
+    countQuery('ai_usage_logs', 'request_status=eq.success'),
+    countQuery('ai_usage_logs', 'request_status=eq.error'),
+    countQuery('payments', 'status=eq.failed'),
   ])
 
-  return { users, apiKeys, plans }
+  return {
+    totalUsers, activeUsers, suspendedUsers, bannedUsers, trialUsers,
+    activeSubscriptions, pastDueSubscriptions,
+    pendingApiApps, activeApiKeys,
+    totalRequests, successRequests, failedRequests,
+    failedPayments,
+  }
+}
+
+function fmt(n: number) {
+  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`
+  if (n >= 1_000) return `${(n / 1_000).toFixed(1)}K`
+  return n.toString()
 }
 
 export default async function AdminDashboardPage() {
-  const data = await fetchDashboardData()
+  const d = await fetchDashboardData()
 
   return (
     <div className="space-y-6">
@@ -40,7 +70,6 @@ export default async function AdminDashboardPage() {
           <h1 className="text-xl font-semibold text-foreground">Dashboard</h1>
           <p className="mt-0.5 text-sm text-muted">Platform overview and key metrics.</p>
         </div>
-        <DateFilter />
       </div>
 
       {/* Supabase notice */}
@@ -58,51 +87,33 @@ export default async function AdminDashboardPage() {
       <div>
         <p className="mb-3 text-xs font-semibold tracking-[0.12em] uppercase text-muted/60">Users</p>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-          <KpiCard label="Total Registered" value={isConfigured ? '—' : '—'} sub="All time" />
-          <KpiCard label="New Today" value="—" trend="up" trendLabel="vs yesterday" />
-          <KpiCard label="Active Users" value="—" sub="Last 30 days" accent />
-          <KpiCard label="Free / Paid / Trial" value="— / — / —" />
-          <KpiCard label="Suspended" value="—" />
-          <KpiCard label="Banned" value="—" />
+          <KpiCard label="Total Registered" value={fmt(d.totalUsers)} sub="All time" />
+          <KpiCard label="Active" value={fmt(d.activeUsers)} accent />
+          <KpiCard label="Trialing" value={fmt(d.trialUsers)} sub="Free trial" />
+          <KpiCard label="Suspended" value={fmt(d.suspendedUsers)} />
+          <KpiCard label="Banned" value={fmt(d.bannedUsers)} />
+          <KpiCard label="API Keys Active" value={fmt(d.activeApiKeys)} />
         </div>
       </div>
 
-      {/* KPI grid — API */}
+      {/* KPI grid — Subscriptions */}
       <div>
-        <p className="mb-3 text-xs font-semibold tracking-[0.12em] uppercase text-muted/60">API</p>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-          <KpiCard label="API Accounts" value="—" />
-          <KpiCard label="Active API Keys" value="—" accent />
-          <KpiCard label="Total AI Requests" value="—" sub="This period" />
-          <KpiCard label="Successful Requests" value="—" trend="up" />
-          <KpiCard label="Failed Requests" value="—" trend="down" />
-          <KpiCard label="Avg Latency" value="— ms" />
+        <p className="mb-3 text-xs font-semibold tracking-[0.12em] uppercase text-muted/60">Subscriptions</p>
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+          <KpiCard label="Active Subscriptions" value={fmt(d.activeSubscriptions)} accent />
+          <KpiCard label="Past Due" value={fmt(d.pastDueSubscriptions)} />
+          <KpiCard label="Pending API Apps" value={fmt(d.pendingApiApps)} />
+          <KpiCard label="Failed Payments" value={fmt(d.failedPayments)} />
         </div>
       </div>
 
-      {/* KPI grid — Tokens */}
+      {/* KPI grid — AI Requests */}
       <div>
-        <p className="mb-3 text-xs font-semibold tracking-[0.12em] uppercase text-muted/60">Tokens</p>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-          <KpiCard label="Input Tokens" value="—" />
-          <KpiCard label="Output Tokens" value="—" />
-          <KpiCard label="Total Tokens" value="—" accent />
-          <KpiCard label="Cached Tokens" value="—" />
-          <KpiCard label="Provider Cost" value="$—" />
-          <KpiCard label="Gross Margin" value="—%" />
-        </div>
-      </div>
-
-      {/* KPI grid — Revenue */}
-      <div>
-        <p className="mb-3 text-xs font-semibold tracking-[0.12em] uppercase text-muted/60">Revenue</p>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-          <KpiCard label="MRR" value="$—" accent />
-          <KpiCard label="Revenue Today" value="$—" />
-          <KpiCard label="Revenue This Month" value="$—" />
-          <KpiCard label="Failed Payments" value="—" />
-          <KpiCard label="Upcoming Renewals" value="—" sub="Next 7 days" />
-          <KpiCard label="Gross Profit" value="$—" />
+        <p className="mb-3 text-xs font-semibold tracking-[0.12em] uppercase text-muted/60">AI Requests (All Time)</p>
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+          <KpiCard label="Total Requests" value={fmt(d.totalRequests)} accent />
+          <KpiCard label="Successful" value={fmt(d.successRequests)} trend="up" />
+          <KpiCard label="Failed" value={fmt(d.failedRequests)} trend={d.failedRequests > 0 ? 'down' : 'neutral'} />
         </div>
       </div>
 
@@ -111,19 +122,23 @@ export default async function AdminDashboardPage() {
         <p className="mb-3 text-xs font-semibold tracking-[0.12em] uppercase text-muted/60">
           Attention Required
         </p>
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
-          {[
-            { label: 'Failed payments', value: '—', color: 'text-red-400', bg: 'bg-red-400/5 border-red-400/20' },
-            { label: 'Expiring subscriptions (7d)', value: '—', color: 'text-amber-400', bg: 'bg-amber-400/5 border-amber-400/20' },
-            { label: 'API applications pending', value: '—', color: 'text-amber-400', bg: 'bg-amber-400/5 border-amber-400/20' },
-            { label: 'Open critical tickets', value: '—', color: 'text-red-400', bg: 'bg-red-400/5 border-red-400/20' },
-            { label: 'Security alerts', value: '—', color: 'text-red-400', bg: 'bg-red-400/5 border-red-400/20' },
-          ].map((item) => (
-            <div key={item.label} className={`rounded-xl border p-4 ${item.bg}`}>
-              <p className="text-xs text-muted">{item.label}</p>
-              <p className={`mt-1 text-2xl font-semibold ${item.color}`}>{item.value}</p>
-            </div>
-          ))}
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <Link href="/admin/payments?status=failed" className="block rounded-xl border border-red-400/20 bg-red-400/5 p-4 hover:bg-red-400/10 transition-colors">
+            <p className="text-xs text-muted">Failed payments</p>
+            <p className="mt-1 text-2xl font-semibold text-red-400">{d.failedPayments}</p>
+          </Link>
+          <Link href="/admin/subscriptions?status=past_due" className="block rounded-xl border border-amber-400/20 bg-amber-400/5 p-4 hover:bg-amber-400/10 transition-colors">
+            <p className="text-xs text-muted">Past due subscriptions</p>
+            <p className="mt-1 text-2xl font-semibold text-amber-400">{d.pastDueSubscriptions}</p>
+          </Link>
+          <Link href="/admin/api-applications?status=submitted" className="block rounded-xl border border-amber-400/20 bg-amber-400/5 p-4 hover:bg-amber-400/10 transition-colors">
+            <p className="text-xs text-muted">API applications pending</p>
+            <p className="mt-1 text-2xl font-semibold text-amber-400">{d.pendingApiApps}</p>
+          </Link>
+          <Link href="/admin/users?status=suspended" className="block rounded-xl border border-white/8 bg-panel p-4 hover:bg-white/4 transition-colors">
+            <p className="text-xs text-muted">Suspended accounts</p>
+            <p className="mt-1 text-2xl font-semibold text-foreground">{d.suspendedUsers}</p>
+          </Link>
         </div>
       </div>
     </div>

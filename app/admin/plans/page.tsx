@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { AdminBadge } from '@/components/admin/AdminBadge'
 import { adminQuery } from '@/lib/admin/supabase'
+import { CreatePlanButton, PlanActions } from './PlansClient'
 
 export const metadata: Metadata = {
   title: 'Subscription Plans — Admin',
@@ -51,13 +52,17 @@ export default async function PlansPage() {
           <h1 className="text-xl font-semibold text-foreground">Subscription Plans</h1>
           <p className="mt-0.5 text-sm text-muted">Manage pricing plans and feature entitlements.</p>
         </div>
-        <button
-          disabled
-          className="rounded-full bg-emerald/10 border border-emerald/20 text-emerald px-4 py-2 text-sm font-medium hover:bg-emerald/20 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-          title="Connect Supabase to create plans"
-        >
-          + Create Plan
-        </button>
+        {isConfigured ? (
+          <CreatePlanButton />
+        ) : (
+          <button
+            disabled
+            className="rounded-full bg-emerald/10 border border-emerald/20 text-emerald px-4 py-2 text-sm font-medium opacity-50 cursor-not-allowed"
+            title="Connect Supabase to create plans"
+          >
+            + Create Plan
+          </button>
+        )}
       </div>
 
       {!isConfigured && (
@@ -66,47 +71,8 @@ export default async function PlansPage() {
         </div>
       )}
 
-      {plans.length === 0 && isConfigured && (
-        <p className="text-sm text-muted">No plans configured yet.</p>
-      )}
-
-      {!isConfigured && (
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {['Free', 'Pro', 'Business', 'Enterprise'].map((name) => (
-            <div key={name} className="rounded-xl border border-white/8 bg-panel p-5 opacity-40">
-              <div className="flex items-start justify-between mb-3">
-                <div>
-                  <h3 className="text-sm font-semibold text-foreground">{name}</h3>
-                  <p className="text-xs text-muted mt-0.5">—</p>
-                </div>
-                <AdminBadge status="draft" />
-              </div>
-              <div className="space-y-1.5">
-                <div className="flex justify-between text-xs">
-                  <span className="text-muted">Monthly</span>
-                  <span className="text-foreground">$—</span>
-                </div>
-                <div className="flex justify-between text-xs">
-                  <span className="text-muted">Annual</span>
-                  <span className="text-foreground">$—</span>
-                </div>
-                <div className="flex justify-between text-xs">
-                  <span className="text-muted">Monthly tokens</span>
-                  <span className="text-foreground">—</span>
-                </div>
-                <div className="flex justify-between text-xs">
-                  <span className="text-muted">API access</span>
-                  <span className="text-muted">—</span>
-                </div>
-              </div>
-              <div className="mt-4 flex gap-1">
-                <button disabled className="rounded border border-white/10 px-2 py-1 text-xs text-muted disabled:opacity-50 disabled:cursor-not-allowed">Edit</button>
-                <button disabled className="rounded border border-white/10 px-2 py-1 text-xs text-muted disabled:opacity-50 disabled:cursor-not-allowed">Duplicate</button>
-                <button disabled className="rounded border border-white/10 px-2 py-1 text-xs text-muted disabled:opacity-50 disabled:cursor-not-allowed">Archive</button>
-              </div>
-            </div>
-          ))}
-        </div>
+      {isConfigured && plans.length === 0 && (
+        <p className="text-sm text-muted">No plans configured yet. Create the first plan above.</p>
       )}
 
       {plans.length > 0 && (
@@ -148,10 +114,8 @@ export default async function PlansPage() {
                   <span className="text-foreground capitalize">{plan.support_level}</span>
                 </div>
               </div>
-              <div className="mt-4 flex gap-1">
-                <button disabled className="rounded border border-white/10 px-2 py-1 text-xs text-muted disabled:opacity-50 disabled:cursor-not-allowed">Edit</button>
-                <button disabled className="rounded border border-white/10 px-2 py-1 text-xs text-muted disabled:opacity-50 disabled:cursor-not-allowed">Duplicate</button>
-                <button disabled className="rounded border border-white/10 px-2 py-1 text-xs text-muted disabled:opacity-50 disabled:cursor-not-allowed">Archive</button>
+              <div className="mt-4">
+                <PlanActions plan={{ id: plan.id, public_name: plan.public_name, status: plan.status }} />
               </div>
             </div>
           ))}

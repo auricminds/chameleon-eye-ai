@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { AdminBadge } from '@/components/admin/AdminBadge'
 import { adminQuery } from '@/lib/admin/supabase'
+import { UserActionPanel, AddCreditsPanel } from './UserActionPanel'
 
 export const metadata: Metadata = {
   title: 'User Detail — Admin',
@@ -252,54 +253,17 @@ export default async function UserDetailPage({ params }: { params: Params }) {
 
         {/* Admin Actions sidebar */}
         <div className="space-y-4">
-          <div className="rounded-xl border border-white/8 bg-panel p-4">
-            <h2 className="text-sm font-semibold text-foreground mb-3">Admin Actions</h2>
-            <p className="text-xs text-muted mb-3">
-              All actions require a written reason and are logged to the audit trail.
-            </p>
-            <div className="space-y-1.5">
-              {[
-                { label: 'Suspend Account', action: 'suspend', danger: true },
-                { label: 'Reactivate Account', action: 'reactivate' },
-                { label: 'Ban User', action: 'ban', danger: true },
-                { label: 'Remove Ban', action: 'remove_ban' },
-                { label: 'Lock Temporarily', action: 'lock', danger: true },
-                null, // divider
-                { label: 'Send Password Reset', action: 'send_password_reset' },
-                { label: 'Send Email Verification', action: 'send_email_verification' },
-                { label: 'End All Sessions', action: 'end_sessions', danger: true },
-                { label: 'Revoke All API Keys', action: 'revoke_api_keys', danger: true },
-                null,
-                { label: 'Add Promotional Credits', action: 'add_credits' },
-                { label: 'Change Subscription Plan', action: 'change_plan' },
-                { label: 'Cancel Subscription', action: 'cancel_subscription', danger: true },
-                null,
-                { label: 'Add Internal Note', action: 'add_note' },
-                { label: 'Export User Data', action: 'export_data' },
-              ].map((item, i) => {
-                if (item === null) {
-                  return <div key={i} className="my-2 border-t border-white/8" />
-                }
-                return (
-                  <button
-                    key={item.action}
-                    disabled
-                    className={`w-full rounded-lg px-3 py-2 text-left text-xs font-medium transition-colors ${
-                      item.danger
-                        ? 'border border-red-400/20 bg-red-400/5 text-red-400 hover:bg-red-400/10'
-                        : 'border border-white/8 bg-white/3 text-muted hover:border-emerald/20 hover:text-foreground'
-                    } disabled:opacity-50 disabled:cursor-not-allowed`}
-                    title="Actions require Supabase to be connected"
-                  >
-                    {item.label}
-                  </button>
-                )
-              })}
+          {isConfigured ? (
+            <>
+              <UserActionPanel userId={userId} />
+              <AddCreditsPanel userId={userId} />
+            </>
+          ) : (
+            <div className="rounded-xl border border-white/8 bg-panel p-4">
+              <h2 className="text-sm font-semibold text-foreground mb-3">Admin Actions</h2>
+              <p className="text-xs text-muted">Connect Supabase to enable admin actions.</p>
             </div>
-            <p className="mt-3 text-xs text-muted/60">
-              Actions are disabled until Supabase is connected.
-            </p>
-          </div>
+          )}
         </div>
       </div>
     </div>
