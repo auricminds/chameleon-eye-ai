@@ -47,11 +47,11 @@ export function Header() {
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:gap-4 lg:px-8">
           <Link
             href={homeHref}
-            className="flex shrink-0 items-center gap-2 focus:outline-none focus-visible:ring-1 focus-visible:ring-emerald/40 focus-visible:rounded-md"
+            className="flex shrink-0 items-center gap-2.5 focus:outline-none focus-visible:ring-1 focus-visible:ring-emerald/40 focus-visible:rounded-lg sm:gap-3"
           >
-            <Image src="/logo.png" alt="Chameleon Eye AI" width={56} height={56} className="h-14 w-14 object-contain" priority />
-            <span className="text-sm font-semibold tracking-tight text-foreground sm:text-base">
-              <span className="text-emerald">Chameleon Eye</span> AI
+            <Image src="/logo.png" alt="Chameleon Eye AI" width={48} height={48} className="h-9 w-9 shrink-0 object-contain sm:h-11 sm:w-11" priority />
+            <span className="text-lg font-bold tracking-tight text-foreground sm:text-2xl">
+              <span className="text-emerald">Chameleon Eye</span><span className="text-foreground"> AI</span>
             </span>
           </Link>
 
