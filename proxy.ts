@@ -3,7 +3,17 @@ import type { NextRequest } from "next/server";
 import { getLocaleFromPathname } from "@/lib/i18n/locale";
 
 export function proxy(request: NextRequest) {
-  const locale = getLocaleFromPathname(request.nextUrl.pathname);
+  const { pathname } = request.nextUrl;
+
+  // Admin area protection — redirect to login if no session cookie
+  if (pathname.startsWith("/admin") && pathname !== "/admin/login") {
+    const token = request.cookies.get("admin_session")?.value;
+    if (!token) {
+      return NextResponse.redirect(new URL("/admin/login", request.url));
+    }
+  }
+
+  const locale = getLocaleFromPathname(pathname);
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set("x-locale", locale);
 
