@@ -1,14 +1,15 @@
-# SOC 2 Type II — Public Summary
+# SOC 2 Type II — Status
 
-**Report type:** SOC 2 Type II
-**Operating company:** Chameleon Eye
-**Product covered:** Chameleon Eye AI / Chameleon Builder / Chameleon Eye API
-**Auditor:** TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR
-**Report period:** TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR
-**Report date:** TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR
-**Trust service criteria:** TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR
-**Availability:** Available under NDA to qualified customers and partners.
+**Status:** Planned — not yet completed
 
-Chameleon Eye AI has completed SOC 2 Type II attestation work covering controls relevant to the company's security and applicable trust service criteria.
+Chameleon Eye AI has not yet completed SOC 2 Type II attestation. SOC 2 readiness is a planned milestone following commercial launch.
 
-Full reports are shared only under appropriate confidentiality terms with qualified customers and partners.
+When this milestone is reached, the following information will be published here:
+
+- Report type
+- Auditor
+- Report period and date
+- Trust service criteria covered
+- Availability terms for qualified customers and partners
+
+This document will be updated when the attestation is complete. To discuss security requirements in the meantime, use the contact form or the Trust Pack request process at /trust/trust-pack.

@@ -35,6 +35,16 @@ const errorCodes = [
 export default function RateLimitsPage() {
   return (
     <>
+      {/* Developer Preview Banner */}
+      <div className="border-b border-gold/30 bg-gold/8 py-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-sm font-semibold text-gold">Developer Preview</p>
+          <p className="text-xs leading-5 text-muted mt-0.5">
+            The Chameleon Eye API is in developer preview. Rate limiting is planned — it is not actively enforced in the current developer preview. Production limits will be communicated before commercial launch.
+          </p>
+        </div>
+      </div>
+
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/8">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(31,174,130,0.12),transparent_40%)]" />
@@ -46,8 +56,9 @@ export default function RateLimitsPage() {
             API Rate Limits
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            Rate limit tiers, error handling, and retry guidance for Chameleon
-            Eye API.
+            Planned rate limit tiers, error handling, and retry guidance for
+            Chameleon Eye API. Rate limiting is not yet enforced in developer
+            preview.
           </p>
         </div>
       </section>
@@ -55,14 +66,16 @@ export default function RateLimitsPage() {
       {/* A. Rate Limit Overview */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <SectionTitle
-          title="Rate Limit Overview"
-          subtitle="API usage is plan-limited and rate-limited."
+          title="Planned Rate Limit Overview"
+          subtitle="Rate limiting is planned for the production API. Limits are not actively enforced in developer preview."
           align="left"
         />
         <div className="mt-8 rounded-2xl border border-white/8 bg-panel p-6">
           <p className="text-sm leading-7 text-muted">
-            API usage is plan-limited and rate-limited. Limits depend on
-            customer plan and contract. Contact support for limit increases.
+            In production, API usage will be plan-limited and rate-limited.
+            Limits will depend on customer plan and contract. Rate limiting
+            is not yet enforced in the current developer preview. Contact the
+            team for early access discussions.
           </p>
         </div>
       </section>
@@ -71,8 +84,8 @@ export default function RateLimitsPage() {
       <section className="border-y border-white/8 bg-panel/40 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
-            title="Rate Limit Response"
-            subtitle="When rate limited, the API returns HTTP 429 with the following response body."
+            title="Rate Limit Response Format"
+            subtitle="When rate limited, the API will return HTTP 429 with the following response body."
             align="left"
           />
           <Card className="mt-10 border-gold/20 bg-background/80 max-w-2xl p-0">
@@ -95,7 +108,7 @@ export default function RateLimitsPage() {
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <SectionTitle
           title="Best Practices"
-          subtitle="Follow these recommendations to avoid hitting rate limits."
+          subtitle="Follow these recommendations to handle rate limits correctly in your integration."
           align="left"
         />
         <div className="mt-10 grid gap-3 sm:grid-cols-2">

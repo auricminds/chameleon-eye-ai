@@ -37,6 +37,8 @@ type DownloadCardProps = {
   icon: React.ReactNode;
   title: string;
   subtitle: string;
+  badge?: string;
+  warning?: string;
   buttonLabel: string;
   comingSoon: string;
   downloadHref?: string;
@@ -47,6 +49,8 @@ function DownloadCard({
   icon,
   title,
   subtitle,
+  badge,
+  warning,
   buttonLabel,
   comingSoon,
   downloadHref,
@@ -54,11 +58,23 @@ function DownloadCard({
 }: DownloadCardProps) {
   return (
     <div className="flex h-full flex-col rounded-2xl border border-white/8 bg-panel p-6 transition-all duration-200 hover:border-emerald/30 hover:bg-panel2 hover:shadow-[0_0_30px_rgba(31,174,130,0.08)]">
-      <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl border border-white/8 bg-background/60">
-        {icon}
+      <div className="mb-4 flex items-start justify-between gap-3">
+        <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/8 bg-background/60">
+          {icon}
+        </div>
+        {badge && (
+          <span className="inline-flex items-center rounded-full border border-gold/30 bg-gold/10 px-2.5 py-0.5 text-xs font-medium text-gold">
+            {badge}
+          </span>
+        )}
       </div>
       <h3 className="text-lg font-semibold text-foreground">{title}</h3>
       <p className="mt-2 text-sm text-muted">{subtitle}</p>
+      {warning && (
+        <p className="mt-3 text-xs leading-5 text-gold rounded-lg border border-gold/20 bg-gold/5 px-3 py-2">
+          {warning}
+        </p>
+      )}
       <div className="mt-6 flex flex-1 flex-col justify-end">
         {downloadHref ? (
           <a
@@ -99,30 +115,36 @@ export function DesktopDownloadCards({ locale = "en" }: DesktopDownloadCardsProp
 
   const copy = isArabic
     ? {
-        title: "تنزيل Chameleon Eye Desktop Connector",
+        title: "تنزيل Chameleon Eye Desktop",
         subtitle:
-          "ثبّت موصل سطح المكتب الآمن لسير العمل المحلي والخاص، وتفعيل الأجهزة، والتحليل السحابي المصرح به.",
+          "ثبّت تطبيق سطح المكتب لسير العمل المحلي والخاص، وتفعيل الأجهزة، والتحليل السحابي المصرح به.",
         windowsSubtitle: "لنظام Windows 10 و Windows 11",
-        macSubtitle: "لأجهزة Apple Silicon و Intel Mac",
+        macSubtitle: "لأجهزة Apple Silicon · macOS 12+",
+        macBadge: "وصول مبكر",
+        macWarning:
+          "إصدار تطوير — قد يظهر تحذير أمان من macOS. انقر بالزر الأيمن ← فتح للتشغيل.",
         comingSoon: "قريباً",
-        windowsNote: "نسخة Windows قيد التحضير",
-        macNote: "نسخة macOS قيد التحضير",
+        windowsNote: "نسخة Windows قيد التطوير",
+        macNote: "Apple Silicon · الإصدار 0.2.0 · إصدار تطوير",
         security:
           "لن يحتاج موصل سطح المكتب إلى وضع مفاتيح API الرئيسية داخل التطبيق المثبت. يتم الوصول الآمن من خلال تسجيل الدخول، أو تفعيل الجهاز، أو رموز قصيرة المدة، أو حماية خادم الشركة.",
         earlyAccess: "تحتاج وصولاً مبكراً؟",
         cta: "اطلب تكامل سطح المكتب",
       }
     : {
-        title: "Download Chameleon Eye Desktop Connector",
+        title: "Download Chameleon Eye Desktop",
         subtitle:
-          "Install the secure desktop connector for local/private workflows, device activation, and approved cloud intelligence.",
+          "Install the desktop app for local/private workflows, device activation, and approved cloud intelligence.",
         windowsSubtitle: "For Windows 10 and Windows 11",
-        macSubtitle: "For Apple Silicon and Intel Macs",
+        macSubtitle: "For Apple Silicon · macOS 12 Ventura or later",
+        macBadge: "Early Access",
+        macWarning:
+          "Development build — macOS may display a security warning. Right-click → Open to bypass Gatekeeper. Not a notarized release.",
         comingSoon: "Coming soon",
-        windowsNote: "Download for Windows · Installer coming soon",
-        macNote: "Download for macOS · Installer coming soon",
+        windowsNote: "Windows app — in development",
+        macNote: "Apple Silicon · v0.2.0 · Development build",
         security:
-          "The desktop connector will never require you to place master API keys inside the installed application. Secure access uses login, device activation, short-lived tokens, or company backend protection.",
+          "The desktop app will never require you to place master API keys inside the installed application. Secure access uses login, device activation, short-lived tokens, or company backend protection.",
         earlyAccess: "Need early access?",
         cta: "Request Desktop Integration",
       };
@@ -150,7 +172,9 @@ export function DesktopDownloadCards({ locale = "en" }: DesktopDownloadCardsProp
           icon={<MacOSIcon />}
           title="macOS"
           subtitle={copy.macSubtitle}
-          buttonLabel={isArabic ? "macOS Apple Silicon · الإصدار 0.2.0" : "macOS Apple Silicon · v0.2.0"}
+          badge={copy.macBadge}
+          warning={copy.macWarning}
+          buttonLabel={copy.macNote}
           comingSoon={copy.comingSoon}
           downloadHref="https://github.com/auricminds/chameleon-eye-ai/releases/download/v0.2.0/ChameleonEyeDesktop-0.2.0-arm64.dmg"
           downloadLabel={isArabic ? "تنزيل لـ macOS" : "Download for macOS"}

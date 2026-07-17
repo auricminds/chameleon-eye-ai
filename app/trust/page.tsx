@@ -5,33 +5,44 @@ import { Button } from "@/components/Button";
 import { StatusChip } from "@/components/trust/StatusChip";
 
 export const metadata: Metadata = {
-  title: "Verified Trust Center — Chameleon Eye AI",
+  title: "Trust Center — Chameleon Eye AI",
   description:
-    "Chameleon Eye AI maintains verified security, privacy, and compliance documentation for businesses evaluating private AI intelligence.",
+    "Chameleon Eye AI trust center. Security architecture, privacy controls, compliance roadmap, and published policies.",
 };
 
 const trustCards = [
   {
-    title: "SOC 2 Type II",
-    status: "completed" as const,
-    detail: "SOC 2 Type II report available under NDA to qualified customers.",
+    title: "Offline / Local Mode",
+    status: "available" as const,
+    detail:
+      "Sensitive files can remain on-device. No third-party AI API is contacted in offline local mode.",
+  },
+  {
+    title: "Hybrid Approval Mode",
+    status: "available" as const,
+    detail:
+      "Only selected text or approved summaries are sent to cloud intelligence after user approval.",
+  },
+  {
+    title: "SOC 2",
+    status: "in_planning" as const,
+    detail: "SOC 2 readiness programme — in planning. Not yet certified.",
   },
   {
     title: "ISO/IEC 27001",
-    status: "certified" as const,
-    detail: "ISO/IEC 27001 certified information security management system.",
+    status: "in_planning" as const,
+    detail: "ISO 27001 preparation — in planning. Not yet certified.",
   },
   {
-    title: "Penetration Testing",
-    status: "completed" as const,
-    detail:
-      "Penetration testing completed. Customer-safe summary available on request.",
+    title: "Independent Security Testing",
+    status: "planned" as const,
+    detail: "External security testing planned before public commercial launch.",
   },
   {
     title: "Data Processing Agreement",
     status: "available" as const,
     detail:
-      "DPA available for qualified business customers and approved partners.",
+      "DPA available on request for qualified business customers and approved partners.",
   },
   {
     title: "No Customer Data Training",
@@ -40,22 +51,9 @@ const trustCards = [
       "Customer private files, prompts, and business data are not used to train a public AI model.",
   },
   {
-    title: "Local-First Privacy",
-    status: "available" as const,
-    detail:
-      "Private Intelligence can run on the user's device when the local Chameleon Brain is installed.",
-  },
-  {
-    title: "Cloud Approval Controls",
-    status: "available" as const,
-    detail:
-      "Private content is not sent to cloud intelligence without user approval.",
-  },
-  {
-    title: "Subprocessor Transparency",
+    title: "Vulnerability Disclosure",
     status: "published" as const,
-    detail:
-      "Active subprocessors and infrastructure providers are listed publicly.",
+    detail: "Responsible disclosure process published for security reports.",
   },
 ];
 
@@ -70,17 +68,17 @@ export default function TrustPage() {
             Trust Center
           </p>
           <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-            Verified Trust Center
+            Trust Center
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            Chameleon Eye AI is designed for private predictive business intelligence,
-            with verified security documentation, certified information security
-            management, and clear controls for local, hybrid, and cloud
-            intelligence.
+            Chameleon Eye AI is designed for private predictive business
+            intelligence, with local-first privacy options, approval-based cloud
+            processing, and published policies. Compliance certifications are
+            planned as part of the path to commercial launch.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button href="/trust/trust-pack" variant="primary">
-              Request Trust Pack
+            <Button href="/trust/compliance-roadmap" variant="primary">
+              View Compliance Roadmap
             </Button>
             <Button href="/trust/security" variant="secondary">
               View Security Architecture
@@ -95,11 +93,26 @@ export default function TrustPage() {
         </div>
       </section>
 
-      {/* Trust Proof Cards */}
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      {/* Early-Stage Notice */}
+      <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="rounded-2xl border border-gold/20 bg-gold/5 p-6">
+          <p className="text-sm font-semibold text-gold mb-2">
+            Early-Stage Product
+          </p>
+          <p className="text-sm leading-7 text-muted">
+            Chameleon Eye AI is an early-stage product. SOC 2 and ISO 27001
+            certifications are in planning and have not yet been completed.
+            Independent security testing is planned before public commercial
+            launch. Published policies and DPA are available now.
+          </p>
+        </div>
+      </section>
+
+      {/* Trust Status Cards */}
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <SectionTitle
-          title="Verified Security and Compliance"
-          subtitle="Chameleon Eye AI maintains verified security documentation, certified information security management, and published privacy policies."
+          title="Security and Compliance Status"
+          subtitle="Current status across privacy controls, compliance programmes, and published policies."
           align="left"
         />
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -117,30 +130,17 @@ export default function TrustPage() {
         </div>
       </section>
 
-      {/* Note Box */}
+      {/* Trust Statement */}
       <section className="border-y border-white/8 bg-panel/40 py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl border border-gold/20 bg-gold/5 p-6">
-            <p className="text-sm font-semibold text-gold mb-2">
-              Document Availability
-            </p>
-            <p className="text-sm leading-7 text-muted">
-              Some trust documents are public. Sensitive security reports and
-              audit evidence may be shared only under NDA with qualified business
-              customers or partners.
+          <div className="rounded-2xl border border-emerald/20 bg-emerald/5 p-8">
+            <p className="text-base leading-8 text-foreground">
+              Chameleon Eye AI maintains published security and privacy policies,
+              local-first data controls, and approval-based cloud processing.
+              Compliance certifications are planned as part of the path toward
+              commercial launch.
             </p>
           </div>
-        </div>
-      </section>
-
-      {/* Trust Statement */}
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="rounded-2xl border border-emerald/20 bg-emerald/5 p-8">
-          <p className="text-base leading-8 text-foreground">
-            Chameleon Eye AI maintains verified security,
-            privacy, and compliance documentation for businesses evaluating
-            private AI intelligence.
-          </p>
         </div>
       </section>
 
@@ -155,10 +155,10 @@ export default function TrustPage() {
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <Card hover>
               <h3 className="text-sm font-semibold text-foreground mb-2">
-                Compliance
+                Compliance Status
               </h3>
               <p className="text-sm text-muted mb-4">
-                SOC 2, ISO 27001, penetration testing, and DPA status.
+                SOC 2, ISO 27001, security testing, and DPA status.
               </p>
               <Button href="/trust/compliance" variant="secondary">
                 View Compliance
@@ -189,13 +189,14 @@ export default function TrustPage() {
             </Card>
             <Card hover>
               <h3 className="text-sm font-semibold text-foreground mb-2">
-                Data Retention
+                Compliance Roadmap
               </h3>
               <p className="text-sm text-muted mb-4">
-                What is stored, where, and for how long.
+                Where Chameleon Eye AI is today and the planned certification
+                path.
               </p>
-              <Button href="/trust/data-retention" variant="secondary">
-                View Retention
+              <Button href="/trust/compliance-roadmap" variant="secondary">
+                View Roadmap
               </Button>
             </Card>
             <Card hover>
@@ -211,13 +212,13 @@ export default function TrustPage() {
             </Card>
             <Card hover>
               <h3 className="text-sm font-semibold text-foreground mb-2">
-                Trust Pack
+                Data Retention
               </h3>
               <p className="text-sm text-muted mb-4">
-                Request security, privacy, and compliance documents.
+                What is stored, where, and for how long.
               </p>
-              <Button href="/trust/trust-pack" variant="secondary">
-                Request Trust Pack
+              <Button href="/trust/data-retention" variant="secondary">
+                View Retention
               </Button>
             </Card>
           </div>
@@ -228,9 +229,10 @@ export default function TrustPage() {
       <section className="border-t border-white/8 py-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-xs leading-6 text-muted">
-            Chameleon Eye AI is operated by Chameleon Eye. Trust documents are
-            available to qualified customers and partners through the Trust Pack
-            request process.
+            Chameleon Eye AI is operated by Chameleon Eye. This is an
+            early-stage product. Full compliance certifications are planned
+            prior to commercial launch. Published policies and DPA are available
+            now.
           </p>
         </div>
       </section>

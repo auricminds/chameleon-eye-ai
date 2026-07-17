@@ -5,38 +5,38 @@ import { Button } from "@/components/Button";
 import { StatusChip } from "@/components/trust/StatusChip";
 
 export const metadata: Metadata = {
-  title: "Compliance & Assurance — Chameleon Eye AI",
+  title: "Compliance — Chameleon Eye AI",
   description:
-    "Chameleon Eye AI compliance and assurance status. SOC 2 Type II, ISO/IEC 27001, penetration testing, DPA, and published policies.",
+    "Chameleon Eye AI compliance status. SOC 2 readiness, ISO 27001 preparation, security testing, and DPA status.",
 };
 
 const complianceRows = [
   {
-    area: "SOC 2 Type II",
-    status: "completed" as const,
-    evidence: "Independent SOC 2 Type II report",
-    availability: "Under NDA",
+    area: "SOC 2",
+    status: "in_planning" as const,
+    evidence: "SOC 2 readiness programme — in planning",
+    availability: "Planned prior to commercial launch",
     href: "/trust/compliance/soc-2",
   },
   {
     area: "ISO/IEC 27001",
-    status: "certified" as const,
-    evidence: "ISO/IEC 27001 certificate",
-    availability: "On request / public if approved",
+    status: "in_planning" as const,
+    evidence: "ISO 27001 preparation — in planning",
+    availability: "Planned following commercial launch",
     href: "/trust/compliance/iso-27001",
   },
   {
-    area: "Penetration Testing",
-    status: "completed" as const,
-    evidence: "Penetration test summary",
-    availability: "Summary on request, full report under NDA",
+    area: "Independent Security Testing",
+    status: "planned" as const,
+    evidence: "External penetration testing — planned",
+    availability: "Planned before public commercial launch",
     href: "/trust/penetration-testing",
   },
   {
     area: "Data Processing Agreement",
     status: "available" as const,
-    evidence: "Legal DPA",
-    availability: "On request",
+    evidence: "DPA available on request",
+    availability: "On request for enterprise customers",
     href: "/trust/dpa",
   },
   {
@@ -73,17 +73,34 @@ export default function CompliancePage() {
             Trust Center
           </p>
           <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-            Compliance & Assurance
+            Compliance
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            Chameleon Eye AI compliance status, evidence, and availability for
-            qualified customers and partners.
+            Chameleon Eye AI compliance status and availability for qualified
+            customers and partners.
+          </p>
+        </div>
+      </section>
+
+      {/* Important Notice */}
+      <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="rounded-2xl border border-gold/20 bg-gold/5 p-6">
+          <p className="text-sm font-semibold text-gold mb-2">
+            Early-Stage Product Notice
+          </p>
+          <p className="text-sm leading-7 text-muted">
+            Chameleon Eye AI is an early-stage product. SOC 2 and ISO 27001
+            certifications are planned and have not yet been completed.
+            Independent security testing is planned before public commercial
+            launch. Published policies and DPA are available now. Full
+            certification details will be published following formal
+            verification.
           </p>
         </div>
       </section>
 
       {/* Compliance Table */}
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
         <SectionTitle
           title="Compliance Status"
           subtitle="Current status across all compliance areas."
@@ -100,7 +117,7 @@ export default function CompliancePage() {
                   Status
                 </th>
                 <th className="px-4 py-3 text-left font-semibold text-foreground">
-                  Evidence
+                  Description
                 </th>
                 <th className="px-4 py-3 text-left font-semibold text-foreground">
                   Availability
@@ -139,18 +156,6 @@ export default function CompliancePage() {
             </tbody>
           </table>
         </div>
-
-        {/* Note */}
-        <div className="mt-8 rounded-2xl border border-gold/20 bg-gold/5 p-6">
-          <p className="text-sm font-semibold text-gold mb-2">
-            Evidence Availability
-          </p>
-          <p className="text-sm leading-7 text-muted">
-            Some evidence documents are shared only with qualified customers or
-            partners under confidentiality terms because they include sensitive
-            security details.
-          </p>
-        </div>
       </section>
 
       {/* Sub-pages */}
@@ -164,13 +169,13 @@ export default function CompliancePage() {
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <Card hover>
               <h3 className="text-sm font-semibold text-foreground mb-2">
-                SOC 2 Type II
+                SOC 2
               </h3>
               <p className="text-sm text-muted mb-4">
-                Report details, operating period, and request process.
+                SOC 2 readiness programme status and planned timeline.
               </p>
               <Button href="/trust/compliance/soc-2" variant="secondary">
-                View SOC 2
+                View SOC 2 Status
               </Button>
             </Card>
             <Card hover>
@@ -178,21 +183,21 @@ export default function CompliancePage() {
                 ISO/IEC 27001
               </h3>
               <p className="text-sm text-muted mb-4">
-                Certification details, scope, and request process.
+                ISO 27001 preparation status and planned timeline.
               </p>
               <Button href="/trust/compliance/iso-27001" variant="secondary">
-                View ISO 27001
+                View ISO 27001 Status
               </Button>
             </Card>
             <Card hover>
               <h3 className="text-sm font-semibold text-foreground mb-2">
-                Penetration Testing
+                Security Testing
               </h3>
               <p className="text-sm text-muted mb-4">
-                Testing scope, provider details, and summary request process.
+                Independent security testing — planned before commercial launch.
               </p>
               <Button href="/trust/penetration-testing" variant="secondary">
-                View Pen Testing
+                View Testing Status
               </Button>
             </Card>
             <Card hover>
@@ -219,13 +224,13 @@ export default function CompliancePage() {
             </Card>
             <Card hover>
               <h3 className="text-sm font-semibold text-foreground mb-2">
-                Trust Pack
+                Compliance Roadmap
               </h3>
               <p className="text-sm text-muted mb-4">
-                Request trust documents for vendor review.
+                Where Chameleon Eye AI is today and where it is going.
               </p>
-              <Button href="/trust/trust-pack" variant="secondary">
-                Request Trust Pack
+              <Button href="/trust/compliance-roadmap" variant="secondary">
+                View Roadmap
               </Button>
             </Card>
           </div>

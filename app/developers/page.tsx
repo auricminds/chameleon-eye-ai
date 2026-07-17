@@ -57,6 +57,24 @@ const responseExample = `{
 export default function DevelopersPage() {
   return (
     <>
+      {/* Developer Preview Banner */}
+      <div className="border-b border-gold/30 bg-gold/8 py-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p className="text-sm font-semibold text-gold">Developer Preview</p>
+              <p className="text-xs leading-5 text-muted mt-0.5">
+                The Chameleon Eye API structures shown here describe the planned API.
+                Production access is not yet generally available.
+              </p>
+            </div>
+            <Button href="/contact" variant="ghost">
+              Join API Early Access
+            </Button>
+          </div>
+        </div>
+      </div>
+
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/8">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(31,174,130,0.12),transparent_40%)]" />
@@ -146,14 +164,14 @@ export default function DevelopersPage() {
       {/* Core Endpoints */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <SectionTitle
-          title="Core Endpoints"
-          subtitle="Available endpoints in the Chameleon Eye API v1."
+          title="Planned Core Endpoints"
+          subtitle="Endpoint structures planned for the Chameleon Eye API v1."
           align="left"
         />
         <div className="mt-10 overflow-hidden rounded-2xl border border-white/8 bg-background">
           <div className="border-b border-white/8 px-6 py-3">
             <span className="text-xs font-medium text-muted">
-              Base URL: https://chameleoneye.ai/api
+              Base URL: https://chameleoneye.ai/api — Developer Preview
             </span>
           </div>
           <div className="divide-y divide-white/8">
@@ -286,7 +304,7 @@ export default function DevelopersPage() {
               Data Handling
             </Button>
             <Button href="/contact" variant="ghost">
-              Request API Access
+              Join API Early Access
             </Button>
           </div>
         </div>

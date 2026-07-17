@@ -54,7 +54,7 @@ export default function ResponsibleDisclosurePage() {
           <div className="lg:col-span-2">
             <SectionTitle
               title="How to Report"
-              subtitle="Submit security reports via the security contact. Chameleon Eye takes all reports seriously."
+              subtitle="Submit security reports via the contact form. Chameleon Eye takes all reports seriously."
               align="left"
             />
             <div className="mt-10 space-y-6">
@@ -63,10 +63,16 @@ export default function ResponsibleDisclosurePage() {
                   Report Security Issues
                 </h3>
                 <p className="mt-3 text-sm leading-7 text-muted">
-                  Security contact:{" "}
-                  <span className="text-foreground font-medium">
-                    TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR
-                  </span>
+                  Submit security vulnerability reports via the{" "}
+                  <a
+                    href="/contact"
+                    className="text-emerald hover:underline"
+                  >
+                    contact form
+                  </a>{" "}
+                  with the subject line &quot;Security Report&quot;. A dedicated
+                  security contact email will be published following commercial
+                  launch.
                 </p>
                 <p className="mt-3 text-sm leading-7 text-muted">
                   Include in your report: a clear description of the
@@ -174,7 +180,10 @@ export default function ResponsibleDisclosurePage() {
               fraud and cybercrime laws.
             </p>
           </div>
-          <div className="mt-8">
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button href="/contact" variant="secondary">
+              Contact Us
+            </Button>
             <Button href="/trust" variant="ghost">
               Back to Trust Center
             </Button>

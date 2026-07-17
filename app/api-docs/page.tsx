@@ -89,7 +89,7 @@ const securityControls = [
   "Site connector keys are server-side only.",
   "Raw provider model IDs are not accepted from clients.",
   "Provider keys are never exposed to browser, desktop, or mobile clients.",
-  "Rate limits apply.",
+  "Rate limiting is planned — currently not enforced in developer preview.",
 ];
 
 const dataHandling = [
@@ -113,6 +113,24 @@ const errorCodes = [
 export default function ApiDocsPage() {
   return (
     <>
+      {/* Developer Preview Banner */}
+      <div className="border-b border-gold/30 bg-gold/8 py-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p className="text-sm font-semibold text-gold">Developer Preview</p>
+              <p className="text-xs leading-5 text-muted mt-0.5">
+                The endpoint structures shown here describe the planned Chameleon Eye API.
+                Production access is not yet generally available.
+              </p>
+            </div>
+            <Button href="/contact" variant="ghost">
+              Join API Early Access
+            </Button>
+          </div>
+        </div>
+      </div>
+
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/8">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(31,174,130,0.12),transparent_40%)]" />
@@ -176,14 +194,14 @@ export default function ApiDocsPage() {
       <section className="border-y border-white/8 bg-panel/40 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
-            title="Example Endpoints"
-            subtitle="Representative endpoints available in the Chameleon Eye API."
+            title="Planned Endpoints"
+            subtitle="Endpoint structures planned for the Chameleon Eye API. These describe the Developer Preview — production access is not yet generally available."
             align="left"
           />
           <div className="mt-10 overflow-hidden rounded-2xl border border-white/8 bg-background">
             <div className="border-b border-white/8 px-6 py-3">
               <span className="text-xs font-medium text-muted">
-                Chameleon Eye API v1
+                Chameleon Eye API v1 — Developer Preview
               </span>
             </div>
             <div className="divide-y divide-white/8">
@@ -417,21 +435,23 @@ Content-Type: application/json
         </div>
       </section>
 
-      {/* Partner API Access */}
+      {/* Early Access */}
       <section className="border-t border-white/8 bg-panel/40 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Card>
+          <Card className="border-gold/20 bg-gold/5">
             <h2 className="text-base font-semibold text-foreground mb-3">
-              Partner API Access
+              API Early Access
             </h2>
             <p className="text-sm leading-7 text-muted">
-              API access is available for approved connected applications and
-              business systems.
+              The Chameleon Eye API is in Developer Preview. The endpoint
+              structures shown here describe the planned API. Production access
+              is not yet generally available. Join the early access list to be
+              notified when production API access opens.
             </p>
           </Card>
           <div className="mt-10 flex flex-wrap gap-3">
             <Button href="/contact" variant="secondary">
-              Request API Access
+              Join API Early Access
             </Button>
             <Button href="/api-docs/authentication" variant="ghost">
               Authentication

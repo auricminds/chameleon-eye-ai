@@ -2,8 +2,8 @@
 
 Chameleon Eye AI provides a Data Processing Agreement for qualified business customers and approved partners.
 
-**DPA version:** TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR
-**Last updated:** TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR
+**DPA version:** To be published when formally verified and approved.
+**Last updated:** Information will be published following formal verification.
 **Availability:** Available on request for qualified business customers and approved partners.
 
 ## DPA Coverage

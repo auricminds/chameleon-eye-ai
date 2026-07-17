@@ -47,6 +47,16 @@ const loggingItems = [
 export default function ApiDataHandlingPage() {
   return (
     <>
+      {/* Developer Preview Banner */}
+      <div className="border-b border-gold/30 bg-gold/8 py-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-sm font-semibold text-gold">Developer Preview</p>
+          <p className="text-xs leading-5 text-muted mt-0.5">
+            The Chameleon Eye API is in developer preview. Production access is not yet generally available.
+          </p>
+        </div>
+      </div>
+
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/8">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(31,174,130,0.12),transparent_40%)]" />

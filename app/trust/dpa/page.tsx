@@ -24,14 +24,14 @@ const dpaCoverage = [
 ];
 
 const dpaStatus = [
-  { label: "DPA status", value: "Available" },
+  { label: "DPA status", value: "Available on request for enterprise customers" },
   {
     label: "DPA version",
-    value: "TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR",
+    value: "Information will be published following formal verification.",
   },
   {
     label: "Last updated",
-    value: "TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR",
+    value: "Information will be published following formal verification.",
   },
   {
     label: "Availability",
@@ -109,7 +109,7 @@ export default function DpaPage() {
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button href="/trust/trust-pack" variant="primary">
+            <Button href="/contact" variant="primary">
               Request DPA
             </Button>
             <Button href="/trust/compliance" variant="ghost">

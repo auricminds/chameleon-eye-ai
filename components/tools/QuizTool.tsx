@@ -93,6 +93,12 @@ export function QuizTool({ config }: { config: QuizConfig }) {
             <p className="mt-2 text-sm leading-7 text-foreground">{result.recommendation}</p>
           </div>
 
+          <p className="mt-4 text-xs leading-5 text-muted">
+            This result is an indicative self-assessment based on your answers. It is not a
+            professional audit, financial assessment, or business advice. Review results with
+            qualified advisors before making decisions.
+          </p>
+
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
               href={config.signupHref}

@@ -116,7 +116,7 @@ const securityDeploymentOptions = [
   {
     title: "Trust Pack",
     detail:
-      "SOC 2, ISO 27001, DPA, pen-test summary, and security questionnaire available for vendor review.",
+      "Security information available on request. DPA available for enterprise customers. SOC 2, ISO 27001, and security testing are planned — discuss requirements with the enterprise team.",
   },
 ];
 
