@@ -33,7 +33,7 @@ function WindowsIcon() {
 
 function MacOSIcon() {
   return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-10 w-10 text-muted" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-10 w-10 text-gold" fill="none" stroke="currentColor" strokeWidth="1.5">
       <rect x="3" y="5" width="18" height="12" rx="2" />
       <path d="M2 18h20" strokeLinecap="round" />
       <path d="M10 18v2h4v-2" strokeLinecap="round" strokeLinejoin="round" />
@@ -61,6 +61,7 @@ type AppCard = {
   ctaAction?: "pwa-instructions";
   ctaVariant: "primary" | "secondary" | "ghost";
   disabled?: boolean;
+  download?: boolean;
 };
 
 function buildApps(locale: "en" | "ar"): AppCard[] {
@@ -102,12 +103,13 @@ function buildApps(locale: "en" | "ar"): AppCard[] {
       {
         icon: <MacOSIcon />,
         title: "تطبيق macOS لسطح المكتب",
-        status: "قريباً",
-        statusVariant: "gold",
-        description: "لمستخدمي Mac الذين يحتاجون Chameleon Terminal في مساحة عمل سطح المكتب.",
-        cta: "تطبيق macOS — قريباً",
-        ctaVariant: "ghost",
-        disabled: true,
+        status: "متاح الآن",
+        statusVariant: "emerald",
+        description: "لمستخدمي Mac الذين يحتاجون Chameleon Terminal في مساحة عمل سطح المكتب. Apple Silicon · الإصدار 0.2.0",
+        cta: "تنزيل لـ macOS",
+        ctaHref: "https://github.com/auricminds/chameleon-eye-ai/releases/download/v0.2.0/ChameleonEyeDesktop-0.2.0-arm64.dmg",
+        ctaVariant: "secondary",
+        download: true,
       },
       {
         icon: <IosIcon />,
@@ -158,12 +160,13 @@ function buildApps(locale: "en" | "ar"): AppCard[] {
     {
       icon: <MacOSIcon />,
       title: "macOS Desktop App",
-      status: "Coming Soon",
-      statusVariant: "gold",
-      description: "For Mac users who need Chameleon Terminal in a desktop workspace.",
-      cta: "macOS App — Coming Soon",
-      ctaVariant: "ghost",
-      disabled: true,
+      status: "Available now",
+      statusVariant: "emerald",
+      description: "For Mac users who need Chameleon Terminal in a desktop workspace. Apple Silicon · v0.2.0",
+      cta: "Download for macOS",
+      ctaHref: "https://github.com/auricminds/chameleon-eye-ai/releases/download/v0.2.0/ChameleonEyeDesktop-0.2.0-arm64.dmg",
+      ctaVariant: "secondary",
+      download: true,
     },
     {
       icon: <IosIcon />,
@@ -272,6 +275,17 @@ export function AppsAccessSection({ locale = "en" }: { locale?: "en" | "ar" }) {
                 <span className="inline-flex cursor-not-allowed items-center justify-center rounded-full border border-white/8 px-5 py-2.5 text-sm text-muted">
                   {app.cta}
                 </span>
+              ) : app.download ? (
+                <a
+                  href={app.ctaHref}
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-panel2 px-5 py-2.5 text-sm font-medium text-foreground transition-all hover:border-gold/30 hover:bg-panel"
+                >
+                  <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4 shrink-0">
+                    <path d="M10 14l-5-5h3V3h4v6h3l-5 5z" />
+                    <path d="M3 17h14v-2H3v2z" />
+                  </svg>
+                  {app.cta}
+                </a>
               ) : (
                 <Link
                   href={app.ctaHref ?? "#"}
