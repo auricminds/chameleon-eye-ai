@@ -150,9 +150,9 @@ export function DesktopDownloadCards({ locale = "en" }: DesktopDownloadCardsProp
           icon={<MacOSIcon />}
           title="macOS"
           subtitle={copy.macSubtitle}
-          buttonLabel={isArabic ? "macOS Apple Silicon · الإصدار 0.1.0" : "macOS Apple Silicon · v0.1.0"}
+          buttonLabel={isArabic ? "macOS Apple Silicon · الإصدار 0.2.0" : "macOS Apple Silicon · v0.2.0"}
           comingSoon={copy.comingSoon}
-          downloadHref="/downloads/ChameleonEyeAI-mac.dmg"
+          downloadHref="https://github.com/auricminds/chameleon-eye-ai/releases/download/v0.2.0/ChameleonEyeDesktop-0.2.0-arm64.dmg"
           downloadLabel={isArabic ? "تنزيل لـ macOS" : "Download for macOS"}
         />
       </div>

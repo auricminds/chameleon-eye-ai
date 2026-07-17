@@ -43,5 +43,8 @@ next-env.d.ts
 # tauri
 /src-tauri/target/
 
+# desktop app binaries — hosted on GitHub Releases, not in git
+/public/downloads/
+
 # capacitor (generated after cap add ios)
 /ios/App/Pods/
