@@ -5,35 +5,8 @@ import { SectionTitle } from "@/components/SectionTitle";
 export const metadata: Metadata = {
   title: "Company Transparency — Chameleon Eye AI",
   description:
-    "Legal entity, company registration, and contact information for Chameleon Eye AI by Chameleon Eye.",
+    "Company and contact information for Chameleon Eye AI by Chameleon Eye.",
 };
-
-const companyFields = [
-  {
-    field: "Legal operating entity",
-    details: "TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR",
-  },
-  {
-    field: "Company registration number",
-    details: "TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR",
-  },
-  {
-    field: "Registered address",
-    details: "TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR",
-  },
-  {
-    field: "Support contact",
-    details: "TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR",
-  },
-  {
-    field: "Security contact",
-    details: "TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR",
-  },
-  {
-    field: "Privacy contact",
-    details: "TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR",
-  },
-];
 
 export default function CompanyTransparencyPage() {
   return (
@@ -49,26 +22,31 @@ export default function CompanyTransparencyPage() {
             Company Transparency
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            Legal entity, company registration, and contact information for
-            Chameleon Eye AI by Chameleon Eye.
+            Company information for Chameleon Eye AI by Chameleon Eye.
           </p>
         </div>
       </section>
 
       {/* Opening statement */}
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="rounded-2xl border border-emerald/20 bg-emerald/5 p-6">
-          <p className="text-sm leading-7 text-foreground">
-            Chameleon Eye AI is operated by Chameleon Eye.
+        <div className="rounded-2xl border border-gold/20 bg-gold/5 p-6">
+          <p className="text-sm font-semibold text-gold mb-2">
+            Early-Stage Product
+          </p>
+          <p className="text-sm leading-7 text-muted">
+            Chameleon Eye AI is an early-stage product operated by Chameleon Eye.
+            Full company registration and transparency details will be published
+            prior to commercial launch. For enquiries, please use the contact
+            form.
           </p>
         </div>
       </section>
 
-      {/* Company details table */}
+      {/* Company details */}
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
         <SectionTitle
           title="Company Information"
-          subtitle="Legal and contact details for Chameleon Eye, operator of Chameleon Eye AI."
+          subtitle="Information about the operator of Chameleon Eye AI."
           align="left"
         />
         <div className="mt-10 overflow-x-auto rounded-2xl border border-white/8">
@@ -84,7 +62,37 @@ export default function CompanyTransparencyPage() {
               </tr>
             </thead>
             <tbody>
-              {companyFields.map((row, i) => (
+              {[
+                { field: "Product name", details: "Chameleon Eye AI" },
+                { field: "Operated by", details: "Chameleon Eye" },
+                {
+                  field: "Legal entity",
+                  details:
+                    "Details will be published prior to commercial launch.",
+                },
+                {
+                  field: "Company registration",
+                  details:
+                    "Details will be published prior to commercial launch.",
+                },
+                {
+                  field: "Registered address",
+                  details:
+                    "Details will be published prior to commercial launch.",
+                },
+                {
+                  field: "Support contact",
+                  details: "Use the contact form at /contact",
+                },
+                {
+                  field: "Security contact",
+                  details: "Use the responsible disclosure process at /trust/responsible-disclosure",
+                },
+                {
+                  field: "Privacy contact",
+                  details: "Use the contact form at /contact",
+                },
+              ].map((row, i) => (
                 <tr
                   key={row.field}
                   className={`border-b border-white/5 ${
@@ -100,15 +108,6 @@ export default function CompanyTransparencyPage() {
             </tbody>
           </table>
         </div>
-
-        {/* Note below table */}
-        <div className="mt-8 rounded-2xl border border-gold/20 bg-gold/5 p-6">
-          <p className="text-sm leading-7 text-muted">
-            These details will be completed by authorized company
-            administration. Chameleon Eye AI is a proprietary commercial
-            platform operated by Chameleon Eye.
-          </p>
-        </div>
       </section>
 
       {/* Badge section */}
@@ -119,9 +118,9 @@ export default function CompanyTransparencyPage() {
             <Badge>Operated by Chameleon Eye</Badge>
           </div>
           <p className="mt-6 text-xs leading-6 text-muted">
-            Chameleon Eye AI is a proprietary commercial platform. Company
-            registration and contact details are managed by authorized company
-            administration.
+            Chameleon Eye AI is a proprietary commercial platform. Full company
+            registration and contact details will be published prior to
+            commercial launch.
           </p>
         </div>
       </section>

@@ -5,39 +5,10 @@ import { Button } from "@/components/Button";
 import { StatusChip } from "@/components/trust/StatusChip";
 
 export const metadata: Metadata = {
-  title: "SOC 2 Type II — Chameleon Eye AI",
+  title: "SOC 2 Readiness — Chameleon Eye AI",
   description:
-    "Chameleon Eye AI SOC 2 Type II attestation details and report request process.",
+    "Chameleon Eye AI SOC 2 readiness programme status and planned audit timeline.",
 };
-
-const reportDetails = [
-  { label: "Report type", value: "SOC 2 Type II" },
-  { label: "Operating company", value: "Chameleon Eye" },
-  {
-    label: "Product covered",
-    value: "Chameleon Eye AI / Chameleon Builder / Chameleon Eye API",
-  },
-  {
-    label: "Auditor",
-    value: "TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR",
-  },
-  {
-    label: "Report period",
-    value: "TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR",
-  },
-  {
-    label: "Report date",
-    value: "TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR",
-  },
-  {
-    label: "Trust service criteria",
-    value: "TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR",
-  },
-  {
-    label: "Availability",
-    value: "Available under NDA to qualified customers and partners.",
-  },
-];
 
 export default function Soc2Page() {
   return (
@@ -51,29 +22,55 @@ export default function Soc2Page() {
           </p>
           <div className="flex items-center gap-4 mb-4">
             <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-              SOC 2 Type II
+              SOC 2
             </h1>
-            <StatusChip status="completed" />
+            <StatusChip status="in_planning" />
           </div>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            Chameleon Eye AI has completed SOC 2 Type II attestation work covering
-            controls relevant to the company&apos;s security and applicable
-            trust service criteria.
+            Chameleon Eye AI is planning a SOC 2 readiness programme. A formal
+            audit will be commissioned as the platform moves toward commercial
+            launch.
           </p>
         </div>
       </section>
 
-      {/* Report Details */}
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      {/* Honest Status Notice */}
+      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="rounded-2xl border border-gold/20 bg-gold/5 p-6">
+          <p className="text-sm font-semibold text-gold mb-2">
+            Current Status
+          </p>
+          <p className="text-sm leading-7 text-muted">
+            Chameleon Eye AI does not currently hold a SOC 2 Type I or Type II
+            report. SOC 2 readiness activities are planned prior to commercial
+            launch. Any enterprise requirements for a SOC 2 report can be
+            discussed as part of an enterprise scoping conversation.
+          </p>
+        </div>
+      </section>
+
+      {/* Status Table */}
+      <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
         <SectionTitle
-          title="Report Details"
-          subtitle="SOC 2 Type II attestation information for Chameleon Eye."
+          title="SOC 2 Readiness Status"
+          subtitle="Current position and planned timeline for SOC 2 compliance."
           align="left"
         />
         <div className="mt-10 overflow-x-auto rounded-2xl border border-white/8">
           <table className="w-full text-sm">
             <tbody>
-              {reportDetails.map((row, i) => (
+              {[
+                { label: "Report type", value: "SOC 2 Type II (planned)" },
+                { label: "Operating company", value: "Chameleon Eye" },
+                { label: "Product covered", value: "Chameleon Eye AI / Chameleon Eye API" },
+                { label: "Auditor", value: "Not yet appointed — to be selected prior to audit" },
+                { label: "Report period", value: "Not yet commenced" },
+                { label: "Current status", value: "In planning — readiness activities not yet started" },
+                {
+                  label: "Availability",
+                  value: "Information will be published following formal verification.",
+                },
+              ].map((row, i) => (
                 <tr
                   key={row.label}
                   className={`border-b border-white/5 ${
@@ -90,21 +87,13 @@ export default function Soc2Page() {
           </table>
         </div>
 
-        {/* Important Note */}
-        <div className="mt-8 rounded-2xl border border-gold/20 bg-gold/5 p-6">
-          <p className="text-sm font-semibold text-gold mb-2">
-            Report Confidentiality
-          </p>
-          <p className="text-sm leading-7 text-muted">
-            Full SOC 2 reports may include sensitive control details and are
-            shared only under appropriate confidentiality terms.
-          </p>
-        </div>
-
         {/* CTA */}
         <div className="mt-8 flex flex-wrap gap-3">
-          <Button href="/trust/trust-pack" variant="primary">
-            Request SOC 2 Report
+          <Button href="/contact" variant="primary">
+            Discuss Enterprise Requirements
+          </Button>
+          <Button href="/trust/compliance-roadmap" variant="secondary">
+            View Compliance Roadmap
           </Button>
           <Button href="/trust/compliance" variant="ghost">
             Back to Compliance
@@ -121,32 +110,32 @@ export default function Soc2Page() {
                 ISO/IEC 27001
               </h3>
               <p className="text-sm text-muted mb-4">
-                Certified information security management system.
+                ISO 27001 preparation — in planning.
               </p>
               <Button href="/trust/compliance/iso-27001" variant="secondary">
-                View ISO 27001
+                View ISO 27001 Status
               </Button>
             </Card>
             <Card hover>
               <h3 className="text-sm font-semibold text-foreground mb-2">
-                Penetration Testing
+                Security Testing
               </h3>
               <p className="text-sm text-muted mb-4">
-                Testing details and summary request process.
+                Independent security testing — planned before commercial launch.
               </p>
               <Button href="/trust/penetration-testing" variant="secondary">
-                View Pen Testing
+                View Testing Status
               </Button>
             </Card>
             <Card hover>
               <h3 className="text-sm font-semibold text-foreground mb-2">
-                Trust Pack
+                Compliance Roadmap
               </h3>
               <p className="text-sm text-muted mb-4">
-                Request all trust documents for vendor review.
+                Where Chameleon Eye AI is today and where it is going.
               </p>
-              <Button href="/trust/trust-pack" variant="secondary">
-                Request Trust Pack
+              <Button href="/trust/compliance-roadmap" variant="secondary">
+                View Roadmap
               </Button>
             </Card>
           </div>

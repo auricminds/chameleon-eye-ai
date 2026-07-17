@@ -42,7 +42,7 @@ export default async function AdminUsersPage({ searchParams }: { searchParams: S
   const isConfigured = !!(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY)
 
   let users: PlatformUser[] = []
-  let totalCount = 0
+  const totalCount = 0
 
   if (isConfigured) {
     let path = `platform_users?select=id,email,full_name,account_status,created_at,last_active_at,last_login_at,login_count,registration_source`

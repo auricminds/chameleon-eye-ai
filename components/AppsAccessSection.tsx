@@ -56,6 +56,7 @@ type AppCard = {
   status: string;
   statusVariant: "emerald" | "gold" | "muted";
   description: string;
+  warning?: string;
   cta: string;
   ctaHref?: string;
   ctaAction?: "pwa-instructions";
@@ -72,9 +73,9 @@ function buildApps(locale: "en" | "ar"): AppCard[] {
       {
         icon: <WebIcon />,
         title: "تطبيق الويب",
-        status: "متاح الآن",
-        statusVariant: "emerald",
-        description: "استخدم Chameleon Eye AI عبر الإنترنت دون تثبيت.",
+        status: "معاينة تطوير",
+        statusVariant: "gold",
+        description: "استخدم Chameleon Eye AI عبر الإنترنت دون تثبيت. معاينة محلية — لا يتم إنشاء حساب سحابي.",
         cta: "فتح Terminal",
         ctaHref: terminalHref,
         ctaVariant: "primary",
@@ -82,8 +83,8 @@ function buildApps(locale: "en" | "ar"): AppCard[] {
       {
         icon: <PwaIcon />,
         title: "PWA — التثبيت من المتصفح",
-        status: "متاح الآن",
-        statusVariant: "emerald",
+        status: "معاينة تطوير",
+        statusVariant: "gold",
         description: "ثبّت Chameleon Eye AI من متصفحك للوصول السريع كتطبيق مستقل.",
         cta: "تعليمات التثبيت",
         ctaAction: "pwa-instructions",
@@ -103,9 +104,10 @@ function buildApps(locale: "en" | "ar"): AppCard[] {
       {
         icon: <MacOSIcon />,
         title: "تطبيق macOS لسطح المكتب",
-        status: "متاح الآن",
-        statusVariant: "emerald",
-        description: "لمستخدمي Mac الذين يحتاجون Chameleon Terminal في مساحة عمل سطح المكتب. Apple Silicon · الإصدار 0.2.0",
+        status: "وصول مبكر",
+        statusVariant: "gold",
+        description: "لمستخدمي Mac. Apple Silicon · الإصدار 0.2.0 · إصدار تطوير.",
+        warning: "إصدار تطوير — قد يظهر تحذير أمان من macOS. انقر بالزر الأيمن ← فتح للتشغيل. macOS 12+ مطلوب.",
         cta: "تنزيل لـ macOS",
         ctaHref: "https://github.com/auricminds/chameleon-eye-ai/releases/download/v0.2.0/ChameleonEyeDesktop-0.2.0-arm64.dmg",
         ctaVariant: "secondary",
@@ -114,11 +116,11 @@ function buildApps(locale: "en" | "ar"): AppCard[] {
       {
         icon: <IosIcon />,
         title: "تطبيق iOS لـ iPhone و iPad",
-        status: "قريباً",
+        status: "قيد التطوير",
         statusVariant: "muted",
         description:
           "راجع التقارير، اعتمد التحليلات، استخدم الصوت، وتابع Chameleon Terminal من الجوال.",
-        cta: "تطبيق iOS — قريباً",
+        cta: "تطبيق iOS — قيد التطوير",
         ctaVariant: "ghost",
         disabled: true,
       },
@@ -129,9 +131,9 @@ function buildApps(locale: "en" | "ar"): AppCard[] {
     {
       icon: <WebIcon />,
       title: "Web App",
-      status: "Available now",
-      statusVariant: "emerald",
-      description: "Use Chameleon Eye AI online with no installation.",
+      status: "Development Preview",
+      statusVariant: "gold",
+      description: "Use Chameleon Eye AI online with no installation. Local browser preview — no cloud account created.",
       cta: "Open Terminal",
       ctaHref: terminalHref,
       ctaVariant: "primary",
@@ -139,8 +141,8 @@ function buildApps(locale: "en" | "ar"): AppCard[] {
     {
       icon: <PwaIcon />,
       title: "Installable PWA",
-      status: "Available now",
-      statusVariant: "emerald",
+      status: "Development Preview",
+      statusVariant: "gold",
       description: "Install Chameleon Eye AI from your browser for fast access.",
       cta: "Install instructions",
       ctaAction: "pwa-instructions",
@@ -160,9 +162,10 @@ function buildApps(locale: "en" | "ar"): AppCard[] {
     {
       icon: <MacOSIcon />,
       title: "macOS Desktop App",
-      status: "Available now",
-      statusVariant: "emerald",
-      description: "For Mac users who need Chameleon Terminal in a desktop workspace. Apple Silicon · v0.2.0",
+      status: "Early Access",
+      statusVariant: "gold",
+      description: "For Mac users who need Chameleon Terminal in a desktop workspace. Apple Silicon · v0.2.0 · Development build.",
+      warning: "Development build — macOS may display a security warning (Gatekeeper). Right-click → Open to bypass. Requires macOS 12+.",
       cta: "Download for macOS",
       ctaHref: "https://github.com/auricminds/chameleon-eye-ai/releases/download/v0.2.0/ChameleonEyeDesktop-0.2.0-arm64.dmg",
       ctaVariant: "secondary",
@@ -171,11 +174,11 @@ function buildApps(locale: "en" | "ar"): AppCard[] {
     {
       icon: <IosIcon />,
       title: "iPhone and iPad App",
-      status: "Coming Soon",
+      status: "In Development",
       statusVariant: "muted",
       description:
         "Review reports, approve analysis, use voice, and continue Chameleon Terminal from mobile.",
-      cta: "iOS App — Coming Soon",
+      cta: "iOS App — In Development",
       ctaVariant: "ghost",
       disabled: true,
     },
@@ -191,7 +194,7 @@ function buildCopy(locale: "en" | "ar") {
       earlyAccessHref: contactHref,
       pwaTitle: "تثبيت PWA",
       pwaSteps: [
-        "افتح chameleoneye.ai أو chameleon-eye-ai-tau.vercel.app في Chrome أو Edge أو Safari.",
+        "افتح chameleoneye.ai في Chrome أو Edge أو Safari.",
         "سجّل الدخول وأكمل Business DNA إذا طُلب منك.",
         "في Chrome/Edge: قائمة المتصفح ← تثبيت التطبيق أو Install app.",
         "في Safari على iOS: مشاركة ← Add to Home Screen.",
@@ -221,7 +224,7 @@ function buildCopy(locale: "en" | "ar") {
     earlyAccessHref: contactHref,
     pwaTitle: "Install PWA",
     pwaSteps: [
-      "Open chameleoneye.ai or chameleon-eye-ai-tau.vercel.app in Chrome, Edge, or Safari.",
+      "Open chameleoneye.ai in Chrome, Edge, or Safari.",
       "Sign in and complete Business DNA if prompted.",
       "In Chrome/Edge: browser menu → Install app.",
       "On iOS Safari: Share → Add to Home Screen.",
@@ -262,6 +265,11 @@ export function AppsAccessSection({ locale = "en" }: { locale?: "en" | "ar" }) {
             </div>
             <h3 className="mt-4 text-lg font-semibold text-foreground">{app.title}</h3>
             <p className="mt-2 flex-1 text-sm leading-7 text-muted">{app.description}</p>
+            {app.warning && (
+              <p className="mt-2 text-xs leading-5 text-gold rounded-lg border border-gold/20 bg-gold/5 px-3 py-2">
+                {app.warning}
+              </p>
+            )}
             <div className="mt-5">
               {app.ctaAction === "pwa-instructions" ? (
                 <button

@@ -79,7 +79,7 @@ const desktopFeatures = [
   "local/private file mode",
 ];
 
-const verifiedTrustCards = [
+const trustCards = [
   {
     title: "Offline / Local Mode",
     status: "available" as const,
@@ -93,24 +93,24 @@ const verifiedTrustCards = [
       "Only selected text or approved summaries are sent to cloud intelligence after user approval.",
   },
   {
-    title: "SOC 2 Type II",
-    status: "completed" as const,
-    detail: "Report available under NDA to qualified customers.",
+    title: "SOC 2",
+    status: "in_planning" as const,
+    detail: "SOC 2 readiness programme — in planning. Not yet certified.",
   },
   {
     title: "ISO/IEC 27001",
-    status: "certified" as const,
-    detail: "Certified information security management system.",
+    status: "in_planning" as const,
+    detail: "ISO 27001 preparation — in planning. Not yet certified.",
   },
   {
-    title: "Penetration Testing",
-    status: "completed" as const,
-    detail: "Penetration testing completed. Customer-safe summary available on request.",
+    title: "Security Testing",
+    status: "planned" as const,
+    detail: "Independent security testing planned before public commercial launch.",
   },
   {
     title: "DPA Available",
     status: "available" as const,
-    detail: "Data Processing Agreement available for qualified business customers and approved partners.",
+    detail: "Data Processing Agreement available on request for qualified business customers.",
   },
   {
     title: "No Customer Data Training",
@@ -165,7 +165,7 @@ export default function HomePage() {
               or run a local-first desktop intelligence flow.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button href="/signup">Start Free</Button>
+              <Button href="/signup">Try Demo</Button>
               <Button href="/api" variant="secondary">
                 Explore API
               </Button>
@@ -196,15 +196,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Verified Trust Section */}
+      {/* Trust Section */}
       <section className="border-y border-white/8 bg-panel/40 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
-            title="Verified Trust & Private AI Controls"
-            subtitle="Chameleon Eye AI is a commercial private AI intelligence platform with local-first options, verified compliance documentation, and approval-based cloud processing."
+            title="Private AI Controls and Compliance Roadmap"
+            subtitle="Chameleon Eye AI is an early-stage private AI intelligence platform with local-first options, approval-based cloud processing, and a planned compliance programme."
           />
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {verifiedTrustCards.map((item) => (
+            {trustCards.map((item) => (
               <Card key={item.title} hover>
                 <div className="flex items-start justify-between gap-3 mb-3">
                   <h3 className="text-sm font-semibold text-foreground">
@@ -220,11 +220,11 @@ export default function HomePage() {
             <Button href="/trust" variant="secondary">
               View Trust Center
             </Button>
+            <Button href="/trust/compliance-roadmap" variant="ghost">
+              View Compliance Roadmap
+            </Button>
             <Button href="/security" variant="ghost">
               View Security
-            </Button>
-            <Button href="/trust/trust-pack" variant="ghost">
-              Request Trust Pack
             </Button>
           </div>
         </div>
@@ -400,7 +400,7 @@ export default function HomePage() {
             subtitle="Use Chameleon Eye AI directly, connect it to your product, or build a private local-first intelligence flow for your company."
           />
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button href="/signup">Start Free</Button>
+            <Button href="/signup">Try Demo</Button>
             <Button href="/contact" variant="secondary">
               Request Demo
             </Button>

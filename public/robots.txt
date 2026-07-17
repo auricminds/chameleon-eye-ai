@@ -1,15 +1,11 @@
 User-agent: *
+Disallow: /admin/
+Disallow: /owner/
+Disallow: /ar/admin/
+Disallow: /ar/owner/
+Disallow: /api/admin/
+Disallow: /api/owner/
 Allow: /
-Allow: /trust/
-Allow: /trust/company
-Allow: /security
-Allow: /privacy
-Allow: /enterprise
-Allow: /api-docs/
-Allow: /api-docs/data-handling
-Allow: /developers
-Allow: /changelog
-Allow: /sitemap-public
 
 # Sitemap
 Sitemap: https://chameleoneye.ai/sitemap.xml

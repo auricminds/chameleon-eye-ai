@@ -1,13 +1,17 @@
-# Penetration Testing — Public Summary
+# Penetration Testing — Status
 
-Chameleon Eye AI has completed penetration testing for the platform. A customer-safe summary is available through the Trust Pack request process.
+**Status:** Planned — not yet completed
 
-**Testing provider:** TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR
-**Test date:** TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR
-**Test scope:** TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR
-**Systems tested:** TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR
-**Remediation status:** TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR
-**Summary availability:** Available on request.
-**Full technical report:** Available under NDA to qualified customers or partners.
+Chameleon Eye AI has not yet undergone independent penetration testing. External security testing is a planned milestone before public commercial launch.
 
-Full technical details, including findings and remediation notes, are available only under NDA to qualified customers and partners.
+When this milestone is reached, the following information will be published here:
+
+- Testing provider
+- Test date and scope
+- Systems tested
+- Remediation status
+- Availability of customer-safe summary
+
+Full technical details including findings and remediation notes will be available only under NDA to qualified customers and partners once completed.
+
+To discuss security requirements in the meantime, use the contact form or the Trust Pack request process at /trust/trust-pack.

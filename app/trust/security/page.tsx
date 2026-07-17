@@ -7,27 +7,27 @@ import { StatusChip } from "@/components/trust/StatusChip";
 export const metadata: Metadata = {
   title: "Security — Chameleon Eye AI Trust Center",
   description:
-    "How Chameleon Eye AI secures your data: verified security assurance, server-side key management, authentication, privacy guard, and security architecture.",
+    "How Chameleon Eye AI secures your data: server-side key management, authentication, privacy guard, and security architecture.",
 };
 
-const verifiedAssurance = [
+const complianceAssurance = [
   {
-    label: "SOC 2 Type II attestation completed",
-    status: "completed" as const,
+    label: "SOC 2 Type II attestation — in planning",
+    status: "in_planning" as const,
     href: "/trust/compliance/soc-2",
   },
   {
-    label: "ISO/IEC 27001 certified ISMS",
-    status: "certified" as const,
+    label: "ISO/IEC 27001 preparation — in planning",
+    status: "in_planning" as const,
     href: "/trust/compliance/iso-27001",
   },
   {
-    label: "Penetration testing completed",
-    status: "completed" as const,
+    label: "Penetration testing — planned before launch",
+    status: "planned" as const,
     href: "/trust/penetration-testing",
   },
   {
-    label: "DPA available",
+    label: "DPA available on request",
     status: "available" as const,
     href: "/trust/dpa",
   },
@@ -83,10 +83,10 @@ const securityPrinciples = [
       "Each workspace is isolated at the data layer. Queries are scoped by authenticated identity and workspace context.",
   },
   {
-    label: "Rate limiting",
-    status: "implemented" as const,
+    label: "API rate limiting",
+    status: "planned" as const,
     detail:
-      "API routes and intelligence endpoints are rate-limited per user and per key to prevent abuse and resource exhaustion.",
+      "Rate limiting is planned for the production API. It is not actively enforced in the current developer preview.",
   },
   {
     label: "Security headers",
@@ -122,23 +122,34 @@ export default function TrustSecurityPage() {
             Security
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            How Chameleon Eye AI protects your data through verified security
-            assurance, architecture, access control, and operational security
-            practices.
+            How Chameleon Eye AI protects your data through security architecture,
+            access control, and operational security practices. Compliance
+            certifications are on the roadmap.
           </p>
         </div>
       </section>
 
-      {/* Verified Security Assurance */}
+      {/* Compliance and Assurance Status */}
       <section className="border-b border-white/8 bg-panel/40 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
-            title="Verified Security Assurance"
-            subtitle="Independent verification and certified controls for Chameleon Eye AI."
+            title="Compliance and Assurance Status"
+            subtitle="Current status of compliance programs and assurance milestones."
             align="left"
           />
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {verifiedAssurance.map((item) => (
+          <div className="mt-6 rounded-2xl border border-gold/20 bg-gold/5 p-5 mb-10">
+            <p className="text-sm font-semibold text-gold mb-1">Early-Stage Product</p>
+            <p className="text-sm leading-6 text-muted">
+              SOC 2, ISO 27001, and penetration testing are planned milestones — none have been completed yet.
+              See the{" "}
+              <a href="/trust/compliance-roadmap" className="text-emerald hover:underline">
+                compliance roadmap
+              </a>{" "}
+              for timeline context.
+            </p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {complianceAssurance.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
@@ -314,12 +325,13 @@ export default function TrustSecurityPage() {
               Security Contact
             </h2>
             <p className="mt-2 text-sm leading-7 text-muted">
-              To report a vulnerability or ask a security question, contact our
-              security team directly.
+              To report a vulnerability or ask a security question, use the
+              contact form with subject &ldquo;Security Report&rdquo;. A dedicated
+              security email will be published following commercial launch.
             </p>
           </div>
-          <Button href="mailto:security@chameleoneye.ai" variant="primary">
-            security@chameleoneye.ai
+          <Button href="/contact" variant="primary">
+            Contact Security Team
           </Button>
         </div>
         <div className="mt-8 flex flex-wrap gap-3">

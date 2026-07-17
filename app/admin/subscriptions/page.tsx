@@ -43,9 +43,9 @@ export default async function SubscriptionsPage({ searchParams }: { searchParams
   const isConfigured = !!(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY)
 
   let subscriptions: Subscription[] = []
-  let renewingToday = 0
-  let renewingWeek = 0
-  let renewingMonth = 0
+  const renewingToday = 0
+  const renewingWeek = 0
+  const renewingMonth = 0
 
   if (isConfigured) {
     let path = `subscriptions?order=created_at.desc&limit=50`

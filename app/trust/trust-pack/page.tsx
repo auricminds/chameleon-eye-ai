@@ -21,22 +21,24 @@ const publicDocs = [
   { label: "Company Transparency", href: "/trust/company" },
 ];
 
+// Documents listed below are what will be available when compliance milestones
+// are reached. Items marked (planned) are not yet available.
 const onRequestDocs = [
-  "DPA",
-  "SOC 2 Type II Report",
-  "ISO/IEC 27001 Certificate",
-  "Penetration Test Summary",
+  "DPA — available on request for qualified business customers",
   "Security Questionnaire",
   "Vendor Risk Pack",
-  "Compliance Evidence Summary",
+  "SOC 2 Type II Report (planned — not yet available)",
+  "ISO/IEC 27001 Certificate (planned — not yet available)",
+  "Penetration Test Summary (planned — not yet available)",
+  "Compliance Evidence Summary (planned — not yet available)",
 ];
 
 const ndaRequiredDocs = [
-  "Full SOC 2 report",
-  "Full penetration test report",
   "Detailed security architecture diagrams",
   "Sensitive audit evidence",
   "Internal risk register summary if approved by company administration",
+  "Full SOC 2 report (planned — not yet available)",
+  "Full penetration test report (planned — not yet available)",
 ];
 
 export default function TrustPackPage() {
@@ -58,6 +60,20 @@ export default function TrustPackPage() {
           </p>
         </div>
       </section>
+
+      {/* Early-stage notice */}
+      <div className="mx-auto max-w-7xl px-4 pt-10 sm:px-6 lg:px-8">
+        <div className="rounded-2xl border border-gold/20 bg-gold/5 p-5">
+          <p className="text-sm font-semibold text-gold mb-1">Early-Stage Product</p>
+          <p className="text-sm leading-6 text-muted">
+            Chameleon Eye AI is an early-stage product. SOC 2 attestation, ISO 27001
+            certification, and independent penetration testing are planned milestones —
+            none have been completed yet. Documents listed as &quot;planned&quot; will be made
+            available as each milestone is reached. The DPA and public security
+            documentation are available now.
+          </p>
+        </div>
+      </div>
 
       {/* Section A — Public Docs */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
@@ -84,8 +100,8 @@ export default function TrustPackPage() {
       <section className="border-y border-white/8 bg-panel/40 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
-            title="B — Available on Request"
-            subtitle="These documents are available to qualified business customers and approved partners on request."
+            title="B — Available on Request (Current and Planned)"
+            subtitle="Documents currently available on request are marked as such. Items marked &quot;planned&quot; are not yet available and will be added as compliance milestones are reached."
             align="left"
           />
           <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -105,8 +121,8 @@ export default function TrustPackPage() {
       {/* Section C — NDA Required */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <SectionTitle
-          title="C — NDA Required"
-          subtitle="These documents contain sensitive security details and require a signed NDA."
+          title="C — NDA Required (Current and Planned)"
+          subtitle="These documents contain sensitive security details and require a signed NDA. Items marked &quot;planned&quot; are not yet available."
           align="left"
         />
         <div className="mt-10 grid gap-3 sm:grid-cols-2">

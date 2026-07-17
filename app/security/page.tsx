@@ -7,29 +7,29 @@ import { StatusChip } from "@/components/trust/StatusChip";
 export const metadata: Metadata = {
   title: "Security — Chameleon Eye AI",
   description:
-    "Security architecture, assurance documentation, and API key protection for Chameleon Eye AI.",
+    "Security architecture, compliance roadmap, and API key protection for Chameleon Eye AI.",
 };
 
 const assuranceCards = [
   {
     title: "SOC 2 Type II",
-    status: "completed" as const,
-    detail: "SOC 2 Type II report available under NDA to qualified customers.",
+    status: "in_planning" as const,
+    detail: "SOC 2 readiness programme is in planning. Not yet completed.",
   },
   {
     title: "ISO/IEC 27001",
-    status: "certified" as const,
-    detail: "Certified information security management system.",
+    status: "in_planning" as const,
+    detail: "ISO 27001 preparation is planned. Not yet certified.",
   },
   {
     title: "Penetration Testing",
-    status: "completed" as const,
-    detail: "Customer-safe summary available on request.",
+    status: "planned" as const,
+    detail: "Independent security testing is planned before commercial launch. Not yet conducted.",
   },
   {
     title: "DPA",
     status: "available" as const,
-    detail: "Data Processing Agreement available for business customers.",
+    detail: "Data Processing Agreement available on request for business customers.",
   },
   {
     title: "Responsible Disclosure",
@@ -86,7 +86,7 @@ const headerItems = [
 ];
 
 const continuousSecurityItems = [
-  "Penetration testing completed",
+  "Independent penetration testing — planned before launch",
   "Vulnerability disclosure process published",
   "Security review cycle ongoing",
 ];
@@ -105,21 +105,32 @@ export default function SecurityPage() {
             Security
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            Chameleon Eye AI is built with verified security assurance,
-            server-side key protection, and clear architecture controls at every
-            layer of the platform.
+            Chameleon Eye AI is built with server-side key protection and clear
+            architecture controls at every layer of the platform. Compliance
+            certifications are on the roadmap.
           </p>
         </div>
       </section>
 
-      {/* A. Verified Security Assurance */}
+      {/* A. Compliance and Assurance Status */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <SectionTitle
-          title="Verified Security Assurance"
-          subtitle="Independent verification and certified controls for Chameleon Eye AI."
+          title="Compliance and Assurance Status"
+          subtitle="Current status of compliance programmes and planned assurance milestones."
           align="left"
         />
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-6 rounded-2xl border border-gold/20 bg-gold/5 p-5 mb-10">
+          <p className="text-sm font-semibold text-gold mb-1">Early-Stage Product</p>
+          <p className="text-sm leading-6 text-muted">
+            SOC 2, ISO 27001, and penetration testing are planned milestones — none have been completed yet.
+            See the{" "}
+            <a href="/trust/compliance-roadmap" className="text-emerald hover:underline">
+              compliance roadmap
+            </a>{" "}
+            for timeline context.
+          </p>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {assuranceCards.map((card) => (
             <Card key={card.title} hover>
               <div className="flex items-start justify-between gap-3 mb-3">
@@ -329,8 +340,8 @@ export default function SecurityPage() {
             <Button href="/trust/trust-pack" variant="ghost">
               Request Trust Pack
             </Button>
-            <Button href="/trust/compliance/soc-2" variant="ghost">
-              View SOC 2
+            <Button href="/trust/compliance" variant="ghost">
+              Compliance Status
             </Button>
           </div>
         </div>

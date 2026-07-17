@@ -5,48 +5,10 @@ import { Button } from "@/components/Button";
 import { StatusChip } from "@/components/trust/StatusChip";
 
 export const metadata: Metadata = {
-  title: "ISO/IEC 27001 Certification — Chameleon Eye AI",
+  title: "ISO/IEC 27001 Preparation — Chameleon Eye AI",
   description:
-    "Chameleon Eye ISO/IEC 27001 certified information security management system details and certificate request process.",
+    "Chameleon Eye AI ISO/IEC 27001 preparation status and planned certification timeline.",
 };
-
-const certDetails = [
-  { label: "Standard", value: "ISO/IEC 27001" },
-  { label: "Operating company", value: "Chameleon Eye" },
-  {
-    label: "Certified service / scope",
-    value: "TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR",
-  },
-  {
-    label: "Certificate number",
-    value: "TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR",
-  },
-  {
-    label: "Certification body",
-    value: "TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR",
-  },
-  {
-    label: "Accreditation body",
-    value: "TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR",
-  },
-  {
-    label: "Issue date",
-    value: "TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR",
-  },
-  {
-    label: "Expiry date",
-    value: "TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR",
-  },
-  {
-    label: "Surveillance / renewal",
-    value: "TO BE COMPLETED BY AUTHORIZED COMPANY ADMINISTRATOR",
-  },
-  {
-    label: "Availability",
-    value:
-      "Certificate summary available on request or public if approved by company administration.",
-  },
-];
 
 export default function Iso27001Page() {
   return (
@@ -60,28 +22,51 @@ export default function Iso27001Page() {
           </p>
           <div className="flex items-center gap-4 mb-4">
             <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-              ISO/IEC 27001 Certification
+              ISO/IEC 27001
             </h1>
-            <StatusChip status="certified" />
+            <StatusChip status="in_planning" />
           </div>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            Chameleon Eye maintains an ISO/IEC 27001 certified information
-            security management system for Chameleon Eye AI.
+            ISO/IEC 27001 preparation is planned following commercial launch of
+            Chameleon Eye AI.
           </p>
         </div>
       </section>
 
-      {/* Certificate Details */}
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      {/* Honest Status Notice */}
+      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="rounded-2xl border border-gold/20 bg-gold/5 p-6">
+          <p className="text-sm font-semibold text-gold mb-2">
+            Current Status
+          </p>
+          <p className="text-sm leading-7 text-muted">
+            Chameleon Eye AI does not currently hold an ISO/IEC 27001
+            certificate. ISO 27001 certification preparation is planned
+            following commercial launch. Information will be published
+            following formal verification.
+          </p>
+        </div>
+      </section>
+
+      {/* Status Table */}
+      <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
         <SectionTitle
-          title="Certificate Details"
-          subtitle="ISO/IEC 27001 certification information for Chameleon Eye."
+          title="ISO/IEC 27001 Preparation Status"
+          subtitle="Current position and planned timeline for ISO 27001 certification."
           align="left"
         />
         <div className="mt-10 overflow-x-auto rounded-2xl border border-white/8">
           <table className="w-full text-sm">
             <tbody>
-              {certDetails.map((row, i) => (
+              {[
+                { label: "Standard", value: "ISO/IEC 27001" },
+                { label: "Operating company", value: "Chameleon Eye" },
+                { label: "Certified scope", value: "Not yet certified — preparation planned" },
+                { label: "Certificate number", value: "Information will be published following formal verification." },
+                { label: "Certification body", value: "Not yet selected" },
+                { label: "Issue date", value: "Not yet certified" },
+                { label: "Current status", value: "In planning — preparation not yet commenced" },
+              ].map((row, i) => (
                 <tr
                   key={row.label}
                   className={`border-b border-white/5 ${
@@ -100,8 +85,11 @@ export default function Iso27001Page() {
 
         {/* CTA */}
         <div className="mt-8 flex flex-wrap gap-3">
-          <Button href="/trust/trust-pack" variant="primary">
-            Request ISO Certificate
+          <Button href="/contact" variant="primary">
+            Discuss Enterprise Requirements
+          </Button>
+          <Button href="/trust/compliance-roadmap" variant="secondary">
+            View Compliance Roadmap
           </Button>
           <Button href="/trust/compliance" variant="ghost">
             Back to Compliance
@@ -115,13 +103,13 @@ export default function Iso27001Page() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <Card hover>
               <h3 className="text-sm font-semibold text-foreground mb-2">
-                SOC 2 Type II
+                SOC 2
               </h3>
               <p className="text-sm text-muted mb-4">
-                SOC 2 Type II attestation details and report request.
+                SOC 2 readiness programme — in planning.
               </p>
               <Button href="/trust/compliance/soc-2" variant="secondary">
-                View SOC 2
+                View SOC 2 Status
               </Button>
             </Card>
             <Card hover>
@@ -137,13 +125,13 @@ export default function Iso27001Page() {
             </Card>
             <Card hover>
               <h3 className="text-sm font-semibold text-foreground mb-2">
-                Trust Pack
+                Compliance Roadmap
               </h3>
               <p className="text-sm text-muted mb-4">
-                Request all trust documents for vendor review.
+                Where Chameleon Eye AI is today and where it is going.
               </p>
-              <Button href="/trust/trust-pack" variant="secondary">
-                Request Trust Pack
+              <Button href="/trust/compliance-roadmap" variant="secondary">
+                View Roadmap
               </Button>
             </Card>
           </div>
