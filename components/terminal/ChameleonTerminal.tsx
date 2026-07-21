@@ -106,6 +106,7 @@ export function ChameleonTerminal({ locale }: ChameleonTerminalProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [dnaOpen, setDnaOpen] = useState(true);
   const [dnaDrawerOpen, setDnaDrawerOpen] = useState(false);
+  const [minimalMode, setMinimalMode] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -334,6 +335,16 @@ export function ChameleonTerminal({ locale }: ChameleonTerminalProps) {
     }
   }
 
+  function toggleMinimalMode() {
+    if (!minimalMode) {
+      setMinimalMode(true);
+      setDnaOpen(false);
+    } else {
+      setMinimalMode(false);
+      setDnaOpen(true);
+    }
+  }
+
   if (!demoUser || !dna) {
     return (
       <div className="terminal-app flex h-screen items-center justify-center text-muted">
@@ -362,7 +373,7 @@ export function ChameleonTerminal({ locale }: ChameleonTerminalProps) {
 
       <div className="flex min-h-0 flex-1">
         {/* Desktop sidebar */}
-        <div className="hidden lg:block">
+        <div className={minimalMode ? "hidden" : "hidden lg:block"}>
           <TerminalAppSidebar
             locale={locale}
             sessions={sessions}
@@ -384,6 +395,32 @@ export function ChameleonTerminal({ locale }: ChameleonTerminalProps) {
 
         {/* Center chat column */}
         <div className="flex min-w-0 flex-1 flex-col">
+          {/* Desktop collapse toggle — hidden on mobile */}
+          <div className="hidden items-center border-b border-white/5 px-3 py-2 lg:flex">
+            <button
+              type="button"
+              onClick={toggleMinimalMode}
+              title={minimalMode ? (isArabic ? "إظهار الألواح" : "Show panels") : (isArabic ? "إخفاء الألواح" : "Hide panels")}
+              className="rounded-lg border border-white/10 p-1.5 text-muted transition-colors hover:border-white/20 hover:text-foreground"
+            >
+              {minimalMode ? (
+                <svg viewBox="0 0 16 16" fill="none" className="h-4 w-4" aria-hidden="true">
+                  <rect x="1.5" y="2" width="3" height="12" rx="0.75" fill="currentColor" opacity="0.35" />
+                  <rect x="11.5" y="2" width="3" height="12" rx="0.75" fill="currentColor" opacity="0.35" />
+                  <path d="M7 8h2M7 6l-2 2 2 2" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M9 6l2 2-2 2" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              ) : (
+                <svg viewBox="0 0 16 16" fill="none" className="h-4 w-4" aria-hidden="true">
+                  <rect x="1.5" y="2" width="3" height="12" rx="0.75" fill="currentColor" opacity="0.35" />
+                  <rect x="11.5" y="2" width="3" height="12" rx="0.75" fill="currentColor" opacity="0.35" />
+                  <path d="M9 8H7M9 6l2 2-2 2" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M7 6L5 8l2 2" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              )}
+            </button>
+          </div>
+
           {/* Mobile menu button */}
           <div className="flex items-center gap-2 border-b border-white/5 px-3 py-2 lg:hidden">
             <button
@@ -437,7 +474,7 @@ export function ChameleonTerminal({ locale }: ChameleonTerminalProps) {
         </div>
 
         {/* Desktop DNA panel */}
-        {dnaOpen ? (
+        {!minimalMode && dnaOpen ? (
           <div className="hidden w-[320px] shrink-0 border-white/8 xl:block xl:border-s">
             <BusinessDnaPanel
               locale={locale}
@@ -446,7 +483,7 @@ export function ChameleonTerminal({ locale }: ChameleonTerminalProps) {
               onReset={() => router.push(DEMO_ROUTES.signup(locale))}
             />
           </div>
-        ) : (
+        ) : !minimalMode ? (
           <div className="hidden xl:flex xl:flex-col xl:items-center xl:border-s xl:border-white/8 xl:py-4">
             <button
               type="button"
@@ -456,7 +493,7 @@ export function ChameleonTerminal({ locale }: ChameleonTerminalProps) {
               Business DNA
             </button>
           </div>
-        )}
+        ) : null}
       </div>
 
       {/* Mobile sidebar drawer */}
