@@ -17,6 +17,8 @@ export const DEMO_ROUTES = {
   businessDna: (l: Locale) => demoPath("/business-dna", l),
   terminal: (l: Locale) => demoPath("/terminal", l),
   archive: (l: Locale) => demoPath("/archive", l),
+  settings: (l: Locale) => demoPath("/settings", l),
   settingsBusinessDna: (l: Locale) => demoPath("/settings/business-dna", l),
+  settingsPrivacy: (l: Locale) => demoPath("/settings/privacy", l),
   login: (l: Locale) => demoPath("/login", l),
 };

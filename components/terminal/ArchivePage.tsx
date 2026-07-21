@@ -134,6 +134,14 @@ export function ArchivePage({ locale }: { locale: "en" | "ar" }) {
       <div className="flex min-h-0 flex-1">
         {/* Filter sidebar */}
         <aside className="hidden w-[240px] shrink-0 flex-col border-white/8 bg-panel/80 p-4 sm:flex sm:border-e">
+          <button
+            type="button"
+            onClick={() => router.push(DEMO_ROUTES.terminal(locale))}
+            className="mb-4 flex items-center gap-2 rounded-lg px-2 py-1.5 text-xs text-muted transition-colors hover:bg-white/5 hover:text-foreground"
+          >
+            <span aria-hidden="true">{isArabic ? "→" : "←"}</span>
+            {isArabic ? "العودة إلى Terminal" : "Back to Terminal"}
+          </button>
           <h1 className="text-lg font-semibold text-foreground">{labels.title}</h1>
           <p className="mt-1 text-xs text-muted">{labels.subtitle}</p>
           <input

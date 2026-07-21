@@ -101,7 +101,7 @@ export function TerminalAppSidebar({
     { id: "projects", label: labels.projects, action: onProjects },
     { id: "schedule", label: labels.schedule, action: onSchedule },
     { id: "dna", label: labels.dna, action: onOpenDna },
-    { id: "settings", label: labels.settings, action: () => router.push(DEMO_ROUTES.settingsBusinessDna(locale)) },
+    { id: "settings", label: labels.settings, action: () => router.push(DEMO_ROUTES.settings(locale)) },
   ];
 
   const filtered = sessions
