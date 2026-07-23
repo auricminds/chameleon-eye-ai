@@ -22,6 +22,8 @@ export type UiStrings = {
   };
 };
 
+// ─── Flat nav links (kept for footer / legacy usage) ─────────────────────────
+
 const EN_NAV: NavLink[] = [
   { label: "Product", href: "/product" },
   { label: "API", href: "/api" },
@@ -89,6 +91,318 @@ export function getFooterLinks(locale: Locale): NavLink[] {
   ];
 }
 
+// ─── Structured nav items (used by the new Header) ───────────────────────────
+
+export type NavChild = {
+  label: string;
+  href: string;
+  description?: string;
+  badge?: string;
+};
+
+export type NavGroup = {
+  heading?: string;
+  items: NavChild[];
+};
+
+export type NavItem = {
+  label: string;
+  href?: string;
+  /** Key matched against getActiveSection() to highlight this item */
+  activeKey: string;
+  children?: NavGroup[];
+};
+
+const EN_NAV_ITEMS: NavItem[] = [
+  {
+    label: "Product",
+    activeKey: "product",
+    children: [
+      {
+        items: [
+          {
+            label: "Overview",
+            href: "/product",
+            description: "The complete Chameleon Eye AI workspace.",
+          },
+          {
+            label: "Private Mode",
+            href: "/private-mode",
+            description: "Work with sensitive context using privacy-first controls.",
+          },
+          {
+            label: "Local Mode",
+            href: "/local-mode",
+            description: "Run analysis entirely on your device.",
+          },
+          {
+            label: "AI Routing",
+            href: "/ai-routing",
+            description: "Control which AI models handle your requests.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: "Solutions",
+    href: "/enterprise",
+    activeKey: "solutions",
+  },
+  {
+    label: "AI Reports",
+    href: "/reports",
+    activeKey: "reports",
+  },
+  {
+    label: "Apps",
+    activeKey: "apps",
+    children: [
+      {
+        items: [
+          {
+            label: "Apps Overview",
+            href: "/apps",
+            description: "All Chameleon Eye AI clients in one place.",
+          },
+          {
+            label: "Desktop App",
+            href: "/desktop",
+            description: "Native macOS client.",
+            badge: "Beta",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: "Developers",
+    activeKey: "developers",
+    children: [
+      {
+        items: [
+          {
+            label: "API",
+            href: "/api",
+            description: "Integrate Chameleon Eye intelligence into your products.",
+          },
+          {
+            label: "API Documentation",
+            href: "/api-docs",
+            description: "Explore endpoints, authentication, and implementation guides.",
+          },
+          {
+            label: "Terminal",
+            href: "/terminal",
+            description: "Developer-focused intelligence interface.",
+          },
+          {
+            label: "Developers Hub",
+            href: "/developers",
+            description: "Tools, usage limits, and platform resources.",
+          },
+          {
+            label: "Changelog",
+            href: "/changelog",
+            description: "Recent updates and releases.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: "Resources",
+    activeKey: "resources",
+    children: [
+      {
+        heading: "Tools",
+        items: [
+          {
+            label: "Compare",
+            href: "/compare",
+            description: "See how Chameleon Eye AI compares.",
+          },
+          {
+            label: "Free Tools",
+            href: "/free-tools",
+            description: "No-signup intelligence tools.",
+          },
+        ],
+      },
+      {
+        heading: "Company",
+        items: [
+          {
+            label: "Trust Center",
+            href: "/trust",
+            description: "Security, privacy, and compliance.",
+          },
+          {
+            label: "Security",
+            href: "/security",
+          },
+          {
+            label: "Privacy",
+            href: "/privacy",
+          },
+          {
+            label: "Architecture",
+            href: "/architecture",
+          },
+        ],
+      },
+    ],
+  },
+];
+
+const AR_NAV_ITEMS: NavItem[] = [
+  {
+    label: "المنتج",
+    activeKey: "product",
+    children: [
+      {
+        items: [
+          {
+            label: "نظرة عامة",
+            href: "/ar/product",
+            description: "مساحة عمل Chameleon Eye AI الكاملة.",
+          },
+          {
+            label: "الوضع الخاص",
+            href: "/ar/private-mode",
+            description: "اعمل في سياقات حساسة بضوابط تحافظ على الخصوصية أولاً.",
+          },
+          {
+            label: "الوضع المحلي",
+            href: "/ar/local-mode",
+            description: "شغّل التحليل بالكامل على جهازك.",
+          },
+          {
+            label: "توجيه الذكاء الاصطناعي",
+            href: "/ar/ai-routing",
+            description: "تحكم في نماذج AI التي تعالج طلباتك.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: "الحلول",
+    href: "/ar/enterprise",
+    activeKey: "solutions",
+  },
+  {
+    label: "تقارير AI",
+    href: "/ar/reports",
+    activeKey: "reports",
+  },
+  {
+    label: "التطبيقات",
+    activeKey: "apps",
+    children: [
+      {
+        items: [
+          {
+            label: "نظرة عامة على التطبيقات",
+            href: "/ar/apps",
+            description: "جميع عملاء Chameleon Eye AI في مكان واحد.",
+          },
+          {
+            label: "تطبيق سطح المكتب",
+            href: "/ar/desktop",
+            description: "عميل macOS الأصلي.",
+            badge: "تجريبي",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: "المطورون",
+    activeKey: "developers",
+    children: [
+      {
+        items: [
+          {
+            label: "API",
+            href: "/ar/api",
+            description: "ادمج ذكاء Chameleon Eye في منتجاتك.",
+          },
+          {
+            label: "توثيق API",
+            href: "/ar/api-docs",
+            description: "استكشف نقاط النهاية وأدلة المصادقة.",
+          },
+          {
+            label: "Terminal",
+            href: "/ar/terminal",
+            description: "واجهة ذكاء موجهة للمطورين.",
+          },
+          {
+            label: "مركز المطورين",
+            href: "/ar/developers",
+            description: "الأدوات والحدود وموارد المنصة.",
+          },
+          {
+            label: "سجل التغييرات",
+            href: "/ar/changelog",
+            description: "آخر التحديثات والإصدارات.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: "الموارد",
+    activeKey: "resources",
+    children: [
+      {
+        heading: "الأدوات",
+        items: [
+          {
+            label: "المقارنة",
+            href: "/ar/compare",
+            description: "اكتشف كيف يتميز Chameleon Eye AI.",
+          },
+          {
+            label: "أدوات مجانية",
+            href: "/ar/free-tools",
+            description: "أدوات ذكاء لا تحتاج إلى تسجيل.",
+          },
+        ],
+      },
+      {
+        heading: "الشركة",
+        items: [
+          {
+            label: "مركز الثقة",
+            href: "/ar/trust",
+            description: "الأمان والخصوصية والامتثال.",
+          },
+          {
+            label: "الأمان",
+            href: "/ar/security",
+          },
+          {
+            label: "الخصوصية",
+            href: "/ar/privacy",
+          },
+          {
+            label: "البنية التقنية",
+            href: "/ar/architecture",
+          },
+        ],
+      },
+    ],
+  },
+];
+
+export function getNavItems(locale: Locale): NavItem[] {
+  return locale === "ar" ? AR_NAV_ITEMS : EN_NAV_ITEMS;
+}
+
+// ─── Route helpers ────────────────────────────────────────────────────────────
+
 export function getHomeHref(locale: Locale): string {
   return locale === "ar" ? "/ar" : "/";
 }
@@ -108,6 +422,8 @@ export function getTerminalHref(locale: Locale): string {
 export function getArchiveHref(locale: Locale): string {
   return locale === "ar" ? "/ar/archive" : "/archive";
 }
+
+// ─── UI strings ───────────────────────────────────────────────────────────────
 
 export const UI: Record<Locale, UiStrings> = {
   en: {
