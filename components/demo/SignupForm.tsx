@@ -15,8 +15,10 @@ type SignupCopy = {
   workEmail: string;
   companyName: string;
   role: string;
+  password: string;
   cta: string;
-  note: string;
+  submitting: string;
+  errorPrefix: string;
 };
 
 const COPY: Record<"en" | "ar", SignupCopy> = {
@@ -28,8 +30,10 @@ const COPY: Record<"en" | "ar", SignupCopy> = {
     workEmail: "Work email",
     companyName: "Company name",
     role: "Role",
+    password: "Password",
     cta: "Continue to Business DNA",
-    note: "Demo mode: account data is saved locally in this browser until production authentication is connected.",
+    submitting: "Creating account…",
+    errorPrefix: "Error: ",
   },
   ar: {
     title: "ابدأ مع Chameleon Eye AI",
@@ -39,8 +43,10 @@ const COPY: Record<"en" | "ar", SignupCopy> = {
     workEmail: "بريد العمل",
     companyName: "اسم الشركة",
     role: "الدور",
+    password: "كلمة المرور",
     cta: "المتابعة إلى Business DNA",
-    note: "وضع تجريبي: يتم حفظ البيانات محلياً في هذا المتصفح حتى يتم ربط تسجيل الدخول الإنتاجي.",
+    submitting: "جارٍ إنشاء الحساب…",
+    errorPrefix: "خطأ: ",
   },
 };
 
@@ -53,21 +59,53 @@ export function SignupForm({ locale }: { locale: "en" | "ar" }) {
     workEmail: "",
     companyName: "",
     role: "",
+    password: "",
   });
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const user: DemoUser = {
-      id: uid(),
-      fullName: form.fullName.trim() || (isArabic ? "مستخدم تجريبي" : "Demo User"),
-      workEmail: form.workEmail.trim() || "demo@chameleoneye.ai",
-      companyName: form.companyName.trim() || (isArabic ? "شركة تجريبية" : "Demo Company"),
-      role: form.role.trim() || (isArabic ? "مدير" : "Manager"),
-      createdAt: new Date().toISOString(),
-    };
-    saveDemoUser(user);
-    setTerminalLanguage(locale);
-    router.push(DEMO_ROUTES.businessDna(locale));
+    setError(null);
+    setSubmitting(true);
+
+    try {
+      const res = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName: form.fullName.trim(),
+          workEmail: form.workEmail.trim(),
+          companyName: form.companyName.trim(),
+          role: form.role.trim(),
+          password: form.password,
+          locale,
+        }),
+      });
+
+      if (res.ok) {
+        // Also persist locally so the terminal session works immediately
+        const user: DemoUser = {
+          id: uid(),
+          fullName: form.fullName.trim() || (isArabic ? "مستخدم" : "User"),
+          workEmail: form.workEmail.trim(),
+          companyName: form.companyName.trim(),
+          role: form.role.trim(),
+          createdAt: new Date().toISOString(),
+        };
+        saveDemoUser(user);
+        setTerminalLanguage(locale);
+        router.push(DEMO_ROUTES.businessDna(locale));
+        return;
+      }
+
+      const data = await res.json().catch(() => ({}));
+      setError(data?.error ?? "Something went wrong. Please try again.");
+    } catch {
+      setError("Network error. Please check your connection and try again.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -89,6 +127,7 @@ export function SignupForm({ locale }: { locale: "en" | "ar" }) {
             label={copy.workEmail}
             name="workEmail"
             type="email"
+            required
             value={form.workEmail}
             onChange={(v) => setForm((f) => ({ ...f, workEmail: v }))}
           />
@@ -104,11 +143,25 @@ export function SignupForm({ locale }: { locale: "en" | "ar" }) {
             value={form.role}
             onChange={(v) => setForm((f) => ({ ...f, role: v }))}
           />
-          <Button type="submit" className="w-full">
-            {copy.cta}
+          <Field
+            label={copy.password}
+            name="password"
+            type="password"
+            required
+            value={form.password}
+            onChange={(v) => setForm((f) => ({ ...f, password: v }))}
+          />
+
+          {error && (
+            <p className="rounded-lg border border-red-500/20 bg-red-500/5 px-3 py-2 text-sm text-red-400">
+              {copy.errorPrefix}{error}
+            </p>
+          )}
+
+          <Button type="submit" className="w-full" disabled={submitting}>
+            {submitting ? copy.submitting : copy.cta}
           </Button>
         </form>
-        <p className="mt-6 text-xs leading-6 text-muted">{copy.note}</p>
       </Card>
     </div>
   );
@@ -118,12 +171,14 @@ function Field({
   label,
   name,
   type = "text",
+  required,
   value,
   onChange,
 }: {
   label: string;
   name: string;
   type?: string;
+  required?: boolean;
   value: string;
   onChange: (v: string) => void;
 }) {
@@ -136,6 +191,7 @@ function Field({
         id={name}
         name={name}
         type={type}
+        required={required}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className="w-full rounded-xl border border-white/10 bg-background px-4 py-3 text-sm text-foreground outline-none focus:border-emerald/40"

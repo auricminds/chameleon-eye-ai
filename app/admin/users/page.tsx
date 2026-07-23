@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { AdminBadge } from '@/components/admin/AdminBadge'
 import { adminQuery } from '@/lib/admin/supabase'
+import { SyncAuthButton } from './SyncAuthButton'
 
 export const metadata: Metadata = {
   title: 'Users — Admin',
@@ -43,6 +44,7 @@ export default async function AdminUsersPage({ searchParams }: { searchParams: S
 
   let users: PlatformUser[] = []
   const totalCount = 0
+  let queryError: string | null = null
 
   if (isConfigured) {
     let path = `platform_users?select=id,email,full_name,account_status,created_at,last_active_at,last_login_at,login_count,registration_source`
@@ -50,8 +52,9 @@ export default async function AdminUsersPage({ searchParams }: { searchParams: S
     if (q) path += `&or=(email.ilike.*${q}*,full_name.ilike.*${q}*)`
     path += `&order=created_at.desc&limit=${PAGE_SIZE}&offset=${offset}`
 
-    const { data } = await adminQuery<PlatformUser[]>(path)
+    const { data, error } = await adminQuery<PlatformUser[]>(path)
     users = data ?? []
+    queryError = error
   }
 
   function formatDate(d: string | null) {
@@ -62,14 +65,24 @@ export default async function AdminUsersPage({ searchParams }: { searchParams: S
   return (
     <div className="space-y-5">
       {/* Header */}
-      <div>
-        <h1 className="text-xl font-semibold text-foreground">Users</h1>
-        <p className="mt-0.5 text-sm text-muted">All platform user accounts.</p>
+      <div className="flex items-center justify-between gap-4">
+        <div>
+          <h1 className="text-xl font-semibold text-foreground">Users</h1>
+          <p className="mt-0.5 text-sm text-muted">All platform user accounts.</p>
+        </div>
+        {isConfigured && <SyncAuthButton />}
       </div>
 
       {!isConfigured && (
         <div className="rounded-xl border border-amber-400/20 bg-amber-400/5 px-4 py-3">
           <p className="text-sm text-amber-400">Connect Supabase to load user data.</p>
+        </div>
+      )}
+
+      {queryError && (
+        <div className="rounded-xl border border-red-500/20 bg-red-500/5 px-4 py-3">
+          <p className="text-sm font-medium text-red-400">Database query error</p>
+          <p className="mt-1 text-xs text-red-400/70 font-mono">{queryError}</p>
         </div>
       )}
 
@@ -119,7 +132,11 @@ export default async function AdminUsersPage({ searchParams }: { searchParams: S
             {users.length === 0 ? (
               <tr>
                 <td colSpan={8} className="px-4 py-10 text-center text-muted text-sm">
-                  {isConfigured ? 'No users found.' : 'Connect Supabase to see users.'}
+                  {!isConfigured
+                    ? 'Connect Supabase to see users.'
+                    : queryError
+                    ? 'Query failed — see error above.'
+                    : 'No users found. Click "Sync from Auth" to import existing Supabase Auth users.'}
                 </td>
               </tr>
             ) : (
